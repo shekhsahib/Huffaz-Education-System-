@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huffaz Education - Courses</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&family=Amiri&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    header {
+      /* position: sticky; */
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 12px 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      flex-wrap: wrap;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo_container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .Huffaz_logo {
+      margin-right: 10px;
+    }
+
+    .logo_container img {
+      height: 50px;
+    }
+
+    .nav_bar {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav_bar a,
+    .action_bar a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #eaeaea;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav_bar a:hover,
+    .action_bar a:hover {
+      background-color: #2c2c2c;
+      box-shadow: 0 0 8px rgba(102, 178, 255, 0.15);
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 5px 12px;
+      width: 250px;
+      border: 1px solid #333;
+      transition: border 0.3s ease;
+    }
+
+    .search-bar:hover {
+      border-color: #66b2ff;
+    }
+
+    .search-input {
+      border: none;
+      background: transparent;
+      flex-grow: 1;
+      outline: none;
+      color: #f0f0f0;
+    }
+
+    .search-input::placeholder {
+      color: #aaa;
+    }
+
+    .material-symbols-outlined {
+      color: #cccccc;
+      font-size: 20px;
+      margin-right: 5px;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .arabic {
+      font-family: 'Amiri', serif;
+      direction: rtl;
+      font-size: 18px;
+    }
+
+    .courses-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      padding: 40px;
+    }
+
+    .course-card {
+      background: #1f1f1f;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 16px rgba(102, 178, 255, 0.2);
+    }
+
+    .course-card h3 {
+      color: #66b2ff;
+      margin-top: 12px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 32px;
+      color: #66b2ff;
+      font-family: 'Playfair Display', serif;
+    }
+
+    @media (max-width: 768px) {
+      .courses-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo_container">
+      <a href="#" class="Huffaz_logo"><img src="image's/Huffaz Logo.png" alt="Huffaz Logo"></a>
+      <a href="#"><span class="material-symbols-outlined" style="font-size: 32px; color: #66b2ff;">menu_book</span></a>
+    </div>
+
+    <nav class="nav_bar">
+      <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
+      <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
+      <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
+      <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+      <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+    </nav>
+
+    <div class="search-bar">
+      <span class="material-symbols-outlined">search</span>
+      <input class="search-input" type="text" placeholder="Search for Education" />
+    </div>
+
+    <div class="action_bar">
+      <a href="#"><span class="material-symbols-outlined">login</span> Login</a>
+    </div>
+  </header>
+
+  <h1 class="page-title" data-aos="fade-down">Skills Offered by Huffaz Education System</h1>
+  <section class="courses-container">
+    <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Urdu Speech</h3>
+      <p>Learn how to deliver Urdu speeches confidently and participate in various competitions and programs.</p>
+    </a>
+    <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="200">
+      <h3>Arabic Speech</h3>
+      <p>Develop your Arabic speaking skills with a native accent and take part in public speaking contests and events.</p>
+    </a>
+    <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="300">
+      <h3>English Speech</h3>
+      <p>Improve your English speaking and presentation skills with proper pronunciation and confidence.</p>
+    </a>
+    <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="400">
+      <h3>Calligraphy</h3>
+      <p>Master the art of calligraphy in Urdu, English, and Arabic styles through hands-on practice.</p>
+    </a>
+    <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="500">
+      <h3>Karate</h3>
+      <p>Train in karate and earn annual certifications, progressing from white to black belt.</p>
+    </a>
+    <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="600">
+      <h3>Student Council</h3>
+      <p>Join the Student Council and develop leadership qualities while contributing to your school community.</p>
+    </a>
+  </section>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

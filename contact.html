@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Huffaz Education</title>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      line-height: 1.8;
+      padding: 0 20px 20px;
+    }
+
+    header {
+      /* position: sticky; */
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 12px 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      flex-wrap: wrap;
+      border-bottom: 1px solid #333;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .logo_container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .Huffaz_logo {
+      margin-right: 10px;
+    }
+
+    .logo_container img {
+      height: 50px;
+    }
+
+    .nav_bar {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav_bar a,
+    .action_bar a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #eaeaea;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav_bar a:hover,
+    .action_bar a:hover {
+      background-color: #2c2c2c;
+      box-shadow: 0 0 8px rgba(102, 178, 255, 0.15);
+      animation: pulse 0.6s infinite alternate;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 5px 12px;
+      width: 250px;
+      border: 1px solid #333;
+      transition: border 0.3s ease;
+    }
+
+    .search-bar:hover {
+      border-color: #66b2ff;
+    }
+
+    .search-input {
+      border: none;
+      background: transparent;
+      flex-grow: 1;
+      outline: none;
+      color: #f0f0f0;
+    }
+
+    .search-input::placeholder {
+      color: #aaa;
+    }
+
+    .material-symbols-outlined {
+      color: #cccccc;
+      font-size: 20px;
+      margin-right: 5px;
+    }
+
+    .logo_container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo_container img {
+      height: 50px;
+    }
+
+    .nav_bar {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav_bar a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #eaeaea;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav_bar a:hover {
+      background-color: #2c2c2c;
+      box-shadow: 0 0 8px rgba(102, 178, 255, 0.15);
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: #66b2ff;
+      margin-bottom: 20px;
+    }
+
+    .contact-details p,
+    .contact-details a {
+      color: #dddddd;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .contact-details a {
+      color: #66b2ff;
+      text-decoration: none;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background-color: #2a2a2a;
+      color: #f0f0f0;
+      font-size: 16px;
+    }
+
+    .contact-form textarea {
+      height: 150px;
+    }
+
+    .contact-form button {
+      background-color: #66b2ff;
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #558cc1;
+    }
+
+    .map-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .nav_bar {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .contact-form button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo_container">
+      <a href="#" class="Huffaz_logo"><img src="image's/Huffaz Logo.png" alt="Huffaz Logo"></a>
+      <a href="#"><span class="material-symbols-outlined" style="font-size: 32px; color: #66b2ff;">menu_book</span></a>
+    </div>
+
+    <nav class="nav_bar">
+      <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
+      <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
+      <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
+      <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+      <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+    </nav>
+
+    <div class="search-bar">
+      <span class="material-symbols-outlined">search</span>
+      <input class="search-input" type="text" placeholder="Search for Education" />
+    </div>
+
+    <div class="action_bar">
+      <a href="#"><span class="material-symbols-outlined">login</span> Login</a>
+    </div>
+  </header>
+  <div class="contact-container">
+    <h1>Contact Us</h1>
+    <div class="contact-details">
+      <p>If you have any inquiries or need further information, feel free to get in touch with us:</p>
+      <p><span class="material-symbols-outlined">phone</span><span class="highlight">Phone:</span> 0321 2875616</p>
+      <p><span class="material-symbols-outlined">phone</span><span class="highlight">Phone 2:</span> +92 321 0888616</p>
+      <p><span class="material-symbols-outlined">email</span><span class="highlight">Email:</span> contact@huffazeducation.com</p>
+      <a href="https://www.google.com/maps/place/W4H2%2B2CC,+Block+7+Gulshan-e-Iqbal,+Karachi/@24.9275625,67.0997281,18z/data=!3m1!4b1!4m5!3m4!1s0x3eb338c828d70221:0xff2722cb490d7541!8m2!3d24.9275625!4d67.1010156?hl=en&entry=ttu&g_ep=EgoyMDI1MDQxNC4xIKXMDSoASAFQAw%3D%3D"><p><span class="material-symbols-outlined">location_on</span><span class="highlight">Location:</span>  Click me </p></a>
+      
+    </div>
+
+    <h2>Send Us a Message</h2>
+    <form class="contact-form" action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Huffaz Education. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
