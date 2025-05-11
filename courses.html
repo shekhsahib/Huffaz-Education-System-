@@ -139,6 +139,24 @@
       box-shadow: 0 6px 16px rgba(102, 178, 255, 0.2);
     }
 
+     .info-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #66b2ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .info-button:hover {
+      background-color: #559ed6;
+      transform: scale(1.05);
+    }
+
     .course-card h3 {
       color: #66b2ff;
       margin-top: 12px;
@@ -158,6 +176,8 @@
         padding: 20px;
       }
     }
+
+    
   </style>
 </head>
 <body>
@@ -187,28 +207,34 @@
   </header>
 
   <h1 class="page-title" data-aos="fade-down">Five-Year Courses</h1>
+
   <section class="courses-container">
     <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="100">
       <h3>Huffaz Arabic Course</h3>
       <p>Master Quranic Arabic with a strong grammar foundation. Learn Arabic calligraphy, speaking, listening, reading, writing, and public speaking skills.</p>
+      <button class="info-button">Get All Information</button>
     </a>
     <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="200">
       <h3>Huffaz English Course</h3>
       <p>Develop your English skills at all levels with a focus on Islamic values. Improve your speaking, listening, writing, reading, and public speaking abilities.</p>
+      <button class="info-button">Get All Information</button>
     </a>
     <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="300">
       <h3>9th Grade + Mutaqaddim</h3>
       <p>Study 9th grade Biology in English while beginning Islamic studies including Arabic grammar <span class="arabic">(نحو)</span>.</p>
+      <button class="info-button">Get All Information</button>
     </a>
     <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="400">
       <h3>10th Grade + <span class="arabic">أولیٰ</span></h3>
       <p>Complete 10th grade Biology in English and advance your Islamic education with lessons in <span class="arabic">(صرف)</span> and <span class="arabic">(أولیٰ)</span>.</p>
+      <button class="info-button">Get All Information</button>
     </a>
     <a href="#" class="course-card" data-aos="fade-up" data-aos-delay="500">
       <h3><span class="arabic">ثانویۃ عامہ</span> + Arabic Medium</h3>
       <p>Study the complete <span class="arabic">ثانویۃ عامہ</span> curriculum in Arabic, focusing on traditional Islamic sciences alongside the first year of college studies.</p>
+      <button class="info-button">Get All Information</button>
     </a>
-  </section>
+ </section>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
