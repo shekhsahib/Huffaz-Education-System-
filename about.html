@@ -21,16 +21,16 @@
       background-color: #121212;
       color: #f0f0f0;
       line-height: 1.8;
-      padding: 0 20px 20px;
+      /*padding: 0 20px 20px;*/
       animation: fadeIn 2s ease-in;
     }
 
-    @keyframes fadeIn {
+    /*@keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
-    }
+    }*/
 
-    header {
+   header {
       /* position: sticky; */
       top: 0;
       z-index: 999;
@@ -42,7 +42,7 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
       flex-wrap: wrap;
       border-bottom: 1px solid #333;
-      animation: slideIn 1s ease-out;
+      animation: fadeIn 1s ease-out;
     }
 
     @keyframes slideIn {
@@ -65,10 +65,10 @@
       animation: logoAnimation 1s ease-out;
     }
 
-    @keyframes logoAnimation {
+    /*@keyframes logoAnimation {
       0% { opacity: 0; transform: translateY(-30px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
+    }*/
 
     .nav_bar {
       display: flex;
@@ -94,10 +94,10 @@
       animation: fadeInUp 1s ease-out;
     }
 
-    @keyframes fadeInUp {
+    /*@keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
+    }*/
 
     .nav_bar a:hover,
     .action_bar a:hover {
@@ -111,7 +111,7 @@
       background-color: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
       padding: 5px 12px;
-      width: 250px;
+      width: 450px;
       border: 1px solid #333;
       transition: border 0.3s ease;
     }
@@ -224,9 +224,6 @@
       <input class="search-input" type="text" placeholder="Search for Education" />
     </div>
 
-    <div class="action_bar">
-      <a href="#"><span class="material-symbols-outlined">login</span> Login</a>
-    </div>
   </header>
 
   <div class="about-container">
