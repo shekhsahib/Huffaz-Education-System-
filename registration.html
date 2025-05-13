@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competition Registration - Huffaz Education System</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&family=Amiri&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    header {
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 12px 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      flex-wrap: wrap;
+      border-bottom: 1px solid #333;
+      animation: slideIn 1s ease-out;
+    }
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateY(-30px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    .logo_container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .Huffaz_logo {
+      margin-right: 10px;
+    }
+    .logo_container img {
+      height: 50px;
+    }
+    .nav_bar {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav_bar a,
+    .action_bar a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #eaeaea;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .nav_bar a:hover,
+    .action_bar a:hover {
+      background-color: #2c2c2c;
+      box-shadow: 0 0 8px rgba(102, 178, 255, 0.15);
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 5px 12px;
+      width: 450px;
+      border: 1px solid #333;
+      transition: border 0.3s ease;
+    }
+    .search-bar:hover {
+      border-color: #66b2ff;
+    }
+    .search-input {
+      border: none;
+      background: transparent;
+      flex-grow: 1;
+      outline: none;
+      color: #f0f0f0;
+    }
+    .search-input::placeholder {
+      color: #aaa;
+    }
+    .material-symbols-outlined {
+      color: #cccccc;
+      font-size: 20px;
+      margin-right: 5px;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+    .competitions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .competition-card {
+      background: #1e1e1e;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      padding-bottom: 18px;
+    }
+    .competition-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 18px rgba(102,178,255,0.15);
+    }
+    .competition-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-bottom: 2px solid #222;
+    }
+    .competition-card h3 {
+      color: #66b2ff;
+      font-family: 'Playfair Display', serif;
+      margin: 18px 0 10px;
+      font-size: 20px;
+    }
+    .competition-card p {
+      color: #ccc;
+      font-size: 15px;
+      margin-bottom: 12px;
+      padding: 0 10px;
+    }
+    .register-btn {
+      background: #66b2ff;
+      color: #121212;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 22px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    .register-btn:hover {
+      background: #559ed6;
+    }
+    @media (max-width: 900px) {
+      .search-bar {
+        width: 100%;
+        margin-top: 10px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+    @media (max-width: 600px) {
+      .competition-card img {
+        height: 120px;
+      }
+      .container {
+        padding: 0 4px;
+      }
+      .search-bar {
+        width: 100%;
+      }
+      header {
+        font-size: 20px;
+        padding: 14px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo_container">
+      <a href="#" class="Huffaz_logo"><img src="registration images/Logo.png" alt="Huffaz Logo"></a>
+      <a href="#"><span class="material-symbols-outlined" style="font-size: 32px; color: #66b2ff;">menu_book</span></a>
+    </div>
+    <nav class="nav_bar">
+      <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
+      <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
+      <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
+      <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+      <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+    </nav>
+    <div class="search-bar">
+      <span class="material-symbols-outlined">search</span>
+      <input class="search-input" type="text" placeholder="Search for Education">
+    </div>
+  </header>
+  <div class="container">
+    <div class="competitions-grid">
+      <!-- Physical Fitness -->
+      <div class="competition-card">
+        <img src="images/fitness.jpg" alt="Physical Fitness Competition">
+        <h3>Physical Fitness</h3>
+        <p>Show your strength, stamina, and agility in our physical fitness competition.</p>
+        <button class="register-btn">See more</button>
+      </div>
+      <!-- Urdu Speech -->
+      <div class="competition-card">
+        <img src="images/urdu-speech.jpg" alt="Urdu Speech Competition">
+        <h3>Urdu Speech</h3>
+        <p>Express your thoughts and ideas eloquently in Urdu before an audience.</p>
+        <button class="register-btn">Register</button>
+      </div>
+      <!-- English Speech -->
+      <div class="competition-card">
+        <img src="images/english-speech.jpg" alt="English Speech Competition">
+        <h3>English Speech</h3>
+        <p>Showcase your English speaking skills and confidence on stage.</p>
+        <button class="register-btn">Register</button>
+      </div>
+      <!-- Arabic Speech -->
+      <div class="competition-card">
+        <img src="images/arabic-speech.jpg" alt="Arabic Speech Competition">
+        <h3>Arabic Speech</h3>
+        <p>Deliver a powerful speech in Arabic and impress the judges with your fluency.</p>
+        <button class="register-btn">Register</button>
+      </div>
+      <!-- Naat Competition -->
+      <div class="competition-card">
+        <img src="images/naat.jpg" alt="Naat Competition">
+        <h3>Naat Competition</h3>
+        <p>Recite beautiful Naats and express your love for the Prophet (PBUH).</p>
+        <button class="register-btn">Register</button>
+      </div>
+      <!-- Essay Writing -->
+      <div class="competition-card">
+        <img src="images/essay-writing.jpg" alt="Essay Writing Competition">
+        <h3>Essay Writing</h3>
+        <p>Show your creativity and writing skills in our essay writing competition.</p>
+        <button class="register-btn">Register</button>
+      </div>
+      <!-- Husn-e-Qirat -->
+      <div class="competition-card">
+        <img src="images/qirat.jpg" alt="Husn-e-Qirat Competition">
+        <h3>Husn-e-Qirat</h3>
+        <p>Recite the Holy Quran with beautiful voice and tajweed in Husn-e-Qirat.</p>
+        <button class="register-btn">Register</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
