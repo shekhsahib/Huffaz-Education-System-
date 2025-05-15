@@ -123,8 +123,8 @@
     }
     /* Registration Section Styles */
     .school-registration-modern {
-      margin: 60px auto 0 auto;
-      padding: 0 10px;
+      margin: 40px auto 0 auto;
+      padding: 0 6px;
       max-width: 1000px;
     }
     .school-reg-bg {
@@ -259,19 +259,33 @@
       }
     }
     @media (max-width: 600px) {
+      .school-registration-modern {
+        margin: 18px auto 0 auto;
+        padding: 0 2px;
+      }
       .school-reg-bg {
         border-radius: 10px;
         padding: 0;
       }
+      .school-reg-content {
+        flex-direction: column;
+        padding: 0;
+      }
       .school-reg-info, .school-reg-form {
-        padding: 18px 8px;
+        padding: 14px 4px;
         border-radius: 10px 10px 0 0;
+        min-width: 0;
+      }
+      .school-reg-info {
+        border-radius: 10px 10px 0 0;
+        padding: 14px 4px;
+      }
+      .school-reg-info h2 {
+        font-size: 1.1rem;
       }
       .school-reg-form {
         border-radius: 0 0 10px 10px;
-      }
-      .school-reg-info h2 {
-        font-size: 1.2rem;
+        padding: 14px 4px;
       }
       .school-reg-form button {
         font-size: 1rem;
@@ -280,6 +294,16 @@
       .school-reg-form .form-row {
         flex-direction: column;
         gap: 0;
+        margin-bottom: 0;
+      }
+      .school-reg-form input,
+      .school-reg-form textarea {
+        font-size: 1rem;
+        padding: 12px 10px;
+        margin-bottom: 12px;
+      }
+      .school-reg-form textarea {
+        min-height: 60px;
       }
       .search-bar {
         width: 100%;
@@ -338,16 +362,22 @@
         <form class="school-reg-form" action="submit_school_registration.php" method="POST">
           <div class="form-row">
             <input type="text" name="school_name" placeholder="School/Madaris Name" required>
+          </div>
+          <div class="form-row">
             <input type="text" name="principal_name" placeholder="Principal/Head Name" required>
           </div>
           <div class="form-row">
             <input type="email" name="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-row">
             <input type="text" name="phone" placeholder="Contact Number" required>
           </div>
           <div class="form-row">
             <input type="text" name="city" placeholder="City" required>
           </div>
-          <textarea name="message" rows="3" placeholder="Message (optional)"></textarea>
+          <div class="form-row">
+            <textarea name="message" rows="3" placeholder="Message (optional)"></textarea>
+          </div>
           <button type="submit">Register School / Madarsa</button>
         </form>
       </div>

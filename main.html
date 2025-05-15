@@ -300,24 +300,55 @@
 
     @media (max-width: 600px) {
       header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 10px 8px;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        padding: 6px 2px;
+        font-size: 15px;
+      }
+      .logo_container {
+        gap: 4px;
+        flex-shrink: 0;
+      }
+      .Huffaz_logo img {
+        height: 28px;
+      }
+      .book_logo .material-symbols-outlined {
+        font-size: 22px;
+        padding: 2px;
+      }
+      .nav_bar {
+        gap: 2px;
+        flex-wrap: nowrap;
+      }
+      .nav_bar a {
+        padding: 4px 6px;
+        font-size: 11px;
+        border-radius: 5px;
       }
       .search-bar {
         width: 100%;
+        padding: 4px 6px;
         margin-top: 8px;
+        margin-left: 0;
+        min-width: 0;
+        order: 2;
       }
-      .nav_bar {
-        width: 100%;
-        justify-content: center;
-        gap: 10px;
+      .search-input {
+        font-size: 12px;
+        padding: 3px 0;
       }
       .benner_container {
         font-size: 1.1rem;
         height: 140px;
         padding: 0 6px;
+      }
+      .benner_container::after {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+        bottom: 8px;
       }
       .main-register-btn {
         font-size: 0.95rem;
@@ -340,7 +371,7 @@
       <a href="#" class="Huffaz_logo">
         <img src="image's/Huffaz Logo.png" alt="Huffaz Logo">
       </a>
-      <a href="#" class="book_logo" aria-label="Book Home"style="text-decoration: none;">
+      <a href="#" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
         <span class="material-symbols-outlined">menu_book</span>
       </a>
     </div>
@@ -359,11 +390,11 @@
 
   <main>
     <div class="benner_container"></div>
-    <a href="register_your_school.html"style="text-decoration: none;">
-    <button class="main-register-btn" onclick="document.querySelector('.school-registration-modern') && document.querySelector('.school-registration-modern').scrollIntoView({behavior:'smooth'})">
-      <span class="material-symbols-outlined" style="vertical-align:middle;font-size:24px;">how_to_reg</span>
-      Register Your School / Madrasa
-    </button>
+    <a href="register_your_school.html" style="text-decoration: none;">
+      <button class="main-register-btn" onclick="document.querySelector('.school-registration-modern') && document.querySelector('.school-registration-modern').scrollIntoView({behavior:'smooth'})">
+        <span class="material-symbols-outlined" style="vertical-align:middle;font-size:24px;">how_to_reg</span>
+        Register Your School / Madrasa
+      </button>
     </a>
     <div class="category_item">
       <a href="registration.html" style="text-decoration: none;">

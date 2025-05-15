@@ -8,8 +8,6 @@
   <!-- Google Fonts & Material Symbols -->
   <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-
-  <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
@@ -17,151 +15,121 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Quicksand', sans-serif;
+      font-family: 'Quicksand', 'Assistant', Arial, sans-serif;
     }
-
     body {
-      background-color: #121212;
-      color: #f0f0f0;
+      background: linear-gradient(135deg, #181c24 0%, #232a34 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
       line-height: 1.8;
-      padding: 0 20px 20px;
     }
-
     header {
-      /* position: sticky; */
+      position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #1a1a1a;
-      padding: 12px 24px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      background: rgba(26, 26, 26, 0.98);
+      padding: 16px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+      border-bottom: 1.5px solid #2b3442;
+      backdrop-filter: blur(4px);
       flex-wrap: wrap;
-      border-bottom: 1px solid #333;
     }
-
     .logo_container {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 18px;
     }
-
-    .Huffaz_logo {
-      margin-right: 10px;
+    .Huffaz_logo img {
+      height: 54px;
+      filter: drop-shadow(0 2px 8px #66b2ff33);
+      display: block;
     }
-
-    .logo_container img {
-      height: 50px;
-    }
-
-    .nav_bar {
+    .book_logo .material-symbols-outlined {
+      font-size: 38px;
+      color: #66b2ff;
+      background: #232a34;
+      border-radius: 50%;
+      padding: 7px;
+      box-shadow: 0 2px 8px #66b2ff22;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
       display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
     }
-
+    .book_logo:hover .material-symbols-outlined,
+    .book_logo:focus .material-symbols-outlined {
+      background: #66b2ff;
+      color: #fff;
+      box-shadow: 0 4px 16px #66b2ff55;
+      outline: none;
+    }
+    .nav_bar {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
     .nav_bar a,
     .action_bar a {
       display: flex;
       align-items: center;
-      gap: 5px;
-      font-size: 14px;
-      letter-spacing: 1px;
+      gap: 6px;
+      font-size: 15px;
       color: #eaeaea;
       font-weight: 700;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      padding: 10px 18px;
+      border-radius: 10px;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+      letter-spacing: 1px;
     }
-
     .nav_bar a:hover,
     .action_bar a:hover {
-      background-color: #2c2c2c;
-      box-shadow: 0 0 8px rgba(102, 178, 255, 0.15);
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      box-shadow: 0 2px 12px #66b2ff22;
     }
-
     .search-bar {
       display: flex;
       align-items: center;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 5px 12px;
-      width: 250px;
-      border: 1px solid #333;
-      transition: border 0.3s ease;
+      background: #232a34;
+      border-radius: 24px;
+      padding: 6px 16px;
+      width: 340px;
+      border: 1.5px solid #2b3442;
+      transition: border 0.3s;
     }
-
-    .search-bar:hover {
+    .search-bar:hover,
+    .search-bar:focus-within {
       border-color: #66b2ff;
     }
-
     .search-input {
       border: none;
       background: transparent;
       flex-grow: 1;
       outline: none;
-      color: #f0f0f0;
+      color: #f3f6fa;
+      font-size: 15px;
+      padding: 6px 0;
     }
-
     .search-input::placeholder {
-      color: #aaa;
+      color: #b0b8c1;
+      opacity: 0.8;
     }
-
     .material-symbols-outlined {
-      color: #cccccc;
-      font-size: 20px;
-      margin-right: 5px;
+      color: #66b2ff;
+      font-size: 22px;
+      margin-right: 6px;
+      vertical-align: middle;
     }
-
-    .logo_container {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .Huffaz_logo {
-      margin-right: 10px;
-    }
-
-    .logo_container img {
-      height: 50px;
-    }
-
-    .nav_bar {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .nav_bar a {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 14px;
-      letter-spacing: 1px;
-      color: #eaeaea;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .nav_bar a:hover {
-      background-color: #2c2c2c;
-      box-shadow: 0 0 8px rgba(102, 178, 255, 0.15);
-    }
-
     .book-category-container {
-      margin-top: 40px;
+      margin: 40px auto 0 auto;
+      max-width: 1100px;
+      padding: 0 16px;
     }
-
     .category-header {
       font-family: 'Playfair Display', serif;
       font-size: 24px;
@@ -169,100 +137,131 @@
       color: #66b2ff;
       text-align: center;
     }
-
     .book-list-container {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
-
     .book-item {
-      background-color: #1e1e1e;
+      background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
       padding: 20px;
-      border-radius: 12px;
+      border-radius: 16px;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
       display: flex;
       gap: 20px;
       animation: fadeIn 1.5s ease-in-out;
+      border: 1.5px solid #2b3442;
     }
-
     .book-item img {
       width: 150px;
       height: auto;
       border-radius: 8px;
     }
-
     .book-item h3 {
       color: #66b2ff;
       font-family: 'Playfair Display', serif;
       margin-bottom: 10px;
     }
-
     .highlight {
       color: #66b2ff;
       font-weight: bold;
     }
-
     .download-btn {
-      background-color: #66b2ff;
+      background: linear-gradient(90deg, #66b2ff 60%, #559ed6 100%);
       color: white;
       font-weight: bold;
       text-decoration: none;
       padding: 10px 20px;
       border-radius: 8px;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px #66b2ff33;
+      display: inline-block;
+      margin-top: 10px;
+      letter-spacing: 1px;
     }
-
     .download-btn:hover {
-      background-color: #3386cc;
+      background: linear-gradient(90deg, #559ed6 60%, #66b2ff 100%);
+      box-shadow: 0 8px 24px #66b2ff44;
     }
-
     footer {
       text-align: center;
       margin-top: 40px;
       font-size: 14px;
       color: #aaa;
     }
-
     .book-info {
       flex-grow: 1;
     }
-
     .book-info p {
       margin: 10px 0;
     }
-
     .book-info .genre {
       font-style: italic;
       color: #bbb;
     }
+    @media (max-width: 900px) {
+      .book-category-container {
+        padding: 0 4px;
+      }
+      .search-bar {
+        width: 100%;
+        margin-top: 10px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 8px;
+      }
+    }
+    @media (max-width: 600px) {
+      .book-item {
+        flex-direction: column;
+        align-items: center;
+        padding: 12px 6px;
+      }
+      .book-item img {
+        width: 100px;
+      }
+      .book-category-container {
+        padding: 0 2px;
+      }
+      .search-bar {
+        width: 100%;
+      }
+      header {
+        font-size: 20px;
+        padding: 14px 0;
+      }
+      .nav_bar {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
   </style>
 </head>
 <body>
-
-    <header>
-        <div class="logo_container">
-          <a href="#" class="Huffaz_logo"><img src="image's/Huffaz Logo.png" alt="Huffaz Logo"></a>
-          <a href="#"><span class="material-symbols-outlined" style="font-size: 32px; color: #66b2ff;">menu_book</span></a>
-        </div>
+  <header>
+    <div class="logo_container">
+      <a href="#" class="Huffaz_logo"><img src="image's/Huffaz Logo.png" alt="Huffaz Logo"></a>
+      <a href="#" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
+        <span class="material-symbols-outlined">menu_book</span>
+      </a>
+    </div>
+    <nav class="nav_bar">
+      <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
+      <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
+      <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
+      <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+      <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+    </nav>
+    <div class="search-bar">
+      <span class="material-symbols-outlined">search</span>
+      <input class="search-input" type="text" placeholder="Search for Education" />
+    </div>
     
-        <nav class="nav_bar">
-          <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
-          <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
-          <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
-          <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
-          <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
-        </nav>
-    
-        <div class="search-bar">
-          <span class="material-symbols-outlined">search</span>
-          <input class="search-input" type="text" placeholder="Search for Education" />
-        </div>
-    
-        <div class="action_bar">
-          <a href="#"><span class="material-symbols-outlined">login</span> Login</a>
-        </div>
-      </header>
+  </header>
 
   <div class="book-category-container" data-aos="fade-up">
     <!-- Huffaz Arabic Books -->
@@ -319,7 +318,6 @@
           <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
         </div>
       </div>
-
       <div class="book-item" data-aos="fade-up" data-aos-delay="300">
         <img src="image's/Physics.jpg" alt="Other Book 1">
         <div class="book-info">
@@ -330,7 +328,6 @@
           <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
         </div>
       </div>
-
       <div class="book-item" data-aos="fade-up" data-aos-delay="300">
         <img src="image's/Chemistry.jpg" alt="Other Book 1">
         <div class="book-info">
@@ -341,7 +338,6 @@
           <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
         </div>
       </div>
-
       <div class="book-item" data-aos="fade-up" data-aos-delay="300">
         <img src="image's/Math.jpg" alt="Other Book 1">
         <div class="book-info">
@@ -352,7 +348,6 @@
           <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
         </div>
       </div>
-
       <div class="book-item" data-aos="fade-up" data-aos-delay="300">
         <img src="image's/English.jpg" alt="Other Book 1">
         <div class="book-info">
@@ -363,7 +358,6 @@
           <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
         </div>
       </div>
-
       <div class="book-item" data-aos="fade-up" data-aos-delay="300">
         <img src="image's/Urdu.jpg" alt="Other Book 1">
         <div class="book-info">
@@ -374,7 +368,6 @@
           <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
         </div>
       </div>
-
       <div class="book-item" data-aos="fade-up" data-aos-delay="300">
         <img src="image's/Islamyat.jpg" alt="Other Book 1">
         <div class="book-info">
@@ -385,100 +378,90 @@
           <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
         </div>
       </div>
-      <!-- Add more books here -->
     </div>
 
     <!-- 10th Grade + صرف Books -->
     <div class="category-header" data-aos="fade-up">
-        <h2>10<sup>th</sup> Class Books + <span class="arabic">(صرف)</span></h2>
+      <h2>10<sup>th</sup> Class Books + <span class="arabic">(صرف)</span></h2>
+    </div>
+    <div class="book-list-container">
+      <div class="book-item" data-aos="fade-up" data-aos-delay="300">
+        <img src="image's/biology10.jpg" alt="Other Book 1">
+        <div class="book-info">
+          <h3>Biology</h3>
+          <p><span class="highlight">Author:</span> Imran Shah</p>
+          <p class="genre">Genre: Educational Theory</p>
+          <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
+          <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
+        </div>
       </div>
-      <div class="book-list-container">
-        <!-- Book 3 -->
-        <div class="book-item" data-aos="fade-up" data-aos-delay="300">
-          <img src="image's/biology10.jpg" alt="Other Book 1">
-          <div class="book-info">
-            <h3>Biology</h3>
-            <p><span class="highlight">Author:</span> Imran Shah</p>
-            <p class="genre">Genre: Educational Theory</p>
-            <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
-            <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
-          </div>
+      <div class="book-item" data-aos="fade-up" data-aos-delay="300">
+        <img src="image's/Physics10.jpg" alt="Other Book 1">
+        <div class="book-info">
+          <h3>Physics</h3>
+          <p><span class="highlight">Author:</span> Imran Shah</p>
+          <p class="genre">Genre: Educational Theory</p>
+          <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
+          <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
         </div>
-  
-        <div class="book-item" data-aos="fade-up" data-aos-delay="300">
-          <img src="image's/Physics10.jpg" alt="Other Book 1">
-          <div class="book-info">
-            <h3>Physics</h3>
-            <p><span class="highlight">Author:</span> Imran Shah</p>
-            <p class="genre">Genre: Educational Theory</p>
-            <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
-            <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
-          </div>
-        </div>
-  
-        <div class="book-item" data-aos="fade-up" data-aos-delay="300">
-          <img src="image's/Chemistry10.jpg" alt="Other Book 1">
-          <div class="book-info">
-            <h3>Chemistry</h3>
-            <p><span class="highlight">Author:</span> Imran Shah</p>
-            <p class="genre">Genre: Educational Theory</p>
-            <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
-            <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
-          </div>
-        </div>
-  
-        <div class="book-item" data-aos="fade-up" data-aos-delay="300">
-          <img src="image's/Math10.jpg" alt="Other Book 1">
-          <div class="book-info">
-            <h3>Mathematics</h3>
-            <p><span class="highlight">Author:</span> Imran Shah</p>
-            <p class="genre">Genre: Educational Theory</p>
-            <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
-            <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
-          </div>
-        </div>
-  
-        <div class="book-item" data-aos="fade-up" data-aos-delay="300">
-          <img src="image's/English10.jpg" alt="Other Book 1">
-          <div class="book-info">
-            <h3>English</h3>
-            <p><span class="highlight">Author:</span> Imran Shah</p>
-            <p class="genre">Genre: Educational Theory</p>
-            <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
-            <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
-          </div>
-        </div>
-  
-        <div class="book-item" data-aos="fade-up" data-aos-delay="300">
-          <img src="image's/Sindhi.jpg" alt="Other Book 1">
-          <div class="book-info">
-            <h3>Sindhi</h3>
-            <p><span class="highlight">Author:</span> Imran Shah</p>
-            <p class="genre">Genre: Educational Theory</p>
-            <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
-            <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
-          </div>
-        </div>
-  
-        <div class="book-item" data-aos="fade-up" data-aos-delay="300">
-          <img src="image's/mutala-pakistan-x-stbb.jpg" alt="Other Book 1">
-          <div class="book-info">
-            <h3>mutala-pakistan-x</h3>
-            <p><span class="highlight">Author:</span> Imran Shah</p>
-            <p class="genre">Genre: Educational Theory</p>
-            <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
-            <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
-          </div>
-        </div>
-        <!-- Add more books here -->
       </div>
+      <div class="book-item" data-aos="fade-up" data-aos-delay="300">
+        <img src="image's/Chemistry10.jpg" alt="Other Book 1">
+        <div class="book-info">
+          <h3>Chemistry</h3>
+          <p><span class="highlight">Author:</span> Imran Shah</p>
+          <p class="genre">Genre: Educational Theory</p>
+          <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
+          <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
+        </div>
+      </div>
+      <div class="book-item" data-aos="fade-up" data-aos-delay="300">
+        <img src="image's/Math10.jpg" alt="Other Book 1">
+        <div class="book-info">
+          <h3>Mathematics</h3>
+          <p><span class="highlight">Author:</span> Imran Shah</p>
+          <p class="genre">Genre: Educational Theory</p>
+          <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
+          <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
+        </div>
+      </div>
+      <div class="book-item" data-aos="fade-up" data-aos-delay="300">
+        <img src="image's/English10.jpg" alt="Other Book 1">
+        <div class="book-info">
+          <h3>English</h3>
+          <p><span class="highlight">Author:</span> Imran Shah</p>
+          <p class="genre">Genre: Educational Theory</p>
+          <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
+          <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
+        </div>
+      </div>
+      <div class="book-item" data-aos="fade-up" data-aos-delay="300">
+        <img src="image's/Sindhi.jpg" alt="Other Book 1">
+        <div class="book-info">
+          <h3>Sindhi</h3>
+          <p><span class="highlight">Author:</span> Imran Shah</p>
+          <p class="genre">Genre: Educational Theory</p>
+          <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
+          <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
+        </div>
+      </div>
+      <div class="book-item" data-aos="fade-up" data-aos-delay="300">
+        <img src="image's/mutala-pakistan-x-stbb.jpg" alt="Other Book 1">
+        <div class="book-info">
+          <h3>mutala-pakistan-x</h3>
+          <p><span class="highlight">Author:</span> Imran Shah</p>
+          <p class="genre">Genre: Educational Theory</p>
+          <p>This book provides a detailed analysis of modern education systems, their evolution, and their impact on society today.</p>
+          <a href="pdfs/Other_Book1.pdf" class="download-btn" target="_blank">Download PDF</a>
+        </div>
+      </div>
+    </div>
 
     <!-- Books for Secondary School in Arabic -->
     <div class="category-header" data-aos="fade-up">
       <h2>Books of <span class="arabic">(ثانویۃ عامہ)</span> in Arabic</h2>
     </div>
     <div class="book-list-container">
-      <!-- Book 5 -->
       <div class="book-item" data-aos="fade-up" data-aos-delay="500">
         <img src="images/Other_Book3.jpg" alt="Other Book 3">
         <div class="book-info">
@@ -490,7 +473,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <footer>
