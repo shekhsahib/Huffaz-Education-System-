@@ -11,76 +11,110 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
-   header {
-      /* position: sticky; */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', 'Assistant', Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #181c24 0%, #232a34 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    header {
+      position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #1a1a1a;
-      padding: 12px 24px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      background: rgba(26, 26, 26, 0.98);
+      padding: 16px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+      border-bottom: 1.5px solid #2b3442;
+      backdrop-filter: blur(4px);
       flex-wrap: wrap;
-      border-bottom: 1px solid #333;
-      animation: slideIn 1s ease-out;
     }
 
     .logo_container {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 18px;
     }
 
-    .Huffaz_logo {
-      margin-right: 10px;
+    .Huffaz_logo img {
+      height: 54px;
+      filter: drop-shadow(0 2px 8px #66b2ff33);
+      display: block;
     }
 
-    .logo_container img {
-      height: 50px;
+    .book_logo .material-symbols-outlined {
+      font-size: 38px;
+      color: #66b2ff;
+      background: #232a34;
+      border-radius: 50%;
+      padding: 7px;
+      box-shadow: 0 2px 8px #66b2ff22;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .book_logo:hover .material-symbols-outlined,
+    .book_logo:focus .material-symbols-outlined {
+      background: #66b2ff;
+      color: #fff;
+      box-shadow: 0 4px 16px #66b2ff55;
+      outline: none;
     }
 
     .nav_bar {
       display: flex;
-      gap: 15px;
+      gap: 18px;
       flex-wrap: wrap;
-      justify-content: center;
     }
 
     .nav_bar a,
     .action_bar a {
       display: flex;
       align-items: center;
-      gap: 5px;
-      font-size: 14px;
-      letter-spacing: 1px;
+      gap: 6px;
+      font-size: 15px;
       color: #eaeaea;
       font-weight: 700;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      padding: 10px 18px;
+      border-radius: 10px;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+      letter-spacing: 1px;
     }
 
     .nav_bar a:hover,
     .action_bar a:hover {
-      background-color: #2c2c2c;
-      box-shadow: 0 0 8px rgba(102, 178, 255, 0.15);
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      box-shadow: 0 2px 12px #66b2ff22;
     }
 
     .search-bar {
       display: flex;
       align-items: center;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 5px 12px;
-      width: 450px;
-      border: 1px solid #333;
-      transition: border 0.3s ease;
+      background: #232a34;
+      border-radius: 24px;
+      padding: 6px 16px;
+      width: 340px;
+      border: 1.5px solid #2b3442;
+      transition: border 0.3s;
     }
 
-    .search-bar:hover {
+    .search-bar:hover,
+    .search-bar:focus-within {
       border-color: #66b2ff;
     }
 
@@ -89,25 +123,29 @@
       background: transparent;
       flex-grow: 1;
       outline: none;
-      color: #f0f0f0;
+      color: #f3f6fa;
+      font-size: 15px;
+      padding: 6px 0;
     }
 
     .search-input::placeholder {
-      color: #aaa;
+      color: #b0b8c1;
+      opacity: 0.8;
     }
 
     .material-symbols-outlined {
-      color: #cccccc;
-      font-size: 20px;
-      margin-right: 5px;
+      color: #66b2ff;
+      font-size: 22px;
+      margin-right: 6px;
     }
 
-    body {
-      font-family: 'Quicksand', sans-serif;
-      background-color: #121212;
-      color: #fff;
-      margin: 0;
-      padding: 0;
+    .page-title {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 32px;
+      color: #66b2ff;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
     }
 
     .arabic {
@@ -118,77 +156,127 @@
 
     .courses-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      padding: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      padding: 40px 0 40px 0;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .course-card {
-      background: #1f1f1f;
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 20px;
+      background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
+      border: 1.5px solid #2b3442;
+      border-radius: 16px;
+      padding: 32px 18px 28px 18px;
+      box-shadow: 0 2px 16px #232a3422;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .course-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 16px rgba(102, 178, 255, 0.2);
-    }
-
-     .info-button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #66b2ff;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: bold;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.2s;
+      color: #f3f6fa;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .info-button:hover {
-      background-color: #559ed6;
-      transform: scale(1.05);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      animation: fadeInUp 1.1s;
     }
 
     .course-card h3 {
       color: #66b2ff;
       margin-top: 12px;
       font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
     }
 
-    .page-title {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 32px;
-      color: #66b2ff;
-      font-family: 'Playfair Display', serif;
+    .course-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px #66b2ff33;
+      background: linear-gradient(135deg, #232a34 40%, #66b2ff22 100%);
     }
 
-    @media (max-width: 768px) {
-      .courses-container {
-        padding: 20px;
+    .info-button {
+      margin-top: 18px;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, #66b2ff 60%, #559ed6 100%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 4px 16px #66b2ff33;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 1px;
+      outline: none;
+      max-width: 220px;
+      justify-content: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-button:hover {
+      background: linear-gradient(90deg, #559ed6 60%, #66b2ff 100%);
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 8px 24px #66b2ff44;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    
+    @media (max-width: 900px) {
+      .courses-container {
+        padding: 20px 8px 20px 8px;
+        gap: 18px;
+      }
+      .page-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 10px 8px;
+      }
+      .search-bar {
+        width: 100%;
+        margin-top: 8px;
+      }
+      .nav_bar {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+      }
+      .courses-container {
+        gap: 12px;
+        padding: 10px 2px 10px 2px;
+      }
+      .course-card {
+        padding: 18px 8px 16px 8px;
+      }
+    }
   </style>
 </head>
 <body>
 
- <header>
+  <header>
     <div class="logo_container">
-      <a href="#" class="Huffaz_logo"><img src="image's/Huffaz Logo.png" alt="Huffaz Logo"></a>
-      <a href="#"><span class="material-symbols-outlined" style="font-size: 32px; color: #66b2ff;">menu_book</span></a>
+      <a href="#" class="Huffaz_logo">
+        <img src="image's/Huffaz Logo.png" alt="Huffaz Logo">
+      </a>
+      <a href="#" class="book_logo" aria-label="Book Home"style="text-decoration: none;">
+        <span class="material-symbols-outlined">menu_book</span>
+      </a>
     </div>
-
     <nav class="nav_bar">
       <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
       <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
@@ -196,12 +284,10 @@
       <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
       <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
     </nav>
-
     <div class="search-bar">
       <span class="material-symbols-outlined">search</span>
       <input class="search-input" type="text" placeholder="Search for Education" />
     </div>
-
   </header>
 
   <h1 class="page-title" data-aos="fade-down">Five-Year Courses</h1>
@@ -232,7 +318,7 @@
       <p>Study the complete <span class="arabic">ثانویۃ عامہ</span> curriculum in Arabic, focusing on traditional Islamic sciences alongside the first year of college studies.</p>
       <button class="info-button">Get All Information</button>
     </a>
- </section>
+  </section>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
