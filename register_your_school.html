@@ -7,22 +7,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Quicksand', 'Assistant', Arial, sans-serif;
-    }
     body {
       background: linear-gradient(135deg, #181c24 0%, #232a34 100%);
       color: #f3f6fa;
       min-height: 100vh;
-      line-height: 1.8;
+      font-family: 'Quicksand', 'Assistant', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
     header {
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 2000;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -32,6 +28,7 @@
       border-bottom: 1.5px solid #2b3442;
       backdrop-filter: blur(4px);
       flex-wrap: wrap;
+      width: 100%;
     }
     .logo_container {
       display: flex;
@@ -42,33 +39,59 @@
       height: 54px;
       filter: drop-shadow(0 2px 8px #66b2ff33);
       display: block;
+      border-radius: 12px;
+      background: #232a34;
+      padding: 2px 6px;
+      box-shadow: 0 2px 12px #66b2ff22;
+      transition: box-shadow 0.2s;
+    }
+    .Huffaz_logo img:hover,
+    .Huffaz_logo img:focus {
+      box-shadow: 0 4px 24px #66b2ff55;
+    }
+    .book_logo {
+      text-decoration: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #232a34 60%, #66b2ff 100%);
+      box-shadow: 0 2px 12px #66b2ff22;
+      width: 54px;
+      height: 54px;
+      margin-left: 8px;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      border: 2px solid #232a34;
     }
     .book_logo .material-symbols-outlined {
-      font-size: 38px;
+      font-size: 34px;
       color: #66b2ff;
-      background: #232a34;
+      transition: color 0.2s;
+      background: none;
       border-radius: 50%;
-      padding: 7px;
-      box-shadow: 0 2px 8px #66b2ff22;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin: 0;
+      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+    .book_logo:hover,
+    .book_logo:focus {
+      background: linear-gradient(135deg, #66b2ff 60%, #232a34 100%);
+      box-shadow: 0 4px 24px #66b2ff55;
+      transform: scale(1.08);
+      border-color: #66b2ff;
+    }
     .book_logo:hover .material-symbols-outlined,
     .book_logo:focus .material-symbols-outlined {
-      background: #66b2ff;
       color: #fff;
-      box-shadow: 0 4px 16px #66b2ff55;
-      outline: none;
     }
     .nav_bar {
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
     }
-    .nav_bar a,
-    .action_bar a {
+    .nav_bar a {
       display: flex;
       align-items: center;
       gap: 6px;
@@ -82,8 +105,7 @@
       transition: background 0.25s, box-shadow 0.25s, color 0.25s;
       letter-spacing: 1px;
     }
-    .nav_bar a:hover,
-    .action_bar a:hover {
+    .nav_bar a:hover {
       background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
       color: #66b2ff;
       box-shadow: 0 2px 12px #66b2ff22;
@@ -121,6 +143,247 @@
       margin-right: 6px;
       vertical-align: middle;
     }
+
+    /* Sidebar for registered schools - Improved Styling */
+    .sidebar-registered-schools {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 340px;
+      height: 100vh;
+      background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
+      border-right: 2px solid #2b3442;
+      box-shadow: 2px 0 32px #181c2440;
+      padding: 0;
+      z-index: 1100;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: box-shadow 0.2s;
+    }
+    .sidebar-registered-schools h3 {
+      color: #66b2ff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      text-align: center;
+      margin: 28px 0 10px 0;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px #232a3440;
+    }
+    .sidebar-search-bar {
+      display: flex;
+      align-items: center;
+      background: #181c24;
+      border-radius: 24px;
+      margin: 0 18px 18px 18px;
+      padding: 6px 16px;
+      border: 1.5px solid #2b3442;
+      box-shadow: 0 2px 8px #66b2ff11;
+      transition: border 0.2s;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .sidebar-search-bar:focus-within {
+      border-color: #66b2ff;
+    }
+    .sidebar-search-bar input {
+      background: transparent;
+      border: none;
+      color: #eaeaea;
+      font-size: 1.08rem;
+      flex: 1;
+      outline: none;
+      padding: 8px 0;
+      font-family: 'Quicksand', Arial, sans-serif;
+      letter-spacing: 0.5px;
+    }
+    .sidebar-search-bar input::placeholder {
+      color: #b0b8c1;
+      opacity: 0.8;
+      font-size: 1em;
+    }
+    .sidebar-search-bar .material-symbols-outlined {
+      color: #66b2ff;
+      font-size: 24px;
+      margin-left: 8px;
+      margin-right: 0;
+      opacity: 0.85;
+    }
+    .school-list {
+      list-style: none;
+      padding: 0 0 18px 0;
+      margin: 0;
+      flex: 1;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #66b2ff #232a34;
+    }
+    .school-list::-webkit-scrollbar {
+      width: 8px;
+      background: #232a34;
+    }
+    .school-list::-webkit-scrollbar-thumb {
+      background: #66b2ff44;
+      border-radius: 8px;
+    }
+    .school-list-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 24px;
+      border-bottom: 1px solid #2b3442;
+      cursor: pointer;
+      transition: background 0.15s, box-shadow 0.2s;
+      border-radius: 0 18px 18px 0;
+      background: transparent;
+      position: relative;
+    }
+    .school-list-item:hover {
+      background: linear-gradient(90deg, #232a34 60%, #66b2ff22 100%);
+      box-shadow: 0 2px 12px #66b2ff22;
+    }
+    .school-list-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #232a34;
+      border: 2px solid #66b2ff44;
+      box-shadow: 0 2px 8px #66b2ff22;
+      transition: border 0.2s;
+    }
+    .school-list-name {
+      font-size: 1.12rem;
+      color: #eaeaea;
+      font-weight: 700;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 4px #232a3440;
+    }
+    .unregister-btn {
+      background: linear-gradient(90deg, #ff5e62 60%, #ff9966 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 0.98rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: auto;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px #ff5e6240;
+      outline: none;
+      letter-spacing: 0.5px;
+    }
+    .unregister-btn:hover {
+      background: linear-gradient(90deg, #ff9966 60%, #ff5e62 100%);
+      box-shadow: 0 4px 16px #ff5e6240;
+      transform: scale(1.04);
+    }
+    @media (max-width: 1200px) {
+      .sidebar-registered-schools {
+        width: 260px;
+      }
+      .main-content-with-sidebar {
+        margin-left: 260px;
+      }
+    }
+    @media (max-width: 900px) {
+      .sidebar-registered-schools {
+        width: 100vw;
+        height: 180px;
+        flex-direction: row;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        border-right: none;
+        border-top: 2px solid #2b3442;
+        box-shadow: 0 -2px 16px #181c2440;
+        padding: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+      .sidebar-search-bar {
+        min-width: 180px;
+        margin: 10px 8px 8px 8px;
+      }
+      .school-list {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        padding: 0 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+      .school-list-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 12px 8px;
+        border-bottom: none;
+        border-right: 1px solid #2b3442;
+        min-width: 90px;
+        border-radius: 12px;
+      }
+      .school-list-logo {
+        width: 38px;
+        height: 38px;
+      }
+      .school-list-name {
+        font-size: 0.95rem;
+        text-align: center;
+      }
+      .unregister-btn {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        margin-left: 0;
+        margin-top: 4px;
+      }
+    }
+    @media (max-width: 600px) {
+      .sidebar-registered-schools {
+        width: 100vw;
+        height: 120px;
+        min-height: 90px;
+      }
+      .sidebar-search-bar {
+        min-width: 120px;
+        margin: 6px 4px 6px 4px;
+      }
+      .school-list-logo {
+        width: 28px;
+        height: 28px;
+      }
+      .school-list-name {
+        font-size: 0.8rem;
+      }
+      .main-content-with-sidebar {
+        margin-bottom: 120px;
+        margin-left: 0;
+      }
+    }
+    .main-content-with-sidebar {
+      margin-left: 340px;
+      transition: margin 0.2s;
+    }
+    @media (max-width: 900px) {
+      .main-content-with-sidebar {
+        margin-left: 0;
+        margin-bottom: 180px;
+      }
+    }
+    @media (max-width: 600px) {
+      .main-content-with-sidebar {
+        margin-bottom: 120px;
+      }
+    }
+
     /* Registration Section Styles */
     .school-registration-modern {
       margin: 40px auto 0 auto;
@@ -190,6 +453,7 @@
       display: flex;
       gap: 18px;
       margin-bottom: 18px;
+      align-items: center;
     }
     .school-reg-form input,
     .school-reg-form textarea {
@@ -216,6 +480,29 @@
       min-height: 80px;
       resize: vertical;
     }
+    .school-reg-form label {
+      color: #b0b8c1;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      margin-right: 12px;
+      min-width: 160px;
+      text-align: right;
+    }
+    .school-reg-form input[type="file"] {
+      background: #232a34;
+      color: #e0e6ed;
+      border: none;
+      padding: 0;
+      font-size: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px #66b2ff22;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+    .school-reg-form input[type="file"]:hover,
+    .school-reg-form input[type="file"]:focus {
+      border: 1.5px solid #66b2ff;
+      box-shadow: 0 2px 8px #66b2ff44;
+    }
     .school-reg-form button {
       background: linear-gradient(90deg, #66b2ff 60%, #559ed6 100%);
       color: #fff;
@@ -236,6 +523,10 @@
       transform: translateY(-2px) scale(1.03);
     }
     @media (max-width: 900px) {
+      .main-content-with-sidebar {
+        margin-left: 0;
+        margin-bottom: 180px;
+      }
       .school-reg-content {
         flex-direction: column;
         padding: 0;
@@ -259,129 +550,210 @@
       }
     }
     @media (max-width: 600px) {
-      .school-registration-modern {
-        margin: 18px auto 0 auto;
-        padding: 0 2px;
+      .sidebar-registered-schools {
+        width: 100vw;
+        height: 120px;
+        min-height: 90px;
       }
-      .school-reg-bg {
-        border-radius: 10px;
-        padding: 0;
+      .sidebar-search-bar {
+        min-width: 120px;
+        margin: 6px 4px 6px 4px;
       }
-      .school-reg-content {
-        flex-direction: column;
-        padding: 0;
+      .school-list-logo {
+        width: 28px;
+        height: 28px;
       }
-      .school-reg-info, .school-reg-form {
-        padding: 14px 4px;
-        border-radius: 10px 10px 0 0;
-        min-width: 0;
+      .school-list-name {
+        font-size: 0.8rem;
       }
-      .school-reg-info {
-        border-radius: 10px 10px 0 0;
-        padding: 14px 4px;
-      }
-      .school-reg-info h2 {
-        font-size: 1.1rem;
-      }
-      .school-reg-form {
-        border-radius: 0 0 10px 10px;
-        padding: 14px 4px;
-      }
-      .school-reg-form button {
-        font-size: 1rem;
-        padding: 12px 0;
-      }
-      .school-reg-form .form-row {
-        flex-direction: column;
-        gap: 0;
-        margin-bottom: 0;
-      }
-      .school-reg-form input,
-      .school-reg-form textarea {
-        font-size: 1rem;
-        padding: 12px 10px;
-        margin-bottom: 12px;
-      }
-      .school-reg-form textarea {
-        min-height: 60px;
-      }
-      .search-bar {
-        width: 100%;
-      }
-      header {
-        font-size: 20px;
-        padding: 14px 0;
-      }
-      .nav_bar {
-        width: 100%;
-        justify-content: center;
-        gap: 10px;
+      .main-content-with-sidebar {
+        margin-bottom: 120px;
+        margin-left: 0;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo_container">
-      <a href="main.html" class="Huffaz_logo"><img src="image's/Huffaz Logo.png" alt="Huffaz Logo"></a>
-      <a href="main.html" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
-        <span class="material-symbols-outlined">menu_book</span>
-      </a>
-    </div>
-    <nav class="nav_bar">
-      <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
-      <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
-      <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
-      <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
-      <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
-    </nav>
-    <div class="search-bar">
-      <span class="material-symbols-outlined">search</span>
-      <input class="search-input" type="text" placeholder="Search for Education" />
-    </div>
-  </header>
-  <!-- School/Madaris Registration Section -->
-  <section class="school-registration-modern">
-    <div class="school-reg-bg">
-      <div class="school-reg-content">
-        <div class="school-reg-info">
-          <h2>Register Your School / Madarsa</h2>
-          <p>
-            <span class="material-symbols-outlined" style="font-size:40px;color:#66b2ff;">apartment</span>
-          </p>
-          <p>
-            Join the Huffaz Education System network!  
-            Register your school or madrasa to participate in national competitions, get updates, and connect with other institutions.
-          </p>
-          <ul>
-            <li><span class="material-symbols-outlined">check_circle</span> Access to exclusive competitions</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Receive event notifications</li>
-            <li><span class="material-symbols-outlined">check_circle</span> Connect with other schools/madaris</li>
-          </ul>
-        </div>
-        <form class="school-reg-form" action="submit_school_registration.php" method="POST">
-          <div class="form-row">
-            <input type="text" name="school_name" placeholder="School/Madaris Name" required>
-          </div>
-          <div class="form-row">
-            <input type="text" name="principal_name" placeholder="Principal/Head Name" required>
-          </div>
-          <div class="form-row">
-            <input type="email" name="email" placeholder="Email Address" required>
-          </div>
-          <div class="form-row">
-            <input type="text" name="phone" placeholder="Contact Number" required>
-          </div>
-          <div class="form-row">
-            <input type="text" name="city" placeholder="City" required>
-          </div>
-          <div class="form-row">
-            <textarea name="message" rows="3" placeholder="Message (optional)"></textarea>
-          </div>
-          <button type="submit">Register School / Madarsa</button>
-        </form>
+      <div class="logo_container">
+        <a href="main.html" class="Huffaz_logo"><img src="image's/Huffaz Logo.png" alt="Huffaz Logo"></a>
+        <a href="main.html" class="book_logo" aria-label="Book Home"><span class="material-symbols-outlined">menu_book</span></a>
       </div>
+      <nav class="nav_bar">
+        <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
+        <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
+        <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
+        <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+        <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+      </nav>
+      <div class="search-bar">
+        <span class="material-symbols-outlined">search</span>
+        <input class="search-input" type="text" placeholder="Search for Education" />
+      </div>
+    </header>
+  <!-- Sidebar for Registered Schools -->
+  <aside class="sidebar-registered-schools" id="registeredSchoolsSidebar">
+    <h3>Registered Schools</h3>
+    <div class="sidebar-search-bar">
+      <input type="text" id="sidebarSchoolSearch" placeholder="Search school..." />
+      <span class="material-symbols-outlined">search</span>
     </div>
-  </section>
+    <ul class="school-list" id="schoolList">
+      <!-- Registered schools will appear here -->
+    </ul>
+  </aside>
+
+  <div class="main-content-with-sidebar">
+    
+    <!-- School/Madaris Registration Section -->
+    <section class="school-registration-modern">
+      <div class="school-reg-bg">
+        <div class="school-reg-content">
+          <div class="school-reg-info">
+            <h2>Register Your School / Madarsa</h2>
+            <p>
+              <span class="material-symbols-outlined" style="font-size:40px;color:#66b2ff;">apartment</span>
+            </p>
+            <p>
+              Join the Huffaz Education System network!  
+              Register your school or madrasa to participate in national competitions, get updates, and connect with other institutions.
+            </p>
+            <ul>
+              <li><span class="material-symbols-outlined">check_circle</span> Access to exclusive competitions</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Receive event notifications</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Connect with other schools/madaris</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Showcase your logo and name in our registered sidebar</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Easy unregister option anytime</li>
+            </ul>
+          </div>
+          <form class="school-reg-form" id="schoolRegForm" enctype="multipart/form-data" autocomplete="off">
+            <div class="form-row">
+              <label for="school_name">School/Madaris Name*</label>
+              <input type="text" name="school_name" id="school_name" placeholder="School/Madaris Name" required>
+            </div>
+            <div class="form-row">
+              <label for="principal_name">Principal/Head Name*</label>
+              <input type="text" name="principal_name" id="principal_name" placeholder="Principal/Head Name" required>
+            </div>
+            <div class="form-row">
+              <label for="email">Email Address*</label>
+              <input type="email" name="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-row">
+              <label for="phone">Contact Number*</label>
+              <input type="text" name="phone" id="phone" placeholder="Contact Number" required>
+            </div>
+            <div class="form-row">
+              <label for="city">City*</label>
+              <input type="text" name="city" id="city" placeholder="City" required>
+            </div>
+            <div class="form-row">
+              <label for="address">Address*</label>
+              <input type="text" name="address" id="address" placeholder="Full Address" required>
+            </div>
+            <div class="form-row">
+              <label for="logo">Upload Logo</label>
+              <input type="file" name="logo" id="logo" accept="image/*">
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea name="message" id="message" rows="3" placeholder="Message (optional)"></textarea>
+            </div>
+            <button type="submit">Register School / Madarsa</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    // Helper: Load from localStorage
+    function loadSchools() {
+      return JSON.parse(localStorage.getItem('registeredSchools') || '[]');
+    }
+    // Helper: Save to localStorage
+    function saveSchools(schools) {
+      localStorage.setItem('registeredSchools', JSON.stringify(schools));
+    }
+    // Render sidebar
+    function renderSchoolList(filter = "") {
+      const list = document.getElementById('schoolList');
+      list.innerHTML = '';
+      const schools = loadSchools();
+      let filtered = schools;
+      if (filter) {
+        filtered = schools.filter(s =>
+          s.name.toLowerCase().includes(filter.toLowerCase())
+        );
+      }
+      if (filtered.length === 0) {
+        list.innerHTML = '<li style="color:#b0b8c1;text-align:center;padding:18px 0;">No schools found.</li>';
+        return;
+      }
+      filtered.forEach((school, idx) => {
+        const li = document.createElement('li');
+        li.className = 'school-list-item';
+        li.innerHTML = `
+          <img class="school-list-logo" src="${school.logo || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(school.name) + '&background=232a34&color=66b2ff&size=64'}" alt="Logo" />
+          <span class="school-list-name">${school.name}</span>
+          <button class="unregister-btn" onclick="unregisterSchool(${idx})" title="Unregister this school">Unregister</button>
+        `;
+        list.appendChild(li);
+      });
+    }
+    // Unregister function
+    function unregisterSchool(idx) {
+      if (!confirm('Are you sure you want to unregister this school/madarsa?')) return;
+      const schools = loadSchools();
+      schools.splice(idx, 1);
+      saveSchools(schools);
+      renderSchoolList(document.getElementById('sidebarSchoolSearch').value);
+    }
+    // Handle registration form
+    document.getElementById('schoolRegForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('school_name').value.trim();
+      const logoInput = document.getElementById('logo');
+      const schools = loadSchools();
+      // Check for duplicate name
+      if (schools.some(s => s.name.toLowerCase() === name.toLowerCase())) {
+        alert('A school/madarsa with this name is already registered.');
+        return;
+      }
+      // Read logo file if provided
+      if (logoInput.files && logoInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          addSchool(evt.target.result);
+        };
+        reader.readAsDataURL(logoInput.files[0]);
+      } else {
+        addSchool('');
+      }
+      function addSchool(logoDataUrl) {
+        const newSchool = {
+          name,
+          logo: logoDataUrl,
+          principal: document.getElementById('principal_name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          city: document.getElementById('city').value.trim(),
+          address: document.getElementById('address').value.trim(),
+          message: document.getElementById('message').value.trim()
+        };
+        schools.push(newSchool);
+        saveSchools(schools);
+        renderSchoolList(document.getElementById('sidebarSchoolSearch').value);
+        document.getElementById('schoolRegForm').reset();
+        alert('School/Madarsa registered successfully!');
+      }
+    });
+    // Sidebar search event
+    document.getElementById('sidebarSchoolSearch').addEventListener('input', function() {
+      renderSchoolList(this.value);
+    });
+    // Initial render
+    renderSchoolList();
+  </script>
 </body>
 </html>
