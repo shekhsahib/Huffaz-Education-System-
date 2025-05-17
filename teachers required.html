@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teacher Recruitment Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', 'Assistant', Arial, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #181c24 0%, #232a34 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(26, 26, 26, 0.98);
+      padding: 16px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+      border-bottom: 1.5px solid #2b3442;
+      backdrop-filter: blur(4px);
+      flex-wrap: wrap;
+    }
+    .logo_container {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .Huffaz_logo img {
+      height: 54px;
+      filter: drop-shadow(0 2px 8px #66b2ff33);
+      display: block;
+    }
+    .book_logo .material-symbols-outlined {
+      font-size: 38px;
+      color: #66b2ff;
+      background: #232a34;
+      border-radius: 50%;
+      padding: 7px;
+      box-shadow: 0 2px 8px #66b2ff22;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .book_logo:hover .material-symbols-outlined,
+    .book_logo:focus .material-symbols-outlined {
+      background: #66b2ff;
+      color: #fff;
+      box-shadow: 0 4px 16px #66b2ff55;
+      outline: none;
+    }
+    .nav_bar {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .nav_bar a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 15px;
+      color: #eaeaea;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+      letter-spacing: 1px;
+    }
+    .nav_bar a:hover {
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      box-shadow: 0 2px 12px #66b2ff22;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #232a34;
+      border-radius: 24px;
+      padding: 6px 16px;
+      width: 340px;
+      border: 1.5px solid #2b3442;
+      transition: border 0.3s;
+    }
+    .search-bar:hover,
+    .search-bar:focus-within {
+      border-color: #66b2ff;
+    }
+    .search-input {
+      border: none;
+      background: transparent;
+      flex-grow: 1;
+      outline: none;
+      color: #f3f6fa;
+      font-size: 15px;
+      padding: 6px 0;
+    }
+    .search-input::placeholder {
+      color: #b0b8c1;
+      opacity: 0.8;
+    }
+    .material-symbols-outlined {
+      color: #66b2ff;
+      font-size: 22px;
+      margin-right: 6px;
+    }
+    main {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 8px 0 8px;
+      gap: 32px;
+    }
+    .form-section {
+      background: #232a34;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #232a3422;
+      padding: 32px 24px 24px 24px;
+      flex: 2 1 400px;
+      min-width: 320px;
+      margin-bottom: 38px;
+      animation: fadeInUp 1s;
+    }
+    .form-section h2 {
+      color: #66b2ff;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .multi-step-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .form-step {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .form-step.active {
+      display: flex;
+    }
+    .form-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .form-row > * {
+      flex: 1 1 180px;
+      min-width: 120px;
+    }
+    label {
+      font-size: 1rem;
+      color: #b0b8c1;
+      margin-bottom: 4px;
+      display: block;
+    }
+    input, select, textarea {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #2b3442;
+      background: #181c24;
+      color: #f3f6fa;
+      font-size: 1rem;
+      transition: border 0.2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #66b2ff;
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+      max-height: 180px;
+    }
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .form-actions button {
+      background: linear-gradient(90deg, #66b2ff 60%, #559ed6 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px #66b2ff33;
+      letter-spacing: 1px;
+    }
+    .form-actions button:hover {
+      background: linear-gradient(90deg, #559ed6 60%, #66b2ff 100%);
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 24px #66b2ff33;
+    }
+    .progress-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 18px;
+      justify-content: center;
+    }
+    .progress-step {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #232a34;
+      border: 2px solid #66b2ff;
+      color: #66b2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 0.2s, color 0.2s;
+    }
+    .progress-step.active {
+      background: #66b2ff;
+      color: #fff;
+    }
+    .sidebar {
+      width: 340px;
+      min-width: 220px;
+      background: #232a34;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #232a3422;
+      padding: 18px 12px 18px 12px;
+      margin-bottom: 38px;
+      height: fit-content;
+      position: sticky;
+      top: 90px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .sidebar-title {
+      color: #66b2ff;
+      font-size: 1.18rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: #181c24;
+      padding: 10px 0 8px 0;
+      border-radius: 8px;
+      text-align: center;
+      font-family: 'Quicksand', sans-serif;
+      box-shadow: 0 2px 8px #232a3422;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .application-card {
+      background: #181c24;
+      border-radius: 10px;
+      padding: 12px 12px 10px 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px #232a3422;
+      font-size: 1.01rem;
+      color: #f3f6fa;
+      position: relative;
+      word-break: break-word;
+      border-left: 4px solid #66b2ff;
+      transition: box-shadow 0.2s, border 0.2s;
+      cursor: pointer;
+    }
+    .application-card.expanded {
+      background: #232a34;
+      border-left: 4px solid #3ecf8e;
+      box-shadow: 0 4px 18px #3ecf8e22;
+      z-index: 2;
+    }
+    .application-card .app-header {
+      font-weight: bold;
+      color: #66b2ff;
+      font-size: 1.08em;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .application-card .app-meta {
+      color: #b0b8c1;
+      font-size: 0.98em;
+      margin-bottom: 4px;
+    }
+    .application-card .app-details {
+      display: none;
+      margin-top: 8px;
+      font-size: 0.97em;
+      color: #eaeaea;
+    }
+    .application-card.expanded .app-details {
+      display: block;
+    }
+    .application-card .app-actions {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+    }
+    .application-card .app-actions a {
+      background: #66b2ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.99rem;
+      padding: 6px 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .application-card .app-actions a.whatsapp {
+      background: #25d366;
+    }
+    .application-card .app-actions a.whatsapp:hover {
+      background: #1da851;
+    }
+    .application-card .app-actions a:hover {
+      background: #559ed6;
+    }
+    .application-card .app-actions .delete-btn {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.99rem;
+      padding: 6px 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.2s;
+    }
+    .application-card .app-actions .delete-btn:hover {
+      background: #c0392b;
+    }
+    @media (max-width: 900px) {
+      main { flex-direction: column; gap: 0; }
+      .sidebar { width: 100%; max-width: 100vw; position: static; }
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        padding: 6px 2px;
+        font-size: 15px;
+      }
+      .logo_container {
+        gap: 4px;
+        flex-shrink: 0;
+      }
+      .Huffaz_logo img {
+        height: 28px;
+      }
+      .book_logo .material-symbols-outlined {
+        font-size: 22px;
+        padding: 2px;
+      }
+      .nav_bar {
+        gap: 2px;
+        flex-wrap: nowrap;
+      }
+      .nav_bar a {
+        padding: 4px 6px;
+        font-size: 11px;
+        border-radius: 5px;
+      }
+      .search-bar {
+        width: 100%;
+        padding: 4px 6px;
+        margin-top: 8px;
+        margin-left: 0;
+        min-width: 0;
+        order: 2;
+      }
+      .search-input {
+        font-size: 12px;
+        padding: 3px 0;
+      }
+      .form-section, .sidebar { min-width: 0; width: 100%; }
+      .sidebar { max-height: none; }
+      main { padding: 8px 2px 0 2px; }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+
+     .application-card .app-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .application-card .app-actions a,
+  .application-card .app-actions .delete-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: background 0.18s, box-shadow 0.18s, color 0.18s, transform 0.18s;
+    box-shadow: 0 2px 8px #232a3422;
+    outline: none;
+    text-decoration: none;
+    min-width: 90px;
+    justify-content: center;
+    letter-spacing: 0.5px;
+  }
+  .application-card .app-actions a {
+    background: linear-gradient(90deg, #66b2ff 60%, #559ed6 100%);
+    color: #fff;
+  }
+  .application-card .app-actions a:hover,
+  .application-card .app-actions a:focus {
+    background: linear-gradient(90deg, #559ed6 60%, #66b2ff 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 18px #66b2ff33;
+  }
+  .application-card .app-actions a.whatsapp {
+    background: linear-gradient(90deg, #25d366 60%, #1da851 100%);
+    color: #fff;
+  }
+  .application-card .app-actions a.whatsapp:hover,
+  .application-card .app-actions a.whatsapp:focus {
+    background: linear-gradient(90deg, #1da851 60%, #25d366 100%);
+    color: #fff;
+  }
+  .application-card .app-actions .delete-btn {
+    background: linear-gradient(90deg, #e74c3c 60%, #c0392b 100%);
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 8px #e74c3c22;
+  }
+  .application-card .app-actions .delete-btn:hover,
+  .application-card .app-actions .delete-btn:focus {
+    background: linear-gradient(90deg, #c0392b 60%, #e74c3c 100%);
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 18px #e74c3c33;
+  }
+  .application-card .app-actions .material-symbols-outlined {
+    font-size: 1.1em;
+    margin-right: 2px;
+    margin-left: 0;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo_container">
+      <a href="main.html" class="Huffaz_logo">
+        <img src="image's/Huffaz Logo.png" alt="Huffaz Logo">
+      </a>
+      <a href="main.html" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
+        <span class="material-symbols-outlined">menu_book</span>
+      </a>
+    </div>
+    <nav class="nav_bar">
+      <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
+      <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
+      <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
+      <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+      <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+    </nav>
+    <div class="search-bar">
+      <span class="material-symbols-outlined">search</span>
+      <input class="search-input" type="text" placeholder="Search for Education" />
+    </div>
+  </header>
+
+  <h2 style="text-align:center; color:#66b2ff; font-size:2rem; font-family:'Quicksand',sans-serif; margin-bottom:18px; letter-spacing:1px;">
+    <span class="material-symbols-outlined" style="vertical-align:middle; font-size:2.2rem; color:#66b2ff;">school</span>
+    Teacher Recruitment Portal – Apply to Join Huffaz Education System
+  </h2>
+  <main>
+    <section class="form-section">
+      <h2>Teacher Application Form</h2>
+      <div class="progress-bar" id="progressBar"></div>
+      <form id="teacherForm" class="multi-step-form" autocomplete="off">
+        <!-- Step 1: Personal Info -->
+        <div class="form-step active" data-step="1">
+          <div class="form-row">
+            <div>
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div>
+              <label for="dob">Date of Birth *</label>
+              <input type="date" id="dob" name="dob" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="nationality">Nationality *</label>
+              <input type="text" id="nationality" name="nationality" required>
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" required pattern="[0-9+ -]{7,15}">
+            </div>
+          </div>
+        </div>
+        <!-- Step 2: Education -->
+        <div class="form-step" data-step="2">
+          <div class="form-row">
+            <div>
+              <label for="degree">Highest Degree *</label>
+              <input type="text" id="degree" name="degree" required>
+            </div>
+            <div>
+              <label for="institution">Institution *</label>
+              <input type="text" id="institution" name="institution" required>
+            </div>
+            <div>
+              <label for="gradYear">Graduation Year *</label>
+              <input type="number" id="gradYear" name="gradYear" min="1950" max="2100" required>
+            </div>
+          </div>
+        </div>
+        <!-- Step 3: Experience -->
+        <div class="form-step" data-step="3">
+          <div class="form-row">
+            <div>
+              <label for="subjects">Subjects Taught *</label>
+              <input type="text" id="subjects" name="subjects" required placeholder="e.g. Math, English, Quran">
+            </div>
+            <div>
+              <label for="grades">Grade Levels *</label>
+              <input type="text" id="grades" name="grades" required placeholder="e.g. Primary, Secondary">
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="expInstitutions">Institutions *</label>
+              <input type="text" id="expInstitutions" name="expInstitutions" required placeholder="e.g. ABC School, XYZ Madrasa">
+            </div>
+            <div>
+              <label for="yearsExp">Years of Experience *</label>
+              <input type="number" id="yearsExp" name="yearsExp" min="0" max="50" required>
+            </div>
+          </div>
+        </div>
+        <!-- Step 4: Certifications -->
+        <div class="form-step" data-step="4">
+          <div class="form-row">
+            <div>
+              <label for="certifications">Certifications</label>
+              <input type="text" id="certifications" name="certifications" placeholder="e.g. B.Ed, IELTS, TOEFL">
+            </div>
+            <div>
+              <label for="licenses">Teaching Licenses</label>
+              <input type="text" id="licenses" name="licenses" placeholder="e.g. State License">
+            </div>
+          </div>
+        </div>
+        <!-- Step 5: Preferences -->
+        <div class="form-step" data-step="5">
+          <div class="form-row">
+            <div>
+              <label for="preferredLocation">Preferred Location *</label>
+              <input type="text" id="preferredLocation" name="preferredLocation" required>
+            </div>
+            <div>
+              <label for="availability">Availability *</label>
+              <select id="availability" name="availability" required>
+                <option value="">Select</option>
+                <option value="Immediate">Immediate</option>
+                <option value="1 Month">1 Month</option>
+                <option value="2+ Months">2+ Months</option>
+              </select>
+            </div>
+            <div>
+              <label for="relocation">Willing to Relocate? *</label>
+              <select id="relocation" name="relocation" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- Step 6: References -->
+        <div class="form-step" data-step="6">
+          <div class="form-row">
+            <div>
+              <label for="refName">Reference Name *</label>
+              <input type="text" id="refName" name="refName" required>
+            </div>
+            <div>
+              <label for="refPosition">Reference Position *</label>
+              <input type="text" id="refPosition" name="refPosition" required>
+            </div>
+            <div>
+              <label for="refContact">Reference Contact *</label>
+              <input type="text" id="refContact" name="refContact" required>
+            </div>
+          </div>
+        </div>
+        <!-- Step 7: Review & Submit -->
+        <div class="form-step" data-step="7">
+          <div id="reviewSection" style="font-size:1.05em;color:#b0e1ff;"></div>
+        </div>
+        <div class="form-actions">
+          <button type="button" id="prevBtn" style="display:none;">Previous</button>
+          <button type="button" id="nextBtn">Next</button>
+          <button type="submit" id="submitBtn" style="display:none;">Submit Application</button>
+        </div>
+      </form>
+      <div id="formSuccess" style="display:none;color:#3ecf8e;margin-top:18px;text-align:center;font-size:1.1em;">
+        Application submitted successfully!
+      </div>
+    </section>
+    <aside class="sidebar" id="sidebarApplications">
+      <div class="sidebar-title">
+        <span class="material-symbols-outlined">bookmark</span>
+        Applications Dashboard
+      </div>
+      <!-- Applications will be injected here -->
+       
+    </aside>
+  </main>
+  <footer style="margin-top:40px;">
+    <div style="text-align:center;color:#b0b8c1;font-size:1em;padding:18px 0;">
+      &copy; 2025 Huffaz Education System. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    // --- Multi-step form logic ---
+    const form = document.getElementById('teacherForm');
+    const steps = Array.from(document.querySelectorAll('.form-step'));
+    const progressBar = document.getElementById('progressBar');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const reviewSection = document.getElementById('reviewSection');
+    const formSuccess = document.getElementById('formSuccess');
+    let currentStep = 0;
+
+    // Store the user's email in localStorage after submission
+    function setCurrentUser(email) {
+      localStorage.setItem('current_teacher_email', email);
+    }
+    function getCurrentUser() {
+      return localStorage.getItem('current_teacher_email');
+    }
+
+    function updateProgressBar() {
+      progressBar.innerHTML = '';
+      for (let i = 0; i < steps.length; i++) {
+        const stepDiv = document.createElement('div');
+        stepDiv.className = 'progress-step' + (i === currentStep ? ' active' : '');
+        stepDiv.textContent = i + 1;
+        progressBar.appendChild(stepDiv);
+      }
+    }
+    function showStep(idx) {
+      steps.forEach((step, i) => step.classList.toggle('active', i === idx));
+      prevBtn.style.display = idx === 0 ? 'none' : '';
+      nextBtn.style.display = idx === steps.length - 1 ? 'none' : '';
+      submitBtn.style.display = idx === steps.length - 1 ? '' : 'none';
+      updateProgressBar();
+      if (idx === steps.length - 1) fillReview();
+    }
+    function validateStep(idx) {
+      const inputs = steps[idx].querySelectorAll('input, select, textarea');
+      for (let input of inputs) {
+        if (input.hasAttribute('required') && !input.value.trim()) {
+          input.focus();
+          return false;
+        }
+        if (input.type === 'email' && input.value && !/^[^@]+@[^@]+\.[^@]+$/.test(input.value)) {
+          input.focus();
+          return false;
+        }
+      }
+      return true;
+    }
+    function fillReview() {
+      const data = Object.fromEntries(new FormData(form).entries());
+      reviewSection.innerHTML = `
+        <b>Personal Info:</b> ${data.fullName}, DOB: ${data.dob}, Nationality: ${data.nationality}<br>
+        <b>Email:</b> ${data.email} | <b>Phone:</b> ${data.phone}<br>
+        <b>Education:</b> ${data.degree} from ${data.institution} (${data.gradYear})<br>
+        <b>Experience:</b> ${data.subjects} | Grades: ${data.grades} | Institutions: ${data.expInstitutions} | ${data.yearsExp} years<br>
+        <b>Certifications:</b> ${data.certifications || '-'} | <b>Licenses:</b> ${data.licenses || '-'}<br>
+        <b>Preferences:</b> Location: ${data.preferredLocation}, Availability: ${data.availability}, Relocate: ${data.relocation}<br>
+        <b>Reference:</b> ${data.refName} (${data.refPosition}), Contact: ${data.refContact}
+      `;
+    }
+    prevBtn.onclick = () => { if (currentStep > 0) showStep(--currentStep); };
+    nextBtn.onclick = () => {
+      if (validateStep(currentStep)) showStep(++currentStep);
+    };
+    form.onsubmit = e => {
+      e.preventDefault();
+      if (!validateStep(currentStep)) return;
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.id = 'app_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+      data.date = new Date().toLocaleString();
+      // Save to localStorage
+      const applications = JSON.parse(localStorage.getItem('teacher_applications') || '[]');
+      applications.push(data);
+      localStorage.setItem('teacher_applications', JSON.stringify(applications));
+      setCurrentUser(data.email); // Set the current user as the one who just submitted
+      form.reset();
+      showStep(0);
+      formSuccess.style.display = 'block';
+      setTimeout(() => { formSuccess.style.display = 'none'; }, 3500);
+      loadApplications();
+    };
+    showStep(0);
+
+    // --- Sidebar logic ---
+    const sidebar = document.getElementById('sidebarApplications');
+    function loadApplications() {
+      sidebar.querySelectorAll('.application-card').forEach(e => e.remove());
+      const applications = JSON.parse(localStorage.getItem('teacher_applications') || '[]');
+      const currentUser = getCurrentUser();
+      applications.slice().reverse().forEach(app => {
+        const card = document.createElement('div');
+        card.className = 'application-card';
+        card.innerHTML = `
+          <div class="app-header">
+            <span class="material-symbols-outlined" style="font-size:1.2em;">person</span>
+            ${app.fullName} <span style="font-size:0.9em;color:#b0b8c1;">(${app.degree})</span>
+          </div>
+          <div class="app-meta">${app.subjects} | ${app.preferredLocation} | ${app.availability}</div>
+          <div class="app-details">
+            <b>Certifications:</b> ${app.certifications || '-'}<br>
+            <b>Licenses:</b> ${app.licenses || '-'}<br>
+            <b>Preferences:</b> Location: ${app.preferredLocation}, Availability: ${app.availability}, Relocate: ${app.relocation}<br>
+            <b>Reference:</b> ${app.refName ? app.refName + ' (' + app.refPosition + '), Contact: ' + app.refContact : '-'}<br>
+            <b>Submitted:</b> ${app.date}
+            <div class="app-actions">
+              <a href="mailto:${app.email}?subject=Regarding your teaching application" target="_blank">
+                <span class="material-symbols-outlined" style="font-size:1em;">mail</span> Email
+              </a>
+              <a class="whatsapp" href="https://wa.me/${getWhatsAppNumber(app.phone)}?text=Assalamualaikum%2C%20We%20received%20your%20application%20for%20teaching%20at%20our%20school." target="_blank">
+                <span class="material-symbols-outlined" style="font-size:1em;">chat</span> WhatsApp
+              </a>
+              ${
+                currentUser && app.email === currentUser
+                  ? `<button type="button" class="delete-btn"><span class="material-symbols-outlined" style="font-size:1em;">delete</span> Delete</button>`
+                  : ''
+              }
+            </div>
+          </div>
+        `;
+        // Only allow delete if current user is the owner
+        if (currentUser && app.email === currentUser) {
+          card.querySelector('.delete-btn').onclick = function(e) {
+            e.stopPropagation();
+            if (confirm('Are you sure you want to delete this application?')) {
+              deleteApplication(app.id);
+            }
+          };
+        }
+        card.onclick = function(e) {
+          if (
+            e.target.tagName === 'A' ||
+            e.target.classList.contains('material-symbols-outlined') ||
+            e.target.classList.contains('delete-btn')
+          ) return;
+          card.classList.toggle('expanded');
+        };
+        sidebar.appendChild(card);
+      });
+    }
+    function deleteApplication(id) {
+      let applications = JSON.parse(localStorage.getItem('teacher_applications') || '[]');
+      applications = applications.filter(app => app.id !== id);
+      localStorage.setItem('teacher_applications', JSON.stringify(applications));
+      loadApplications();
+    }
+    function getWhatsAppNumber(phone) {
+      if (!phone) return '';
+      let num = phone.replace(/\D/g, '');
+      if(num.length > 9 && num.startsWith('0')) num = '92' + num.substring(1);
+      return num;
+    }
+    loadApplications();
+  </script>
+</body>
+</html>
