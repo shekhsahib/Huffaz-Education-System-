@@ -696,6 +696,63 @@
     });
     // Initial render
     renderSchoolList();
+  // ...existing code...
+
+  // Render sidebar
+  function renderSchoolList(filter = "") {
+    const list = document.getElementById('schoolList');
+    list.innerHTML = '';
+    const schools = loadSchools();
+    let filtered = schools;
+    if (filter) {
+      filtered = schools.filter(s =>
+        s.name.toLowerCase().includes(filter.toLowerCase())
+      );
+    }
+    if (filtered.length === 0) {
+      list.innerHTML = '<li style="color:#b0b8c1;text-align:center;padding:18px 0;">No schools found.</li>';
+      return;
+    }
+    filtered.forEach((school, idx) => {
+      const li = document.createElement('li');
+      li.className = 'school-list-item';
+      li.style.position = 'relative';
+      li.innerHTML = `
+        <img class="school-list-logo" src="${school.logo || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(school.name) + '&background=232a34&color=66b2ff&size=64'}" alt="Logo" />
+        <span class="school-list-name" style="white-space:normal;overflow:visible;text-overflow:unset;">${school.name}</span>
+        <button class="school-list-menu-btn" title="More options" style="background:none;border:none;outline:none;cursor:pointer;padding:4px 8px;position:absolute;right:8px;top:50%;transform:translateY(-50%);">
+          <span class="material-symbols-outlined" style="font-size:22px;color:#b0b8c1;">more_vert</span>
+        </button>
+        <div class="school-list-menu" style="display:none;position:absolute;right:32px;top:50%;transform:translateY(-50%);background:#232a34;border-radius:8px;box-shadow:0 2px 12px #232a3440;padding:6px 0;z-index:10;">
+          <button class="unregister-btn" style="background:none;border:none;color:#ff5e62;font-weight:600;padding:8px 18px;width:100%;text-align:left;cursor:pointer;border-radius:6px;font-size:1rem;">Unregister</button>
+        </div>
+      `;
+      // Show/hide menu on 3-dots click
+      const menuBtn = li.querySelector('.school-list-menu-btn');
+      const menu = li.querySelector('.school-list-menu');
+      menuBtn.onclick = (e) => {
+        e.stopPropagation();
+        // Hide all other menus
+        document.querySelectorAll('.school-list-menu').forEach(m => { if (m !== menu) m.style.display = 'none'; });
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      };
+      // Hide menu when clicking outside
+      document.addEventListener('click', function hideMenu(ev) {
+        if (!li.contains(ev.target)) menu.style.display = 'none';
+      });
+      // Unregister action
+      menu.querySelector('.unregister-btn').onclick = (e) => {
+        e.stopPropagation();
+        if (confirm('Are you sure you want to unregister this school/madarsa?')) {
+          unregisterSchool(idx);
+        }
+        menu.style.display = 'none';
+      };
+      list.appendChild(li);
+    });
+  }
+
+  // ...rest of your code...
   </script>
 </body>
 </html>

@@ -140,12 +140,15 @@
     }
 
     .contact-container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
       background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+      padding: 36px 32px 32px 32px;
+      border-radius: 18px;
+      box-shadow: 0 3px 18px rgba(0,0,0,0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
     }
 
     h1, h2 {
@@ -154,86 +157,122 @@
       margin-bottom: 18px;
     }
 
-    .contact-details p,
-    .contact-details a {
-      color: #dddddd;
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 18px;
+    }
+    .contact-info-block {
+      flex: 1 1 260px;
+      background: #181c24;
+      border-radius: 12px;
+      padding: 24px 18px;
+      box-shadow: 0 2px 8px #232a3422;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .contact-info-block h3 {
+      color: #66b2ff;
+      font-size: 1.18rem;
       margin-bottom: 10px;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .contact-info-block p,
+    .contact-info-block a {
+      color: #dddddd;
       font-size: 16px;
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-
-    .contact-details a {
-      color: #66b2ff;
+      margin-bottom: 6px;
       text-decoration: none;
     }
-
+    .contact-info-block a {
+      color: #66b2ff;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .contact-info-block a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
     .highlight {
       color: #66b2ff;
       font-weight: bold;
       margin-right: 6px;
     }
-
-    .contact-form {
+    .about-huffaz {
+      background: #181c24;
+      border-radius: 12px;
+      padding: 28px 18px;
+      box-shadow: 0 2px 8px #232a3422;
+      color: #eaeaea;
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+    .about-huffaz h2 {
+      color: #66b2ff;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .about-huffaz ul {
+      margin: 16px 0 0 18px;
+      padding: 0;
+      color: #b0e1ff;
+      font-size: 1.05rem;
+    }
+    .about-huffaz li {
+      margin-bottom: 8px;
+      list-style: disc;
+    }
+    .social-links {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 18px;
+      gap: 18px;
+      margin-top: 10px;
+      align-items: center;
     }
-
-    .contact-form input, .contact-form textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: 1.5px solid #2b3442;
-      background-color: #232a34;
-      color: #f3f6fa;
-      font-size: 16px;
-      transition: border 0.2s;
+    .social-links a {
+      color: #66b2ff;
+      font-size: 1.6rem;
+      background: #232a34;
+      border-radius: 50%;
+      padding: 8px;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px #232a3422;
+      text-decoration: none;
     }
-
-    .contact-form input:focus, .contact-form textarea:focus {
-      border-color: #66b2ff;
-      outline: none;
-    }
-
-    .contact-form textarea {
-      height: 120px;
-      resize: vertical;
-    }
-
-    .contact-form button {
-      background: linear-gradient(90deg, #66b2ff 60%, #559ed6 100%);
+    .social-links a:hover {
+      background: #66b2ff;
       color: #fff;
-      font-weight: bold;
-      font-size: 16px;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 16px #66b2ff33;
-      letter-spacing: 1px;
+      transform: scale(1.08);
     }
-
-    .contact-form button:hover {
-      background: linear-gradient(90deg, #559ed6 60%, #66b2ff 100%);
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 8px 24px #66b2ff44;
-    }
-
     .map-container {
-      margin-top: 30px;
+      margin-top: 18px;
       text-align: center;
     }
-
+    .map-container iframe {
+      border: 0;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 600px;
+      height: 260px;
+      box-shadow: 0 2px 12px #232a3440;
+    }
     footer {
       text-align: center;
       margin-top: 40px;
       font-size: 14px;
       color: #aaa;
     }
-
     @media (max-width: 900px) {
       .contact-container {
         padding: 16px 4px;
@@ -241,8 +280,11 @@
       h1 {
         font-size: 1.5rem;
       }
+      .contact-details {
+        flex-direction: column;
+        gap: 18px;
+      }
     }
-
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -262,8 +304,11 @@
       .contact-container {
         padding: 10px 2px;
       }
-      .contact-form button {
-        width: 100%;
+      .about-huffaz {
+        padding: 14px 4px;
+      }
+      .map-container iframe {
+        height: 160px;
       }
     }
   </style>
@@ -271,10 +316,10 @@
 <body>
   <header>
     <div class="logo_container">
-      <a href="#" class="Huffaz_logo">
+      <a href="main.html" class="Huffaz_logo">
         <img src="image's/Huffaz Logo.png" alt="Huffaz Logo">
       </a>
-      <a href="#" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
+      <a href="main.html" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
         <span class="material-symbols-outlined">menu_book</span>
       </a>
     </div>
@@ -294,22 +339,53 @@
   <div class="contact-container">
     <h1>Contact Us</h1>
     <div class="contact-details">
-      <p>If you have any inquiries or need further information, feel free to get in touch with us:</p>
-      <p><span class="material-symbols-outlined">phone</span><span class="highlight">Phone:</span> 0321 2875616</p>
-      <p><span class="material-symbols-outlined">phone</span><span class="highlight">Phone 2:</span> +92 321 0888616</p>
-      <p><span class="material-symbols-outlined">email</span><span class="highlight">Email:</span> contact@huffazeducation.com</p>
-      <a href="https://www.google.com/maps/place/W4H2%2B2CC,+Block+7+Gulshan-e-Iqbal,+Karachi/@24.9275625,67.0997281,18z/data=!3m1!4b1!4m5!3m4!1s0x3eb338c828d70221:0xff2722cb490d7541!8m2!3d24.9275625!4d67.1010156?hl=en&entry=ttu&g_ep=EgoyMDI1MDQxNC4xIKXMDSoASAFQAw%3D%3D">
-        <span class="material-symbols-outlined">location_on</span><span class="highlight">Location:</span> Click me
-      </a>
+      <div class="contact-info-block">
+        <h3><span class="material-symbols-outlined">call</span> Phone</h3>
+        <p><span class="material-symbols-outlined">phone</span><span class="highlight">Phone 1:</span> 0321 2875616</p>
+        <p><span class="material-symbols-outlined">phone</span><span class="highlight">Phone 2:</span> +92 321 0888616</p>
+      </div>
+      <div class="contact-info-block">
+        <h3><span class="material-symbols-outlined">email</span> Email</h3>
+        <p><span class="material-symbols-outlined">email</span><span class="highlight">Email:</span> hes.pakistan.123@gmail.com</p>
+      </div>
+      <div class="contact-info-block">
+        <h3><span class="material-symbols-outlined">location_on</span> Address</h3>
+        <a href="https://www.google.com/maps/place/W4H2%2B2CC,+Block+7+Gulshan-e-Iqbal,+Karachi/@24.9275625,67.0997281,18z/data=!3m1!4b1!4m5!3m4!1s0x3eb338c828d70221:0xff2722cb490d7541!8m2!3d24.9275625!4d67.1010156?hl=en&entry=ttu&g_ep=EgoyMDI1MDQxNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
+          <span class="material-symbols-outlined">location_on</span>
+          <span class="highlight">Location:</span> Block 7, Gulshan-e-Iqbal, Karachi, Pakistan
+        </a>
+      </div>
+      <div class="contact-info-block">
+        <h3><span class="material-symbols-outlined">share</span> Social Media</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/" target="_blank" title="Facebook"><span class="material-symbols-outlined">facebook</span></a>
+          <a href="https://www.instagram.com/" target="_blank" title="Instagram"><span class="material-symbols-outlined">photo_camera</span></a>
+          <a href="https://wa.me/923210888616" target="_blank" title="WhatsApp"><span class="material-symbols-outlined">chat</span></a>
+        </div>
+      </div>
     </div>
 
-    <h2>Send Us a Message</h2>
-    <form class="contact-form" action="#" method="post">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <div class="about-huffaz">
+      <h2>About Huffaz Education System</h2>
+      <p>
+        Huffaz Education System is dedicated to providing quality Islamic and modern education across Pakistan. Our mission is to empower students with both religious and contemporary knowledge, preparing them for success in this world and the hereafter.
+      </p>
+      <ul>
+        <li>Registered and recognized madaris and schools network</li>
+        <li>National and regional competitions for students</li>
+        <li>Teacher recruitment and training programs</li>
+        <li>Modern curriculum with Islamic values</li>
+        <li>Community outreach and educational events</li>
+        <li>Support for parents, students, and educators</li>
+      </ul>
+      <p>
+        For more information about our programs, admissions, or to partner with us, please use the contact details above.
+      </p>
+    </div>
+
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.073892812778!2d67.0997281!3d24.9275625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338c828d70221%3A0xff2722cb490d7541!2sBlock%207%20Gulshan-e-Iqbal%2C%20Karachi!5e0!3m2!1sen!2s!4v1680000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </div>
 
   <footer>
