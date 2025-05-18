@@ -39,10 +39,9 @@
       background: rgba(26, 26, 26, 0.98);
       padding: 16px 32px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.25);
-      border-bottom: 1.5px solid var(--border);
+      border-bottom: 1.5px solid #2b3442;
       backdrop-filter: blur(4px);
       flex-wrap: wrap;
-      width: 100%;
     }
     .logo_container {
       display: flex;
@@ -51,18 +50,18 @@
     }
     .Huffaz_logo img {
       height: 54px;
-      filter: drop-shadow(0 2px 8px #66b2ff33);
+      /* filter: drop-shadow(0 2px 8px #66b2ff33); */
       display: block;
       border-radius: 12px;
-      background: #232a34;
+      /* background: #232a34; */
       padding: 2px 6px;
-      box-shadow: 0 2px 12px #66b2ff22;
-      transition: box-shadow 0.2s;
+      /* box-shadow: 0 2px 12px #66b2ff22; */
+      /* transition: box-shadow 0.2s; */
     }
-    .Huffaz_logo img:hover,
+    /* .Huffaz_logo img:hover,
     .Huffaz_logo img:focus {
       box-shadow: 0 4px 24px #66b2ff55;
-    }
+    } */
     .book_logo {
       text-decoration: none !important;
       display: flex;
@@ -74,12 +73,12 @@
       width: 54px;
       height: 54px;
       margin-left: 8px;
-      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      /* transition: background 0.2s, box-shadow 0.2s, transform 0.2s; */
       border: 2px solid #232a34;
     }
     .book_logo .material-symbols-outlined {
       font-size: 34px;
-      color: #66b2ff;
+      /* color: #66b2ff; */
       transition: color 0.2s;
       background: none;
       border-radius: 50%;
@@ -89,7 +88,7 @@
       align-items: center;
       justify-content: center;
     }
-    .book_logo:hover,
+    /* .book_logo:hover,
     .book_logo:focus {
       background: linear-gradient(135deg, #66b2ff 60%, #232a34 100%);
       box-shadow: 0 4px 24px #66b2ff55;
@@ -99,7 +98,7 @@
     .book_logo:hover .material-symbols-outlined,
     .book_logo:focus .material-symbols-outlined {
       color: #fff;
-    }
+    } */
     .nav_bar {
       display: flex;
       gap: 18px;
@@ -518,8 +517,12 @@
 <body>
   <header>
     <div class="logo_container">
-      <a href="main.html" class="Huffaz_logo"><img src="image's/Huffaz Logo.png" alt="Huffaz Logo"></a>
-      <a href="main.html" class="book_logo" aria-label="Book Home"><span class="material-symbols-outlined">menu_book</span></a>
+      <a href="#" class="Huffaz_logo">
+        <img src="image's/Huffaz Logo.png" alt="Huffaz Logo">
+      </a>
+      <a href="#" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
+        <span class="material-symbols-outlined">menu_book</span>
+      </a>
     </div>
     <nav class="nav_bar">
       <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
