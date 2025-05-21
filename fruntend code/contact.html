@@ -3,27 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - Huffaz Education</title>
-
-  <!-- Google Fonts & Material Symbols -->
+  <title>Contact Us - Huffaz Education System</title>
   <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Quicksand', 'Assistant', Arial, sans-serif;
-    }
-
     body {
       background: linear-gradient(135deg, #181c24 0%, #232a34 100%);
       color: #f3f6fa;
+      font-family: 'Quicksand', 'Assistant', Arial, sans-serif;
+      margin: 0;
       min-height: 100vh;
-      line-height: 1.8;
     }
-
     header {
       position: sticky;
       top: 0;
@@ -38,19 +28,16 @@
       backdrop-filter: blur(4px);
       flex-wrap: wrap;
     }
-
     .logo_container {
       display: flex;
       align-items: center;
       gap: 18px;
     }
-
     .Huffaz_logo img {
       height: 54px;
       filter: drop-shadow(0 2px 8px #66b2ff33);
       display: block;
     }
-
     .book_logo .material-symbols-outlined {
       font-size: 38px;
       color: #66b2ff;
@@ -63,7 +50,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .book_logo:hover .material-symbols-outlined,
     .book_logo:focus .material-symbols-outlined {
       background: #66b2ff;
@@ -71,15 +57,12 @@
       box-shadow: 0 4px 16px #66b2ff55;
       outline: none;
     }
-
     .nav_bar {
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
     }
-
-    .nav_bar a,
-    .action_bar a {
+    .nav_bar a {
       display: flex;
       align-items: center;
       gap: 6px;
@@ -93,14 +76,11 @@
       transition: background 0.25s, box-shadow 0.25s, color 0.25s;
       letter-spacing: 1px;
     }
-
-    .nav_bar a:hover,
-    .action_bar a:hover {
+    .nav_bar a:hover {
       background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
       color: #66b2ff;
       box-shadow: 0 2px 12px #66b2ff22;
     }
-
     .search-bar {
       display: flex;
       align-items: center;
@@ -111,12 +91,10 @@
       border: 1.5px solid #2b3442;
       transition: border 0.3s;
     }
-
     .search-bar:hover,
     .search-bar:focus-within {
       border-color: #66b2ff;
     }
-
     .search-input {
       border: none;
       background: transparent;
@@ -126,22 +104,41 @@
       font-size: 15px;
       padding: 6px 0;
     }
-
     .search-input::placeholder {
       color: #b0b8c1;
       opacity: 0.8;
     }
-
     .material-symbols-outlined {
       color: #66b2ff;
       font-size: 22px;
       margin-right: 6px;
       vertical-align: middle;
     }
-
+    .contact-hero {
+      background: linear-gradient(120deg, #232a34 60%, #66b2ff22 100%);
+      padding: 48px 0 32px 0;
+      text-align: center;
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 4px 24px #232a3440;
+    }
+    .contact-hero h1 {
+      font-family: 'Playfair Display', serif;
+      color: #66b2ff;
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .contact-hero p {
+      color: #b0e1ff;
+      font-size: 1.15rem;
+      margin-bottom: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .contact-container {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 1100px;
+      margin: 0 auto 40px auto;
       background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
       padding: 36px 32px 32px 32px;
       border-radius: 18px;
@@ -149,14 +146,8 @@
       display: flex;
       flex-direction: column;
       gap: 32px;
+      margin-top: 15px;
     }
-
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-      color: #66b2ff;
-      margin-bottom: 18px;
-    }
-
     .contact-details {
       display: flex;
       flex-wrap: wrap;
@@ -231,6 +222,33 @@
       margin-bottom: 8px;
       list-style: disc;
     }
+    .quick-links {
+      background: #232a34;
+      border-radius: 12px;
+      padding: 22px 18px;
+      box-shadow: 0 2px 8px #232a3422;
+      color: #eaeaea;
+      font-size: 1.08rem;
+      margin-bottom: 0;
+    }
+    .quick-links h3 {
+      color: #66b2ff;
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .quick-links ul {
+      margin: 0 0 0 18px;
+      padding: 0;
+      color: #b0e1ff;
+      font-size: 1.05rem;
+    }
+    .quick-links li {
+      margin-bottom: 8px;
+      list-style: disc;
+    }
     .social-links {
       display: flex;
       gap: 18px;
@@ -277,12 +295,12 @@
       .contact-container {
         padding: 16px 4px;
       }
-      h1 {
-        font-size: 1.5rem;
-      }
       .contact-details {
         flex-direction: column;
         gap: 18px;
+      }
+      .contact-hero h1 {
+        font-size: 1.5rem;
       }
     }
     @media (max-width: 600px) {
@@ -336,8 +354,14 @@
     </div>
   </header>
 
+  <section class="contact-hero">
+    <h1>Contact Huffaz Education System</h1>
+    <p>
+      We are here to help you with any questions about our programs, admissions, events, or partnerships. Reach out to us through the details below or connect with us on social media.
+    </p>
+  </section>
+
   <div class="contact-container">
-    <h1>Contact Us</h1>
     <div class="contact-details">
       <div class="contact-info-block">
         <h3><span class="material-symbols-outlined">call</span> Phone</h3>
@@ -383,9 +407,28 @@
       </p>
     </div>
 
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.073892812778!2d67.0997281!3d24.9275625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338c828d70221%3A0xff2722cb490d7541!2sBlock%207%20Gulshan-e-Iqbal%2C%20Karachi!5e0!3m2!1sen!2s!4v1680000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="quick-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="register_your_school.html">Register Your School/Madarsa</a></li>
+        <li><a href="teachers required.html">Apply as a Teacher</a></li>
+        <li><a href="book's.html">Our Books</a></li>
+        <li><a href="skills.html">Skills & Courses</a></li>
+        <li><a href="about.html">About Huffaz</a></li>
+      </ul>
     </div>
+
+    <div class="map-container">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.073892812778!2d67.0997281!3d24.9275625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338c828d70221%3A0xff2722cb490d7541!2sBlock%207%20Gulshan-e-Iqbal%2C%20Karachi!5e0!3m2!1sen!2s!4v1680000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div style="margin-top:12px;text-align:center;">
+    <a href="https://www.google.com/maps/place/W4H2%2B2CC,+Block+7+Gulshan-e-Iqbal,+Karachi/@24.9275625,67.0997281,18z/data=!3m1!4b1!4m5!3m4!1s0x3eb338c828d70221:0xff2722cb490d7541!8m2!3d24.9275625!4d67.1010156?hl=en&entry=ttu&g_ep=EgoyMDI1MDQxNC4xIKXMDSoASAFQAw%3D%3D"
+       target="_blank"
+       style="display:inline-block;background:#66b2ff;color:#fff;font-weight:600;padding:10px 28px;border-radius:8px;text-decoration:none;font-size:1.08rem;box-shadow:0 2px 8px #66b2ff44;transition:background 0.2s;">
+      <span class="material-symbols-outlined" style="vertical-align:middle;font-size:1.3em;margin-right:6px;">map</span>
+      Get the location of our center
+    </a>
+  </div>
+</div>
   </div>
 
   <footer>
