@@ -193,6 +193,39 @@
       font-size: 22px;
       margin-right: 6px;
     }
+    .header-menu-dropdown {
+    margin-left: 18px;
+  }
+  #headerMenuBtn:focus {
+    background: #232a34;
+    outline: 2px solid #66b2ff;
+  }
+  #headerMenuList a:hover,
+  #headerMenuList button:hover {
+    background: #181c24;
+    color: #66b2ff;
+  }
+  #headerMenuList {
+    animation: fadeInMenu 0.18s;
+  }
+  @keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  @media (max-width: 700px) {
+    .header-menu-dropdown {
+      margin-left: 6px;
+    }
+    #headerMenuList {
+      min-width: 150px;
+      right: 0;
+      top: 38px;
+    }
+    #headerMenuList a, #headerMenuList button {
+      font-size: 0.98rem;
+      padding: 10px 12px;
+    }
+  }
 
     main {
       padding: 32px 0 0 0;
@@ -447,15 +480,48 @@
       <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
       <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
     </nav>
-    
     <div class="search-bar">
       <span class="material-symbols-outlined">search</span>
       <input class="search-input" type="text" placeholder="Search for Education" />
     </div>
-    <a href="register_your_school.html" class="registered-count" id="registeredCountLink" title="View Registered Madaris/Schools">
-      <span class="material-symbols-outlined">how_to_reg</span>
-      <span id="registeredCountText">Registered: 0</span>
-    </a>
+    <!-- 3 lines menu -->
+    <div class="header-menu-dropdown" style="position:relative; margin-left:18px;">
+      <button id="headerMenuBtn" aria-label="More" style="background:none;border:none;outline:none;cursor:pointer;padding:8px 10px;border-radius:50%;display:flex;flex-direction:column;gap:3px;justify-content:center;align-items:center;width:36px;height:36px;">
+        <span class="header-menu-icon-bar" style="width:22px;height:3px;background:#66b2ff;border-radius:2px;display:block;margin:0;"></span>
+        <span class="header-menu-icon-bar" style="width:22px;height:3px;background:#66b2ff;border-radius:2px;display:block;margin:0;"></span>
+        <span class="header-menu-icon-bar" style="width:22px;height:3px;background:#66b2ff;border-radius:2px;display:block;margin:0;"></span>
+      </button>
+      <div id="headerMenuList" style="display:none;position:absolute;right:0;top:44px;min-width:220px;background:#232a34;border-radius:12px;box-shadow:0 8px 32px #232a3440;padding:10px 0;z-index:1001;">
+        <a href="register_your_school.html" style="display:flex;align-items:center;gap:10px;padding:12px 22px;color:#eaeaea;text-decoration:none;font-weight:600;font-size:1rem;transition:background 0.18s;">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">how_to_reg</span>
+          Registered Madaris
+        </a>
+        <button id="toggleThemeBtn" style="display:flex;align-items:center;gap:10px;padding:12px 22px;width:100%;background:none;border:none;color:#eaeaea;font-weight:600;font-size:1rem;cursor:pointer;transition:background 0.18s;">
+          <span class="material-symbols-outlined" id="themeIcon" style="color:#66b2ff;">light_mode</span>
+          Light/Dark Theme
+        </button>
+        <a href="language.html" style="display:flex;align-items:center;gap:10px;padding:12px 22px;color:#eaeaea;text-decoration:none;font-weight:600;font-size:1rem;transition:background 0.18s;">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">language</span>
+          Language Init
+        </a>
+        <a href="faq.html" style="display:flex;align-items:center;gap:10px;padding:12px 22px;color:#eaeaea;text-decoration:none;font-weight:600;font-size:1rem;transition:background 0.18s;">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">help</span>
+          FAQs
+        </a>
+        <a href="contact.html" style="display:flex;align-items:center;gap:10px;padding:12px 22px;color:#eaeaea;text-decoration:none;font-weight:600;font-size:1rem;transition:background 0.18s;">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">support_agent</span>
+          Support
+        </a>
+        <a href="student_portal.html" style="display:flex;align-items:center;gap:10px;padding:12px 22px;color:#eaeaea;text-decoration:none;font-weight:600;font-size:1rem;transition:background 0.18s;">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">person</span>
+          Student Portal
+        </a>
+        <a href="events.html" style="display:flex;align-items:center;gap:10px;padding:12px 22px;color:#eaeaea;text-decoration:none;font-weight:600;font-size:1rem;transition:background 0.18s;">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">event</span>
+          Events & Workshops
+        </a>
+      </div>
+    </div>
   </header>
 
   <main>
