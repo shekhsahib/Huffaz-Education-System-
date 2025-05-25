@@ -694,6 +694,139 @@
   .hes-social-link { padding: 10px 6px 8px 6px; font-size: 0.95rem; min-width: 80px;}
   .hes-social-link img { width: 28px; height: 28px;}
 }
+
+.hes-footer {
+  background: #181c24;
+  color: #b0e1ff;
+  padding: 0;
+  border-top: 2px solid #232a34;
+  margin-top: 54px;
+  font-size: 1rem;
+}
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 38px 24px 18px 24px;
+  flex-wrap: wrap;
+}
+.footer-brand {
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.footer-logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  background: #fff;
+  box-shadow: 0 2px 12px #66b2ff22;
+}
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #66b2ff;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+.footer-desc {
+  color: #eaeaea;
+  font-size: 1.01rem;
+  margin-bottom: 8px;
+}
+.footer-links {
+  display: flex;
+  gap: 48px;
+  flex: 2 1 400px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.footer-links > div {
+  min-width: 160px;
+  margin-bottom: 12px;
+}
+.footer-link-title {
+  font-weight: 700;
+  color: #66b2ff;
+  margin-bottom: 8px;
+  font-size: 1.08rem;
+  letter-spacing: 1px;
+}
+.footer-links a {
+  display: block;
+  color: #b0e1ff;
+  text-decoration: none;
+  margin-bottom: 6px;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+  color: #b0e1ff;
+  font-size: 1rem;
+}
+.footer-contact-row a {
+  color: #b0e1ff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-contact-row a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+.footer-socials a img {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 2px 8px #66b2ff22;
+  transition: background 0.2s, transform 0.2s;
+}
+.footer-socials a:hover img {
+  background: #66b2ff;
+  transform: scale(1.08) rotate(-6deg);
+}
+.footer-bottom {
+  text-align: center;
+  color: #b0b8c1;
+  font-size: 0.98rem;
+  padding: 16px 0 10px 0;
+  border-top: 1px solid #232a34;
+  background: #181c24;
+  letter-spacing: 1px;
+}
+@media (max-width: 900px) {
+  .footer-main { flex-direction: column; gap: 22px; align-items: flex-start; }
+  .footer-links { gap: 24px; justify-content: flex-start; }
+}
+@media (max-width: 600px) {
+  .footer-main { padding: 18px 6px 8px 6px; }
+  .footer-brand { max-width: 100%; }
+  .footer-links { flex-direction: column; gap: 10px; }
+  .footer-links > div { min-width: 120px; }
+  .footer-logo { width: 38px; height: 38px; }
+}
   </style>
 </head>
 <body>
@@ -876,9 +1009,78 @@
   </div>
 </section>
 </main>
-  <footer>
-    &copy; 2025 Huffaz Education. All rights reserved.
-  </footer>
+  <footer class="hes-footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="image's/Huffaz Logo.png" alt="Huffaz Logo" class="footer-logo">
+      <div class="footer-title">Huffaz Education System</div>
+      <div class="footer-desc">
+        Empowering Islamic & Modern Education across Pakistan.<br>
+        Connecting Madaris, Students, and Teachers.
+      </div>
+    </div>
+    <div class="footer-links">
+      <div>
+        <div class="footer-link-title">Quick Links</div>
+        <a href="main.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="skills.html">Skills</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="registered madaris.html">Registered Madaris</a>
+        <a href="registration.html">Competitions</a>
+        <a href="book's.html">Books</a>
+        <a href="language.html">Language Game</a>
+        <a href="teachers required.html">Apply for Teacher</a>
+        <a href="faq.html">FAQs</a>
+        <a href="events.html">Events</a>
+        <a href="student_portal.html">Student Portal</a>
+      </div>
+      <div>
+        <div class="footer-link-title">Contact</div>
+        <div class="footer-contact-row">
+          <span class="material-symbols-outlined">mail</span>
+          <a href="mailto:info@huffaz.edu.pk">info@huffaz.edu.pk</a>
+        </div>
+        <div class="footer-contact-row">
+          <span class="material-symbols-outlined">call</span>
+          <a href="tel:+923001234567">+92 300 1234567</a>
+        </div>
+        <div class="footer-contact-row">
+          <span class="material-symbols-outlined">location_on</span>
+          <span>Karachi, Pakistan</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-link-title">Connect</div>
+        <div class="footer-socials">
+          <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+          </a>
+          <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+          </a>
+          <a href="https://wa.me/" target="_blank" aria-label="WhatsApp">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+          </a>
+          <a href="https://tiktok.com/" target="_blank" aria-label="TikTok">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
+          </a>
+          <a href="mailto:info@huffaz.edu.pk" aria-label="Email">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email">
+          </a>
+          <a href="https://youtube.com/" target="_blank" aria-label="YouTube">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Huffaz Education System. All rights reserved.
+  </div>
+</footer>
+
   <script>
     // Hamburger menu logic
     const menuBtn = document.getElementById('headerMenuBtn');
