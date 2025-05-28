@@ -4,138 +4,319 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Register Your Madarsa | Huffaz Education System</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Material+Symbols+Outlined" rel="stylesheet">
   <style>
-    :root {
-      --primary: #66b2ff;
-      --primary-dark: #232a34;
-      --bg-gradient: linear-gradient(135deg, #181c24 0%, #232a34 100%);
-      --sidebar-gradient: linear-gradient(120deg, #232a34 60%, #66b2ff 100%);
-      --form-bg: #181c22;
-      --info-bg: rgba(30,34,40,0.92);
-      --border: #2b3442;
-      --shadow: 0 6px 32px rgba(102,178,255,0.10), 0 1.5px 8px rgba(0,0,0,0.10);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', Arial, sans-serif; }
     body {
-      background: var(--bg-gradient);
+      background: linear-gradient(135deg, #181c24 0%, #232a34 100%);
       color: #f3f6fa;
+      font-family: 'Quicksand', Arial, sans-serif;
+      margin: 0;
       min-height: 100vh;
-      line-height: 1.7;
     }
+
     header {
       position: sticky;
-      top: 0; z-index: 1000;
-      display: flex; justify-content: space-between; align-items: center;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: rgba(26, 26, 26, 0.98);
       padding: 16px 32px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.25);
       border-bottom: 1.5px solid #2b3442;
       backdrop-filter: blur(4px);
       flex-wrap: wrap;
+      width: 100%;
     }
     .logo_container {
-      display: flex; align-items: center; gap: 18px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
     }
     .Huffaz_logo img {
-      height: 54px; display: block; border-radius: 12px; padding: 2px 6px;
+      height: 54px;
+      display: block;
+      border-radius: 10px;
+      padding: 2px 6px;
     }
     .book_logo {
       text-decoration: none !important;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #232a34 60%, #66b2ff 100%);
-      box-shadow: 0 2px 12px #66b2ff22;
-      width: 54px; height: 54px; margin-left: 8px; border: 2px solid #232a34;
-    }
-    .book_logo .material-symbols-outlined { font-size: 34px; }
-    .nav_bar {
-      display: flex; gap: 18px; flex-wrap: wrap;
-    }
-    .nav_bar a {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 15px; color: #eaeaea; font-weight: 700; text-transform: uppercase;
-      text-decoration: none; padding: 10px 18px; border-radius: 10px;
-      transition: background 0.25s, box-shadow 0.25s, color 0.25s; letter-spacing: 1px;
-    }
-    .nav_bar a:hover {
-      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
-      color: #66b2ff; box-shadow: 0 2px 12px #66b2ff22;
-    }
-    .search-bar {
-      display: flex; align-items: center; background: #232a34;
-      border-radius: 24px; padding: 6px 16px; width: 340px; border: 1.5px solid #2b3442;
-      transition: border 0.3s;
-    }
-    .search-bar:hover, .search-bar:focus-within { border-color: #66b2ff; }
-    .search-input {
-      border: none; background: transparent; flex-grow: 1; outline: none;
-      color: #f3f6fa; font-size: 15px; padding: 6px 0;
-    }
-    .search-input::placeholder { color: #b0b8c1; opacity: 0.8; }
-    .material-symbols-outlined { color: #66b2ff; font-size: 22px; margin-right: 6px; vertical-align: middle; }
-
-    /* Main layout */
-    .main-content {
-      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-      min-height: 100vh; width: 100%; max-width: 100vw; margin: 0 auto; padding: 0;
-      background: none;
-    }
-    .register-card {
-      background: var(--form-bg);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      margin: 48px 0 32px 0;
-      max-width: 580px;
-      width: 98%;
-      padding: 0;
-      overflow: hidden;
       display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      border: 1.5px solid #232a34;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      margin-left: 1px;
     }
-    .register-card-header {
-      background: var(--sidebar-gradient);
-      padding: 38px 36px 18px 36px;
-      text-align: center;
+    .book_logo .material-symbols-outlined {
+      font-size: 38px;
+      color: #66b2ff;
+      background: none;
+      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .register-card-header h1 {
-      color: #fff;
-      font-size: 2.1rem;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 8px;
+    .nav_bar {
+      display: flex;
+      gap: 0px;
+      flex-wrap: wrap;
+    }
+    .nav_bar a,
+    .action_bar a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 15px;
+      color: #eaeaea;
       font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
       letter-spacing: 1px;
     }
-    .register-card-header p {
+    .nav_bar a:hover,
+    .action_bar a:hover {
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      box-shadow: 0 2px 12px #66b2ff22;
+    }
+    .registered-count {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 10px;
+      padding: 10px 18px;
+      margin-left: 18px;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px #66b2ff22;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .registered-count .material-symbols-outlined {
+      font-size: 22px;
+      margin-right: 2px;
+      color: #66b2ff;
+    }
+    .registered-count:hover {
+      background: linear-gradient(90deg, #559ed6 0%, #232a34 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px #66b2ff44;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #232a34;
+      border-radius: 24px;
+      padding: 6px 16px;
+      width: 340px;
+      border: 1.5px solid #2b3442;
+      transition: border 0.3s;
+    }
+    .search-bar:hover,
+    .search-bar:focus-within {
+      border-color: #66b2ff;
+    }
+    .search-input {
+      border: none;
+      background: transparent;
+      flex-grow: 1;
+      outline: none;
+      color: #f3f6fa;
+      font-size: 15px;
+      padding: 6px 0;
+    }
+    .search-input::placeholder {
+      color: #b0b8c1;
+      opacity: 0.8;
+    }
+    .material-symbols-outlined {
+      color: #66b2ff;
+      font-size: 22px;
+      margin-right: 6px;
+    }
+    .header-menu-dropdown {
+      margin-left: 18px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    #headerMenuBtn {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      transition: background 0.18s;
+    }
+    /* #headerMenuBtn:hover,
+    #headerMenuBtn:focus {
+      background: #232a34;
+      outline: 2px solid #66b2ff;
+    } */
+    .header-menu-icon-bar {
+      width: 22px;
+      height: 3px;
+      background: #66b2ff;
+      border-radius: 2px;
+      display: block;
+      margin: 0;
+      transition: background 0.2s;
+    }
+    #headerMenuList {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 44px;
+      min-width: 240px;
+      background: #232a34;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px #232a3440;
+      padding: 10px 0;
+      z-index: 1001;
+      animation: fadeInMenu 0.18s;
+    }
+    #headerMenuList a,
+    #headerMenuList button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      color: #eaeaea;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+    }
+    #headerMenuList a:hover,
+    #headerMenuList button:hover {
+      background: #181c24;
+      color: #66b2ff;
+    }
+    #headerMenuList {
+      animation: fadeInMenu 0.18s;
+    }
+    @keyframes fadeInMenu {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 700px) {
+      .header-menu-dropdown {
+        margin-left: 6px;
+      }
+      #headerMenuList {
+        min-width: 150px;
+        right: 0;
+        top: 38px;
+      }
+      #headerMenuList a, #headerMenuList button {
+        font-size: 0.98rem;
+        padding: 10px 12px;
+      }
+    }
+    .stepper-container {
+      max-width: 540px;
+      margin: 48px auto 0 auto;
+      background: #181c22;
+      border-radius: 24px;
+      box-shadow: 0 6px 32px rgba(102,178,255,0.10), 0 1.5px 8px rgba(0,0,0,0.10);
+      padding: 0 0 24px 0;
+      overflow: hidden;
+    }
+    .stepper-header {
+      background: linear-gradient(120deg, #232a34 60%, #66b2ff 100%);
+      padding: 36px 36px 18px 36px;
+      text-align: center;
+    }
+    .stepper-header h1 {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .stepper-header p {
       color: #b0e1ff;
-      font-size: 1.13rem;
+      font-size: 1.1rem;
       margin-bottom: 0;
     }
-    .register-card-header .material-symbols-outlined {
-      font-size: 42px;
-      color: #fff;
-      margin-bottom: 8px;
+    .stepper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0 18px 0;
+    }
+    .step {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #232a34;
+      color: #b0e1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: 2px solid #232a34;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+    }
+    .step.active, .step.completed {
+      background: #66b2ff;
+      color: #232a34;
+      border: 2px solid #66b2ff;
+    }
+    .step.completed {
+      background: #b0e1ff;
+      color: #232a34;
+    }
+    .step-label {
+      font-size: 0.98rem;
+      color: #b0e1ff;
+      margin-top: 2px;
+      text-align: center;
+    }
+    .step-form {
+      padding: 0 36px;
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+    .step-form.active {
       display: block;
     }
-    .register-card-body {
-      padding: 36px 36px 28px 36px;
-      background: var(--form-bg);
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .register-card-body form {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
     }
     .form-row {
       display: flex;
       flex-direction: column;
       gap: 7px;
+      margin-bottom: 18px;
     }
     .form-row label {
       color: #b0b8c1;
@@ -184,41 +365,60 @@
       box-shadow: 0 2px 8px #66b2ff44;
       background: #232f3e;
     }
-    .register-btn {
+    .stepper-btns {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .stepper-btn {
       background: linear-gradient(90deg, #66b2ff 60%, #559ed6 100%);
       color: #fff;
       border: none;
       border-radius: 8px;
-      padding: 16px 0;
-      font-size: 1.15rem;
+      padding: 12px 28px;
+      font-size: 1.08rem;
       font-weight: bold;
       cursor: pointer;
       transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
       box-shadow: 0 2px 8px rgba(102,178,255,0.10);
-      margin-top: 10px;
       letter-spacing: 1px;
     }
-    .register-btn:hover {
-      background: linear-gradient(90deg, #559ed6 60%, #66b2ff 100%);
-      box-shadow: 0 4px 16px rgba(102,178,255,0.18);
-      transform: translateY(-2px) scale(1.03);
+    .stepper-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
-    .register-card-footer {
+    .madarsa-code-box {
       background: #232a34;
-      padding: 18px 36px;
+      color: #66b2ff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 8px;
+      margin: 10px 0 18px 0;
       text-align: center;
-      border-radius: 0 0 24px 24px;
-      color: #b0e1ff;
+      letter-spacing: 2px;
+      user-select: all;
+    }
+    .review-list {
+      background: #232a34;
+      border-radius: 10px;
+      padding: 18px 18px 10px 18px;
+      margin-bottom: 18px;
+      color: #eaeaea;
       font-size: 1.01rem;
     }
-    @media (max-width: 700px) {
-      .register-card { margin: 24px 0 18px 0; border-radius: 12px; }
-      .register-card-header, .register-card-body, .register-card-footer { padding-left: 12px; padding-right: 12px; }
+    .review-list strong { color: #66b2ff; }
+    .success-message {
+      color: #66ff99;
+      font-size: 1.15rem;
+      text-align: center;
+      margin: 18px 0 0 0;
+      font-weight: 700;
     }
-    @media (max-width: 500px) {
-      .register-card-header h1 { font-size: 1.2rem; }
-      .register-card-header .material-symbols-outlined { font-size: 32px; }
-      .register-card { margin: 10px 0; }
+    @media (max-width: 600px) {
+      .stepper-container { border-radius: 12px; }
+      .stepper-header, .step-form { padding-left: 10px; padding-right: 10px; }
     }
   </style>
 </head>
@@ -228,7 +428,7 @@
       <a href="main.html" class="Huffaz_logo">
         <img src="image's/Huffaz Logo.png" alt="Huffaz Logo">
       </a>
-      <a href="main.html" class="book_logo" aria-label="Book Home">
+      <a href="main.html" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
         <span class="material-symbols-outlined">menu_book</span>
       </a>
     </div>
@@ -243,112 +443,229 @@
       <span class="material-symbols-outlined">search</span>
       <input class="search-input" type="text" placeholder="Search for Education" />
     </div>
+    <!-- 3 lines menu -->
+    <div class="header-menu-dropdown">
+      <button id="headerMenuBtn" aria-label="More">
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+      </button>
+      <div id="headerMenuList">
+        <a href="registered madaris.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">how_to_reg</span>
+          Registered Madaris
+        </a>
+        <div style="padding:0 22px 8px 22px;">
+          <div style="color:#b0e1ff;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:#66b2ff;">language</span>
+            Language
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button class="lang-btn" onclick="setLang('en')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">English</button>
+            <button class="lang-btn" onclick="setLang('ur')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">اردو</button>
+          </div>
+        </div>
+        <a href="Events and workshops.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">event</span>
+          Events & Workshops
+        </a>
+        <a href="student_portal.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">person</span>
+          Student Portal
+        </a>
+        <a href="contact.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">support_agent</span>
+          Support
+        </a>
+      </div>
+    </div>
   </header>
-  <main class="main-content">
-    <section class="register-card">
-      <div class="register-card-header">
-        <span class="material-symbols-outlined">apartment</span>
-        <h1>Register Your School / Madarsa</h1>
-        <p>Join the Huffaz Education System network! Register your institution to participate in national competitions, get updates, and connect with others.</p>
+  <div class="stepper-container">
+    <div class="stepper-header">
+      <h1>Register Your School / Madarsa</h1>
+      <p>Step-by-step registration. Your Madarsa Code and password will be used to access your page later.</p>
+    </div>
+    <div class="stepper" id="stepper">
+      <div class="step active">1</div>
+      <div class="step">2</div>
+      <div class="step">3</div>
+      <div class="step">4</div>
+      <div class="step">5</div>
+    </div>
+    <!-- Step 1: Basic Info -->
+    <form id="regForm">
+      <div class="step-form active" data-step="1">
+        <div class="form-row">
+          <label for="school_name">Madarsa/School Name <span style="color:#ff6b6b;">*</span></label>
+          <input type="text" id="school_name" required>
+        </div>
+        <div class="form-row">
+          <label for="principal_name">Principal/Head Name <span style="color:#ff6b6b;">*</span></label>
+          <input type="text" id="principal_name" required>
+        </div>
+        <div class="stepper-btns">
+          <span></span>
+          <button type="button" class="stepper-btn" id="next1">Next</button>
+        </div>
       </div>
-      <div class="register-card-body">
-        <form id="schoolRegForm" autocomplete="off" enctype="multipart/form-data">
-          <div class="form-row">
-            <label for="admin_email">Email <span style="color:#ff6b6b;">*</span></label>
-            <input type="email" name="admin_email" id="admin_email" placeholder="Admin email for registration" required>
-          </div>
-          <div class="form-row">
-            <label for="admin_password">Password <span style="color:#ff6b6b;">*</span></label>
-            <input type="password" name=                                      "admin_password" id="admin_password" placeholder="Admin password" required>
-          </div>
-          <hr style="border:none;border-top:1.5px solid #232a34;margin:10px 0;">
-          <div class="form-row">
-            <label for="school_name">Madarsa/School Name <span style="color:#ff6b6b;">*</span></label>
-            <input type="text" name="school_name" id="school_name" placeholder="Your Madarsa/School Name" required>
-          </div>
-          <div class="form-row">
-            <label for="principal_name">Principal/Head Name <span style="color:#ff6b6b;">*</span></label>
-            <input type="text" name="principal_name" id="principal_name" placeholder="Principal/Head Name" required>
-          </div>
-          <div class="form-row">
-            <label for="email">Contact Email <span style="color:#ff6b6b;">*</span></label>
-            <input type="email" name="email" id="email" placeholder="Contact Email" required>
-          </div>
-          <div class="form-row">
-            <label for="phone">Contact Number <span style="color:#ff6b6b;">*</span></label>
-            <input type="text" name="phone" id="phone" placeholder="Contact Number" required>
-          </div>
-          <div class="form-row">
-            <label for="city">City <span style="color:#ff6b6b;">*</span></label>
-            <input type="text" name="city" id="city" placeholder="City" required>
-          </div>
-          <div class="form-row">
-            <label for="address">Address <span style="color:#ff6b6b;">*</span></label>
-            <input type="text" name="address" id="address" placeholder="Full Address" required>
-          </div>
-          <div class="form-row">
-            <label for="location">Madarsa Location <span style="color:#ff6b6b;">*</span></label>
-            <input type="text" name="location" id="location" placeholder="Location (e.g. Lat,Lng or Area)" required>
-          </div>
-          <div class="form-row">
-            <label for="students">No. of Students <span style="color:#ff6b6b;">*</span></label>
-            <input type="number" name="students" id="students" placeholder="Quantity of Students" min="1" required>
-          </div>
-          <div class="form-row">
-            <label for="teachers">No. of Teachers <span style="color:#ff6b6b;">*</span></label>
-            <input type="number" name="teachers" id="teachers" placeholder="Quantity of Teachers" min="1" required>
-          </div>
-          <div class="form-row">
-            <label for="madarsa_pic">Upload Madarsa Pic <span style="color:#ff6b6b;">*</span></label>
-            <input type="file" name="madarsa_pic" id="madarsa_pic" accept="image/*" required>
-          </div>
-          <div class="form-row">
-            <label for="logo">Upload Logo</label>
-            <input type="file" name="logo" id="logo" accept="image/*">
-          </div>
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea name="message" id="message" rows="3" placeholder="Message (optional)"></textarea>
-          </div>
-          <button type="submit" class="register-btn">Register School / Madarsa</button>
-        </form>
+      <!-- Step 2: Contact Info -->
+      <div class="step-form" data-step="2">
+        <div class="form-row">
+          <label for="email">Contact Email <span style="color:#ff6b6b;">*</span></label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-row">
+          <label for="phone">Contact Number <span style="color:#ff6b6b;">*</span></label>
+          <input type="text" id="phone" required>
+        </div>
+        <div class="form-row">
+          <label for="city">City <span style="color:#ff6b6b;">*</span></label>
+          <input type="text" id="city" required>
+        </div>
+        <div class="form-row">
+          <label for="address">Address <span style="color:#ff6b6b;">*</span></label>
+          <input type="text" id="address" required>
+        </div>
+        <div class="stepper-btns">
+          <button type="button" class="stepper-btn" id="back2">Back</button>
+          <button type="button" class="stepper-btn" id="next2">Next</button>
+        </div>
       </div>
-      <div class="register-card-footer">
-        <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;">info</span>
-        Already registered? Contact admin for updates or to manage your page.
+      <!-- Step 3: Madarsa Details -->
+      <div class="step-form" data-step="3">
+        <div class="form-row">
+          <label for="location">Madarsa Location <span style="color:#ff6b6b;">*</span></label>
+          <input type="text" id="location" required>
+        </div>
+        <div class="form-row">
+          <label for="students">No. of Students <span style="color:#ff6b6b;">*</span></label>
+          <input type="number" id="students" min="1" required>
+        </div>
+        <div class="form-row">
+          <label for="teachers">No. of Teachers <span style="color:#ff6b6b;">*</span></label>
+          <input type="number" id="teachers" min="1" required>
+        </div>
+        <div class="form-row">
+          <label for="madarsa_pic">Upload Madarsa Pic <span style="color:#ff6b6b;">*</span></label>
+          <input type="file" id="madarsa_pic" accept="image/*" required>
+        </div>
+        <div class="form-row">
+          <label for="logo">Upload Logo</label>
+          <input type="file" id="logo" accept="image/*">
+        </div>
+        <div class="stepper-btns">
+          <button type="button" class="stepper-btn" id="back3">Back</button>
+          <button type="button" class="stepper-btn" id="next3">Next</button>
+        </div>
       </div>
-    </section>
-  </main>
+      <!-- Step 4: Set Code & Password -->
+      <div class="step-form" data-step="4">
+        <div class="form-row">
+          <label>Your Madarsa Code (save this code!)</label>
+          <div class="madarsa-code-box" id="madarsaCodeBox"></div>
+        </div>
+        <div class="form-row">
+          <label for="madarsa_password">Set a Password <span style="color:#ff6b6b;">*</span></label>
+          <input type="password" id="madarsa_password" minlength="5" required>
+        </div>
+        <div class="form-row">
+          <label for="madarsa_password2">Confirm Password <span style="color:#ff6b6b;">*</span></label>
+          <input type="password" id="madarsa_password2" minlength="5" required>
+        </div>
+        <div class="stepper-btns">
+          <button type="button" class="stepper-btn" id="back4">Back</button>
+          <button type="button" class="stepper-btn" id="next4">Next</button>
+        </div>
+      </div>
+      <!-- Step 5: Review & Submit -->
+      <div class="step-form" data-step="5">
+        <div class="review-list" id="reviewList"></div>
+        <div class="stepper-btns">
+          <button type="button" class="stepper-btn" id="back5">Back</button>
+          <button type="submit" class="stepper-btn" id="submitBtn">Submit</button>
+        </div>
+        <div class="success-message" id="successMsg" style="display:none;">
+          Registration successful! Please save your Madarsa Code and password for future login.
+        </div>
+      </div>
+    </form>
+  </div>
   <script>
-    // Helper: Load from localStorage
-    function loadSchools() {
-      return JSON.parse(localStorage.getItem('registeredSchools') || '[]');
+    // Stepper logic
+    let currentStep = 1;
+    const totalSteps = 5;
+    const stepForms = document.querySelectorAll('.step-form');
+    const steps = document.querySelectorAll('.step');
+    const madarsaCode = 'MDRS-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+    document.getElementById('madarsaCodeBox').textContent = madarsaCode;
+
+    function showStep(step) {
+      stepForms.forEach(f => f.classList.remove('active'));
+      document.querySelector('.step-form[data-step="' + step + '"]').classList.add('active');
+      steps.forEach((s, i) => {
+        s.classList.remove('active', 'completed');
+        if (i + 1 < step) s.classList.add('completed');
+        else if (i + 1 === step) s.classList.add('active');
+      });
+      currentStep = step;
     }
-    // Helper: Save to localStorage
-    function saveSchools(schools) {
-      localStorage.setItem('registeredSchools', JSON.stringify(schools));
+
+    // Step navigation
+    document.getElementById('next1').onclick = function() {
+      if (document.getElementById('school_name').value && document.getElementById('principal_name').value) showStep(2);
+    };
+    document.getElementById('back2').onclick = function() { showStep(1); };
+    document.getElementById('next2').onclick = function() {
+      if (
+        document.getElementById('email').value &&
+        document.getElementById('phone').value &&
+        document.getElementById('city').value &&
+        document.getElementById('address').value
+      ) showStep(3);
+    };
+    document.getElementById('back3').onclick = function() { showStep(2); };
+    document.getElementById('next3').onclick = function() {
+      if (
+        document.getElementById('location').value &&
+        document.getElementById('students').value &&
+        document.getElementById('teachers').value &&
+        document.getElementById('madarsa_pic').files.length > 0
+      ) showStep(4);
+    };
+    document.getElementById('back4').onclick = function() { showStep(3); };
+    document.getElementById('next4').onclick = function() {
+      const pass1 = document.getElementById('madarsa_password').value;
+      const pass2 = document.getElementById('madarsa_password2').value;
+      if (pass1.length < 5) { alert('Password must be at least 5 characters.'); return; }
+      if (pass1 !== pass2) { alert('Passwords do not match.'); return; }
+      showReview();
+      showStep(5);
+    };
+    document.getElementById('back5').onclick = function() { showStep(4); };
+
+    // Review step
+    function showReview() {
+      const review = `
+        <div><strong>Madarsa/School Name:</strong> ${document.getElementById('school_name').value}</div>
+        <div><strong>Principal/Head Name:</strong> ${document.getElementById('principal_name').value}</div>
+        <div><strong>Email:</strong> ${document.getElementById('email').value}</div>
+        <div><strong>Phone:</strong> ${document.getElementById('phone').value}</div>
+        <div><strong>City:</strong> ${document.getElementById('city').value}</div>
+        <div><strong>Address:</strong> ${document.getElementById('address').value}</div>
+        <div><strong>Location:</strong> ${document.getElementById('location').value}</div>
+        <div><strong>No. of Students:</strong> ${document.getElementById('students').value}</div>
+        <div><strong>No. of Teachers:</strong> ${document.getElementById('teachers').value}</div>
+        <div><strong>Madarsa Code:</strong> <span style="color:#66b2ff;">${madarsaCode}</span></div>
+      `;
+      document.getElementById('reviewList').innerHTML = review;
     }
-    // Registration handler
-    document.getElementById('schoolRegForm').addEventListener('submit', function(e) {
+
+    // Submit logic
+    document.getElementById('regForm').onsubmit = function(e) {
       e.preventDefault();
-      // Admin login check
-      const adminEmail = document.getElementById('admin_email').value.trim();
-      const adminPassword = document.getElementById('admin_password').value.trim();
-      // Demo: fixed admin credentials
-      if (adminEmail !== "admin@huffaz.com" || adminPassword !== "Huffaz123") {
-        alert("Invalid admin email or password. Registration not allowed.");
-        return;
-      }
-      const name = document.getElementById('school_name').value.trim();
+      // Save to localStorage (or send to backend)
       const logoInput = document.getElementById('logo');
       const madarsaPicInput = document.getElementById('madarsa_pic');
-      const schools = loadSchools();
-      // Check for duplicate name
-      if (schools.some(s => s.name.toLowerCase() === name.toLowerCase())) {
-        alert('A school/madarsa with this name is already registered.');
-        return;
-      }
-      // Read logo and madarsa pic files if provided
       let logoDataUrl = '';
       let madarsaPicDataUrl = '';
       const readFiles = [];
@@ -368,25 +685,28 @@
       }
       Promise.all(readFiles).then(() => {
         const newSchool = {
-          name,
+          code: madarsaCode,
+          password: document.getElementById('madarsa_password').value,
+          name: document.getElementById('school_name').value,
+          principal: document.getElementById('principal_name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          city: document.getElementById('city').value,
+          address: document.getElementById('address').value,
+          location: document.getElementById('location').value,
+          students: document.getElementById('students').value,
+          teachers: document.getElementById('teachers').value,
           logo: logoDataUrl,
-          madarsaPic: madarsaPicDataUrl,
-          principal: document.getElementById('principal_name').value.trim(),
-          email: document.getElementById('email').value.trim(),
-          phone: document.getElementById('phone').value.trim(),
-          city: document.getElementById('city').value.trim(),
-          address: document.getElementById('address').value.trim(),
-          location: document.getElementById('location').value.trim(),
-          students: document.getElementById('students').value.trim(),
-          teachers: document.getElementById('teachers').value.trim(),
-          message: document.getElementById('message').value.trim()
+          madarsaPic: madarsaPicDataUrl
         };
+        // Save to localStorage (or send to backend)
+        const schools = JSON.parse(localStorage.getItem('registeredSchools') || '[]');
         schools.push(newSchool);
-        saveSchools(schools);
-        document.getElementById('schoolRegForm').reset();
-        alert('School/Madarsa registered successfully!');
+        localStorage.setItem('registeredSchools', JSON.stringify(schools));
+        document.getElementById('successMsg').style.display = 'block';
+        document.getElementById('submitBtn').disabled = true;
       });
-    });
+    };
   </script>
 </body>
 </html>
