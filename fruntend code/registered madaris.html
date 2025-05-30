@@ -308,7 +308,7 @@
       border-radius: 14px;
       margin-bottom: 18px;
       padding: 18px 18px;
-      box-shadow: 0 2px 12px #232a3422;
+      box-shadow: 0 2px 12px #66b2ff22;
       transition: box-shadow 0.2s, transform 0.2s;
       position: relative;
       border: 1.5px solid #232a34;
@@ -332,6 +332,49 @@
       font-weight: 700;
       color: #eaeaea;
       word-break: break-word;
+    }
+    .madaris-actions {
+      margin-left: auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .madaris-dots-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 8px;
+      font-size: 1.7rem;
+      color: #b0b8c1;
+      display: flex;
+      align-items: center;
+    }
+    .madaris-actions-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 32px;
+      background: #232a34;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px #232a3440;
+      z-index: 10;
+      min-width: 120px;
+    }
+    .madaris-actions-menu button {
+      color: #ff4d4f;
+      padding: 10px 18px;
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 0 0 8px 8px;
+      font-size: 1rem;
+      transition: background 0.18s;
+    }
+    .madaris-actions-menu button:hover {
+      background: #181c24;
     }
     @media (max-width: 700px) {
       .madaris-main-container {
@@ -447,70 +490,125 @@
       </div>
     </div>
   </main>
-  <script>
-    // Hamburger menu logic
-    const menuBtn = document.getElementById('headerMenuBtn');
-    const menuList = document.getElementById('headerMenuList');
-    menuBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      menuList.style.display = menuList.style.display === 'block' ? 'none' : 'block';
-    });
-    document.addEventListener('click', function(e) {
-      if (menuList.style.display === 'block' && !menuList.contains(e.target) && e.target !== menuBtn) {
-        menuList.style.display = 'none';
-      }
-    });
-    menuBtn.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        menuBtn.click();
-      }
-    });
-    // Language switcher (demo only)
-    function setLang(lang) {
-      alert(lang === 'ur' ? 'ابھی اردو زبان منتخب کی گئی ہے۔ (Demo)' : 'English language selected. (Demo)');
+<script>
+  // Hamburger menu logic
+  const menuBtn = document.getElementById('headerMenuBtn');
+  const menuList = document.getElementById('headerMenuList');
+  menuBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    menuList.style.display = menuList.style.display === 'block' ? 'none' : 'block';
+  });
+  document.addEventListener('click', function(e) {
+    if (menuList.style.display === 'block' && !menuList.contains(e.target) && e.target !== menuBtn) {
+      menuList.style.display = 'none';
     }
+  });
+  menuBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      menuBtn.click();
+    }
+  });
 
-    // Madaris list logic
-    function loadSchools() {
-      try {
-        return JSON.parse(localStorage.getItem('registeredSchools') || '[]');
-      } catch (e) {
-        return [];
-      }
+  // Language switcher (demo only)
+  function setLang(lang) {
+    alert(lang === 'ur' ? 'ابھی اردو زبان منتخب کی گئی ہے۔ (Demo)' : 'English language selected. (Demo)');
+  }
+
+  // Madaris list logic
+  function loadSchools() {
+    try {
+      return JSON.parse(localStorage.getItem('registeredSchools') || '[]');
+    } catch (e) {
+      return [];
     }
-    function renderMadaris(filter = "") {
-      const list = document.getElementById('madarisList');
-      const noMadaris = document.getElementById('noMadaris');
-      list.innerHTML = '';
-      let schools = loadSchools();
-      if (filter) {
-        schools = schools.filter(s =>
-          s.name && s.name.toLowerCase().includes(filter.toLowerCase())
-        );
-      }
-      if (!schools.length) {
-        noMadaris.style.display = 'block';
-        return;
-      }
-      noMadaris.style.display = 'none';
-      schools.forEach(school => {
-        const li = document.createElement('li');
-        li.className = 'madaris-list-item';
-        li.innerHTML = `
-          <img class="madaris-logo" src="${school.logo || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(school.name) + '&background=232a34&color=66b2ff&size=64'}" alt="Logo" />
-          <div class="madaris-name">${school.name}</div>
-        `;
-        list.appendChild(li);
-      });
+  }
+
+  // Simulate current logged-in admin madarsa code (in real app, get from session/auth)
+  const currentAdminMadarsaCode = localStorage.getItem('currentMadarsaCode') || '';
+
+  function renderMadaris(filter = "") {
+    const list = document.getElementById('madarisList');
+    const noMadaris = document.getElementById('noMadaris');
+    list.innerHTML = '';
+    let schools = loadSchools();
+    if (filter) {
+      schools = schools.filter(s =>
+        s.name && s.name.toLowerCase().includes(filter.toLowerCase())
+      );
     }
+    if (!schools.length) {
+      noMadaris.style.display = 'block';
+      return;
+    }
+    noMadaris.style.display = 'none';
+    schools.forEach(school => {
+      const li = document.createElement('li');
+      li.className = 'madaris-list-item';
+      li.innerHTML = `
+        <img class="madaris-logo" src="${school.logo || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(school.name) + '&background=232a34&color=66b2ff&size=64'}" alt="Logo" />
+        <div class="madaris-name">${school.name}</div>
+        <div class="madaris-actions">
+          <button class="madaris-dots-btn" aria-label="More">
+            <span class="material-symbols-outlined">&#8942;</span>
+          </button>
+          <div class="madaris-actions-menu">
+            <button onclick="unregisterMadarsa('${school.code}')">Unregister</button>
+          </div>
+        </div>
+      `;
+      li.style.cursor = "pointer";
+      li.onclick = function(e) {
+        // Prevent click if dots or menu is clicked
+        if (e.target.closest('.madaris-dots-btn') || e.target.closest('.madaris-actions-menu')) return;
+        window.location.href = "main page madaris.html?code=" + encodeURIComponent(school.code);
+      };
+      // Dots menu logic (for every madarsa)
+      setTimeout(() => {
+        const dotsBtn = li.querySelector('.madaris-dots-btn');
+        const menu = li.querySelector('.madaris-actions-menu');
+        if (dotsBtn && menu) {
+          dotsBtn.onclick = function(ev) {
+            ev.stopPropagation();
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            // Hide menu on outside click
+            document.addEventListener('click', function handler(event) {
+              if (!menu.contains(event.target) && event.target !== dotsBtn) {
+                menu.style.display = 'none';
+                document.removeEventListener('click', handler);
+              }
+            });
+          };
+        }
+      }, 0);
+      list.appendChild(li);
+    });
+  }
+
+  // Unregister function (only for admin's own madarsa)
+  function unregisterMadarsa(code) {
+    if (code !== currentAdminMadarsaCode) {
+      alert("You can only unregister your own madarsa.");
+      return;
+    }
+    if (!confirm("Are you sure you want to unregister your madarsa? This cannot be undone.")) return;
+    let schools = loadSchools();
+    schools = schools.filter(s => s.code !== code);
+    localStorage.setItem('registeredSchools', JSON.stringify(schools));
+    // Optionally, clear session
+    localStorage.removeItem('currentMadarsaCode');
     renderMadaris();
-    document.getElementById('madarisSearch').addEventListener('input', function() {
-      renderMadaris(this.value);
-    });
-    window.addEventListener('storage', function() {
-      renderMadaris(document.getElementById('madarisSearch').value);
-    });
-  </script>
+    alert("Your madarsa has been unregistered.");
+    window.location.href = "main.html";
+  }
+
+  renderMadaris();
+  document.getElementById('madarisSearch').addEventListener('input', function() {
+    renderMadaris(this.value);
+  });
+  window.addEventListener('storage', function() {
+    renderMadaris(document.getElementById('madarisSearch').value);
+  });
+</script>
 </body>
 </html>

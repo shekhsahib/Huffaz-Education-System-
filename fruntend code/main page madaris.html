@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Madrasa Portal | Huffaz Education System</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Modern, secure, and responsive madrasa portal for profile, posts, events, student records, and more.">
+  <meta name="keywords" content="madrasa, school, portal, education, posts, events, student records, login">
+  <meta name="author" content="Huffaz Education System">
+  <style>
+    body { font-family: 'Quicksand', Arial, sans-serif; }
+    [x-cloak] { display: none !important; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(26, 26, 26, 0.98);
+      padding: 16px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+      border-bottom: 1.5px solid #2b3442;
+      backdrop-filter: blur(4px);
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .logo_container {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .Huffaz_logo img {
+      height: 54px;
+      display: block;
+      border-radius: 10px;
+      padding: 2px 6px;
+    }
+    .book_logo {
+      text-decoration: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      margin-left: 1px;
+    }
+    .book_logo .material-symbols-outlined {
+      font-size: 38px;
+      color: #66b2ff;
+      background: none;
+      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav_bar {
+      display: flex;
+      gap: 0px;
+      flex-wrap: wrap;
+    }
+    .nav_bar a,
+    .action_bar a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 15px;
+      color: #eaeaea;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+      letter-spacing: 1px;
+    }
+    .nav_bar a:hover,
+    .action_bar a:hover {
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      box-shadow: 0 2px 12px #66b2ff22;
+    }
+    .registered-count {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 10px;
+      padding: 10px 18px;
+      margin-left: 18px;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px #66b2ff22;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .registered-count .material-symbols-outlined {
+      font-size: 22px;
+      margin-right: 2px;
+      color: #66b2ff;
+    }
+    .registered-count:hover {
+      background: linear-gradient(90deg, #559ed6 0%, #232a34 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px #66b2ff44;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #232a34;
+      border-radius: 24px;
+      padding: 6px 16px;
+      width: 340px;
+      border: 1.5px solid #2b3442;
+      transition: border 0.3s;
+    }
+    .search-bar:hover,
+    .search-bar:focus-within {
+      border-color: #66b2ff;
+    }
+    .search-input {
+      border: none;
+      background: transparent;
+      flex-grow: 1;
+      outline: none;
+      color: #f3f6fa;
+      font-size: 15px;
+      padding: 6px 0;
+    }
+    .search-input::placeholder {
+      color: #b0b8c1;
+      opacity: 0.8;
+    }
+    .material-symbols-outlined {
+      color: #66b2ff;
+      font-size: 22px;
+      margin-right: 6px;
+    }
+    .header-menu-dropdown {
+      margin-left: 18px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    #headerMenuBtn {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      transition: background 0.18s;
+    }
+    /* #headerMenuBtn:hover,
+    #headerMenuBtn:focus {
+      background: #232a34;
+      outline: 2px solid #66b2ff;
+    } */
+    .header-menu-icon-bar {
+      width: 22px;
+      height: 3px;
+      background: #66b2ff;
+      border-radius: 2px;
+      display: block;
+      margin: 0;
+      transition: background 0.2s;
+    }
+    #headerMenuList {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 44px;
+      min-width: 240px;
+      background: #232a34;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px #232a3440;
+      padding: 10px 0;
+      z-index: 1001;
+      animation: fadeInMenu 0.18s;
+    }
+    #headerMenuList a,
+    #headerMenuList button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      color: #eaeaea;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+    }
+    #headerMenuList a:hover,
+    #headerMenuList button:hover {
+      background: #181c24;
+      color: #66b2ff;
+    }
+    #headerMenuList {
+      animation: fadeInMenu 0.18s;
+    }
+    @keyframes fadeInMenu {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 700px) {
+      .header-menu-dropdown {
+        margin-left: 6px;
+      }
+      #headerMenuList {
+        min-width: 150px;
+        right: 0;
+        top: 38px;
+      }
+      #headerMenuList a, #headerMenuList button {
+        font-size: 0.98rem;
+        padding: 10px 12px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }" x-init="AOS.init()">
+
+  <header>
+    <div class="logo_container">
+      <a href="main.html" class="Huffaz_logo">
+        <img src="image's/Huffaz Logo.png" alt="Huffaz Logo">
+      </a>
+      <a href="main.html" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
+        <span class="material-symbols-outlined">menu_book</span>
+      </a>
+    </div>
+    <nav class="nav_bar">
+      <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
+      <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
+      <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
+      <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+      <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+    </nav>
+    <div class="search-bar">
+      <span class="material-symbols-outlined">search</span>
+      <input class="search-input" type="text" placeholder="Search for Education" />
+    </div>
+    <!-- 3 lines menu -->
+    <div class="header-menu-dropdown">
+      <button id="headerMenuBtn" aria-label="More">
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+      </button>
+      <div id="headerMenuList">
+        <a href="registered madaris.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">how_to_reg</span>
+          Registered Madaris
+        </a>
+        <div style="padding:0 22px 8px 22px;">
+          <div style="color:#b0e1ff;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:#66b2ff;">language</span>
+            Language
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button class="lang-btn" onclick="setLang('en')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">English</button>
+            <button class="lang-btn" onclick="setLang('ur')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">اردو</button>
+          </div>
+        </div>
+        <a href="Events and workshops.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">event</span>
+          Events & Workshops
+        </a>
+        <a href="student_portal.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">person</span>
+          Student Portal
+        </a>
+        <a href="contact.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">support_agent</span>
+          Support
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- Navbar -->
+  <nav class="bg-white dark:bg-gray-800 shadow px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <img src="image's/Huffaz Logo.png" alt="Logo" class="h-10 rounded" />
+      <span class="font-bold text-xl text-blue-600">Huffaz Portal</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <button @click="darkMode = !darkMode" class="focus:outline-none" aria-label="Toggle dark mode">
+        <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-8.66l-.71.71M4.05 4.05l-.71.71M21 12h-1M4 12H3m16.95 7.05l-.71-.71M4.05 19.95l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+        <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" /></svg>
+      </button>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Logout</button>
+    </div>
+  </nav>
+  <!-- Sidebar + Main -->
+  <div class="flex min-h-[90vh]">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white dark:bg-gray-800 shadow-lg p-6 flex flex-col gap-6" data-aos="fade-right">
+      <div class="flex flex-col items-center gap-2">
+        <img id="profileLogo" src="https://ui-avatars.com/api/?name=Madrasa" alt="Logo" class="h-20 w-20 rounded-full border-4 border-blue-500 shadow" />
+        <h2 id="profileName" class="font-bold text-lg mt-2">Madrasa Name</h2>
+        <span id="profilePrincipal" class="text-sm text-gray-500 dark:text-gray-300">Principal: --</span>
+      </div>
+      <div class="mt-4">
+        <p id="profileMission" class="text-xs text-gray-600 dark:text-gray-400 italic">"Our mission statement goes here."</p>
+      </div>
+      <div class="mt-6">
+        <ul class="flex flex-col gap-3">
+          <li><a href="#dashboard" class="hover:text-blue-600 font-semibold flex items-center gap-2"><span class="material-symbols-outlined">dashboard</span> Dashboard</a></li>
+          <li><a href="#posts" class="hover:text-blue-600 font-semibold flex items-center gap-2"><span class="material-symbols-outlined">post_add</span> Posts</a></li>
+          <li><a href="#events" class="hover:text-blue-600 font-semibold flex items-center gap-2"><span class="material-symbols-outlined">event</span> Events</a></li>
+          <li><a href="#students" class="hover:text-blue-600 font-semibold flex items-center gap-2"><span class="material-symbols-outlined">group</span> Student Records</a></li>
+          <li><a href="#files" class="hover:text-blue-600 font-semibold flex items-center gap-2"><span class="material-symbols-outlined">folder</span> Files</a></li>
+        </ul>
+      </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="flex-1 p-6 space-y-8">
+      <!-- Profile Section -->
+      <section id="dashboard" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up">
+        <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
+          <img id="profileLogoLarge" src="https://ui-avatars.com/api/?name=Madrasa" alt="Logo" class="h-28 w-28 rounded-full border-4 border-blue-500 shadow" />
+          <div>
+            <h1 id="profileNameLarge" class="text-2xl font-bold mb-1">Madrasa Name</h1>
+            <p id="profileContact" class="text-gray-600 dark:text-gray-300 mb-1">Contact: --</p>
+            <p id="profileEmail" class="text-gray-600 dark:text-gray-300 mb-1">Email: --</p>
+            <p id="profileAddress" class="text-gray-600 dark:text-gray-300 mb-1">Address: --</p>
+            <p id="profileMissionLarge" class="text-gray-700 dark:text-gray-400 italic mt-2">"Our mission statement goes here."</p>
+          </div>
+        </div>
+      </section>
+      <!-- Posts Section -->
+      <section id="posts" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up">
+        <h2 class="text-xl font-bold mb-4">Posts & Updates</h2>
+        <!-- Post Form -->
+        <form id="postForm" class="mb-6 flex flex-col gap-3">
+          <textarea id="postText" class="rounded border-gray-300 dark:bg-gray-900 dark:text-gray-100 p-2" rows="2" placeholder="Share an update, event, or achievement..." required></textarea>
+          <input id="postMedia" type="file" accept="image/*,video/*" multiple class="block" />
+          <button type="submit" class="self-end bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Post</button>
+        </form>
+        <!-- Posts Feed -->
+        <div id="postsFeed" class="space-y-4"></div>
+      </section>
+      <!-- Events Section -->
+      <section id="events" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up">
+        <h2 class="text-xl font-bold mb-4">Events & Calendar</h2>
+        <form id="eventForm" class="flex flex-col md:flex-row gap-3 mb-4">
+          <input type="text" id="eventTitle" class="rounded border-gray-300 dark:bg-gray-900 dark:text-gray-100 p-2 flex-1" placeholder="Event Title" required />
+          <input type="date" id="eventDate" class="rounded border-gray-300 dark:bg-gray-900 dark:text-gray-100 p-2" required />
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Add Event</button>
+        </form>
+        <ul id="eventsList" class="space-y-2"></ul>
+      </section>
+      <!-- Notifications Section -->
+      <section id="notifications" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up">
+        <h2 class="text-xl font-bold mb-4">Notifications</h2>
+        <ul id="notificationsList" class="space-y-2"></ul>
+      </section>
+      <!-- Student Records Section -->
+      <section id="students" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up">
+        <h2 class="text-xl font-bold mb-4">Student Records</h2>
+        <form id="studentForm" class="flex flex-col md:flex-row gap-3 mb-4">
+          <input type="text" id="studentName" class="rounded border-gray-300 dark:bg-gray-900 dark:text-gray-100 p-2 flex-1" placeholder="Student Name" required />
+          <input type="text" id="studentClass" class="rounded border-gray-300 dark:bg-gray-900 dark:text-gray-100 p-2 flex-1" placeholder="Class/Section" required />
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Add Student</button>
+        </form>
+        <ul id="studentsList" class="space-y-2"></ul>
+      </section>
+      <!-- Files Section -->
+      <section id="files" class="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-aos="fade-up">
+        <h2 class="text-xl font-bold mb-4">Files & Assignments</h2>
+        <form id="fileForm" class="flex flex-col md:flex-row gap-3 mb-4">
+          <input type="text" id="fileTitle" class="rounded border-gray-300 dark:bg-gray-900 dark:text-gray-100 p-2 flex-1" placeholder="File Title" required />
+          <input type="file" id="fileUpload" class="block" required />
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Upload</button>
+        </form>
+        <ul id="filesList" class="space-y-2"></ul>
+      </section>
+    </main>
+  </div>
+  <!-- AOS Animation JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Alpine.js for dark mode toggle (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <!-- Icons (Google Material Symbols) -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    // --- Load correct madrasa info by code from registered madaris ---
+    function getMadarsaCode() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('code')) {
+        localStorage.setItem('currentMadarsaCode', params.get('code'));
+        return params.get('code');
+      }
+      return localStorage.getItem('currentMadarsaCode') || '';
+    }
+    const madarsaCode = getMadarsaCode();
+
+    function loadMadarsa() {
+      const schools = JSON.parse(localStorage.getItem('registeredSchools') || '[]');
+      return schools.find(s => s.code === madarsaCode) || {};
+    }
+    let madrasaProfile = loadMadarsa();
+
+    // Fallback for demo if not found
+    if (!madrasaProfile.code) {
+      madrasaProfile = {
+        "logo": "https://ui-avatars.com/api/?name=Madrasa",
+        "name": "Al-Huffaz School",
+        "principal": "Maulana Ahmad",
+        "mission": "To provide quality Islamic and modern education.",
+        "contact": "+92 300 1234567",
+        "email": "info@alhuffaz.edu.pk",
+        "address": "123 Main Road, Karachi"
+      };
+    }
+
+    // Set profile info
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('profileLogo').src = madrasaProfile.logo || "https://ui-avatars.com/api/?name=" + encodeURIComponent(madrasaProfile.name || "Madrasa");
+      document.getElementById('profileLogoLarge').src = madrasaProfile.logo || "https://ui-avatars.com/api/?name=" + encodeURIComponent(madrasaProfile.name || "Madrasa");
+      document.getElementById('profileName').textContent = madrasaProfile.name;
+      document.getElementById('profileNameLarge').textContent = madrasaProfile.name;
+      document.getElementById('profilePrincipal').textContent = "Principal: " + (madrasaProfile.principal || "--");
+      document.getElementById('profileMission').textContent = '"' + (madrasaProfile.mission || "") + '"';
+      document.getElementById('profileMissionLarge').textContent = '"' + (madrasaProfile.mission || "") + '"';
+      document.getElementById('profileContact').textContent = "Contact: " + (madrasaProfile.contact || "--");
+      document.getElementById('profileEmail').textContent = "Email: " + (madrasaProfile.email || "--");
+      document.getElementById('profileAddress').textContent = "Address: " + (madrasaProfile.address || "--");
+      renderPosts();
+      renderEvents();
+      renderNotifications();
+      renderStudents();
+      renderFiles();
+    });
+
+    // --- Posts ---
+    function getPosts() {
+      return JSON.parse(localStorage.getItem('madrasaPosts_' + madarsaCode) || '[]');
+    }
+    function savePosts(posts) {
+      localStorage.setItem('madrasaPosts_' + madarsaCode, JSON.stringify(posts));
+    }
+    function renderPosts() {
+      const posts = getPosts();
+      const feed = document.getElementById('postsFeed');
+      feed.innerHTML = '';
+      if (!posts.length) {
+        feed.innerHTML = `<div class="text-gray-400 text-center">No posts yet.</div>`;
+        return;
+      }
+      posts.slice().reverse().forEach((post, idx) => {
+        const div = document.createElement('div');
+        div.className = 'border rounded-lg p-4 bg-gray-50 dark:bg-gray-900';
+        div.innerHTML = `
+          <div class="flex items-center gap-2 mb-2">
+            <img src="${madrasaProfile.logo}" class="h-8 w-8 rounded-full" alt="logo">
+            <span class="font-semibold">${madrasaProfile.name}</span>
+            <span class="ml-auto text-xs text-gray-400">${post.date}</span>
+          </div>
+          <div class="mb-2">${post.text}</div>
+          <div class="flex gap-2 flex-wrap mb-2">
+            ${post.media.map(m => m.type.startsWith('image') ? `<img src="${m.url}" class="h-20 rounded" alt="media">` : `<video src="${m.url}" controls class="h-20 rounded"></video>`).join('')}
+          </div>
+          <div class="flex gap-4 text-sm">
+            <button onclick="likePost(${posts.length-1-idx})" class="text-blue-600 hover:underline"><span class="material-symbols-outlined align-middle">thumb_up</span> Like (${post.likes || 0})</button>
+            <button onclick="commentPrompt(${posts.length-1-idx})" class="text-green-600 hover:underline"><span class="material-symbols-outlined align-middle">chat</span> Comment (${(post.comments||[]).length})</button>
+          </div>
+          <div class="mt-2 space-y-1">
+            ${(post.comments||[]).map(c => `<div class="text-xs text-gray-600 dark:text-gray-300"><b>${c.user}:</b> ${c.text}</div>`).join('')}
+          </div>
+        `;
+        feed.appendChild(div);
+      });
+    }
+
+    document.getElementById('postForm').onsubmit = function(e) {
+      e.preventDefault();
+      const text = document.getElementById('postText').value.trim();
+      const mediaInput = document.getElementById('postMedia');
+      if (!text && (!mediaInput.files || !mediaInput.files.length)) {
+        alert('Write something or add a photo/video.');
+        return;
+      }
+      const posts = getPosts();
+      const date = new Date().toLocaleString();
+      const mediaFiles = [];
+      if (mediaInput.files && mediaInput.files.length) {
+        let filesLoaded = 0;
+        for (let i = 0; i < mediaInput.files.length; i++) {
+          const file = mediaInput.files[i];
+          const reader = new FileReader();
+          reader.onload = function(evt) {
+            mediaFiles.push({ url: evt.target.result, type: file.type });
+            filesLoaded++;
+            if (filesLoaded === mediaInput.files.length) {
+              posts.push({ text, media: mediaFiles, date, likes: 0, comments: [] });
+              savePosts(posts);
+              renderPosts();
+              document.getElementById('postText').value = '';
+              mediaInput.value = '';
+            }
+          };
+          reader.readAsDataURL(file);
+        }
+      } else {
+        posts.push({ text, media: [], date, likes: 0, comments: [] });
+        savePosts(posts);
+        renderPosts();
+        document.getElementById('postText').value = '';
+        mediaInput.value = '';
+      }
+    };
+
+    function likePost(idx) {
+      const posts = getPosts();
+      posts[idx].likes = (posts[idx].likes || 0) + 1;
+      savePosts(posts);
+      renderPosts();
+    }
+    function commentPrompt(idx) {
+      const user = prompt("Your name:");
+      if (!user) return;
+      const text = prompt("Your comment:");
+      if (!text) return;
+      const posts = getPosts();
+      posts[idx].comments = posts[idx].comments || [];
+      posts[idx].comments.push({ user, text });
+      savePosts(posts);
+      renderPosts();
+    }
+
+    // --- Events ---
+    function getEvents() {
+      return JSON.parse(localStorage.getItem('madrasaEvents_' + madarsaCode) || '[]');
+    }
+    function saveEvents(events) {
+      localStorage.setItem('madrasaEvents_' + madarsaCode, JSON.stringify(events));
+    }
+    function renderEvents() {
+      const events = getEvents();
+      const list = document.getElementById('eventsList');
+      list.innerHTML = '';
+      if (!events.length) {
+        list.innerHTML = `<li class="text-gray-400">No events yet.</li>`;
+        return;
+      }
+      events.slice().reverse().forEach(ev => {
+        const li = document.createElement('li');
+        li.className = 'border rounded p-2 bg-gray-50 dark:bg-gray-900';
+        li.innerHTML = `<b>${ev.title}</b> <span class="text-xs text-gray-400">(${ev.date})</span>`;
+        list.appendChild(li);
+      });
+    }
+
+    document.getElementById('eventForm').onsubmit = function(e) {
+      e.preventDefault();
+      const title = document.getElementById('eventTitle').value.trim();
+      const date = document.getElementById('eventDate').value;
+      if (!title || !date) return;
+      const events = getEvents();
+      events.push({ title, date });
+      saveEvents(events);
+      renderEvents();
+      document.getElementById('eventTitle').value = '';
+      document.getElementById('eventDate').value = '';
+      addNotification(`New event added: ${title} (${date})`);
+    };
+
+    // --- Notifications ---
+    function getNotifications() {
+      return JSON.parse(localStorage.getItem('madrasaNotifications_' + madarsaCode) || '[]');
+    }
+    function saveNotifications(notifs) {
+      localStorage.setItem('madrasaNotifications_' + madarsaCode, JSON.stringify(notifs));
+    }
+    function renderNotifications() {
+      const notifs = getNotifications();
+      const list = document.getElementById('notificationsList');
+      list.innerHTML = '';
+      if (!notifs.length) {
+        list.innerHTML = `<li class="text-gray-400">No notifications.</li>`;
+        return;
+      }
+      notifs.slice().reverse().forEach(n => {
+        const li = document.createElement('li');
+        li.className = 'border rounded p-2 bg-gray-50 dark:bg-gray-900';
+        li.textContent = n;
+        list.appendChild(li);
+      });
+    }
+
+    function addNotification(msg) {
+      const notifs = getNotifications();
+      notifs.push(msg);
+      saveNotifications(notifs);
+      renderNotifications();
+    }
+
+    // --- Student Records ---
+    function getStudents() {
+      return JSON.parse(localStorage.getItem('madrasaStudents_' + madarsaCode) || '[]');
+    }
+    function saveStudents(students) {
+      localStorage.setItem('madrasaStudents_' + madarsaCode, JSON.stringify(students));
+    }
+    function renderStudents() {
+      const students = getStudents();
+      const list = document.getElementById('studentsList');
+      list.innerHTML = '';
+      if (!students.length) {
+        list.innerHTML = `<li class="text-gray-400">No students added yet.</li>`;
+        return;
+      }
+      students.slice().reverse().forEach(stu => {
+        const li = document.createElement('li');
+        li.className = 'border rounded p-2 bg-gray-50 dark:bg-gray-900';
+        li.innerHTML = `<b>${stu.name}</b> <span class="text-xs text-gray-400">(${stu.class})</span>`;
+        list.appendChild(li);
+      });
+    }
+
+    document.getElementById('studentForm').onsubmit = function(e) {
+      e.preventDefault();
+      const name = document.getElementById('studentName').value.trim();
+      const cls = document.getElementById('studentClass').value.trim();
+      if (!name || !cls) return;
+      const students = getStudents();
+      students.push({ name, class: cls });
+      saveStudents(students);
+      renderStudents();
+      document.getElementById('studentName').value = '';
+      document.getElementById('studentClass').value = '';
+      addNotification(`New student added: ${name} (${cls})`);
+    };
+
+    // --- Files/Assignments ---
+    function getFiles() {
+      return JSON.parse(localStorage.getItem('madrasaFiles_' + madarsaCode) || '[]');
+    }
+    function saveFiles(files) {
+      localStorage.setItem('madrasaFiles_' + madarsaCode, JSON.stringify(files));
+    }
+    function renderFiles() {
+      const files = getFiles();
+      const list = document.getElementById('filesList');
+      list.innerHTML = '';
+      if (!files.length) {
+        list.innerHTML = `<li class="text-gray-400">No files uploaded yet.</li>`;
+        return;
+      }
+      files.slice().reverse().forEach(f => {
+        const li = document.createElement('li');
+        li.className = 'border rounded p-2 bg-gray-50 dark:bg-gray-900 flex items-center gap-2';
+        li.innerHTML = `<span class="material-symbols-outlined">description</span> <b>${f.title}</b> <a href="${f.url}" download class="ml-auto text-blue-600 hover:underline">Download</a>`;
+        list.appendChild(li);
+      });
+    }
+
+    document.getElementById('fileForm').onsubmit = function(e) {
+      e.preventDefault();
+      const title = document.getElementById('fileTitle').value.trim();
+      const fileInput = document.getElementById('fileUpload');
+      if (!title || !fileInput.files.length) return;
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const files = getFiles();
+        files.push({ title, url: evt.target.result });
+        saveFiles(files);
+        renderFiles();
+        document.getElementById('fileTitle').value = '';
+        fileInput.value = '';
+        addNotification(`New file uploaded: ${title}`);
+      };
+      reader.readAsDataURL(file);
+    };
+
+    // --- Accessibility: Focus outline for keyboard users ---
+    document.body.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') document.body.classList.add('outline-none');
+    });
+  </script>
+</body>
+</html>
