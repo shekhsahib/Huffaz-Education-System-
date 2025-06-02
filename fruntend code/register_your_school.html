@@ -557,6 +557,7 @@
       </div>
     </form>
   </div>
+  
   <script>
     // --- Madarsa Code Logic (starts from 1001 and increments) ---
     function getNextMadarsaCode() {
@@ -645,54 +646,62 @@
 
     // Submit logic
     document.getElementById('regForm').onsubmit = function(e) {
-      e.preventDefault();
-      const logoInput = document.getElementById('logo');
-      const madarsaPicInput = document.getElementById('madarsa_pic');
-      let logoDataUrl = '';
-      let madarsaPicDataUrl = '';
-      const readFiles = [];
-      if (logoInput.files && logoInput.files[0]) {
-        readFiles.push(new Promise(resolve => {
-          const reader = new FileReader();
-          reader.onload = evt => { logoDataUrl = evt.target.result; resolve(); };
-          reader.readAsDataURL(logoInput.files[0]);
-        }));
-      }
-      if (madarsaPicInput.files && madarsaPicInput.files[0]) {
-        readFiles.push(new Promise(resolve => {
-          const reader = new FileReader();
-          reader.onload = evt => { madarsaPicDataUrl = evt.target.result; resolve(); };
-          reader.readAsDataURL(madarsaPicInput.files[0]);
-        }));
-      }
-      Promise.all(readFiles).then(() => {
-        const newSchool = {
-          code: madarsaCode,
-          password: document.getElementById('madarsa_password').value,
-          name: document.getElementById('school_name').value,
-          principal: document.getElementById('principal_name').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          city: document.getElementById('city').value,
-          address: document.getElementById('address').value,
-          location: document.getElementById('location').value,
-          students: document.getElementById('students').value,
-          teachers: document.getElementById('teachers').value,
-          logo: logoDataUrl,
-          madarsaPic: madarsaPicDataUrl
-        };
-        // Save to localStorage (or send to backend)
-        const schools = JSON.parse(localStorage.getItem('registeredSchools') || '[]');
-        schools.push(newSchool);
-        localStorage.setItem('registeredSchools', JSON.stringify(schools));
-        document.getElementById('successMsg').style.display = 'block';
-        document.getElementById('submitBtn').disabled = true;
-        // Prepare next code for next registration
-        madarsaCodeNum = getNextMadarsaCode();
-        madarsaCode = 'MDRS-' + madarsaCodeNum;
-        document.getElementById('madarsaCodeBox').textContent = madarsaCode;
-      });
+  e.preventDefault();
+  const logoInput = document.getElementById('logo');
+  const madarsaPicInput = document.getElementById('madarsa_pic');
+  let logoDataUrl = '';
+  let madarsaPicDataUrl = '';
+
+  const readLogo = new Promise(resolve => {
+    if (logoInput && logoInput.files && logoInput.files[0]) {
+      const reader = new FileReader();
+      reader.onload = evt => { logoDataUrl = evt.target.result; resolve(); };
+      reader.readAsDataURL(logoInput.files[0]);
+    } else {
+      resolve();
+    }
+  });
+  const readMadarsaPic = new Promise(resolve => {
+    if (madarsaPicInput && madarsaPicInput.files && madarsaPicInput.files[0]) {
+      const reader = new FileReader();
+      reader.onload = evt => { madarsaPicDataUrl = evt.target.result; resolve(); };
+      reader.readAsDataURL(madarsaPicInput.files[0]);
+    } else {
+      resolve();
+    }
+  });
+
+  Promise.all([readLogo, readMadarsaPic]).then(() => {
+    const newSchool = {
+      code: madarsaCode,
+      password: document.getElementById('madarsa_password').value,
+      name: document.getElementById('school_name').value,
+      principal: document.getElementById('principal_name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      city: document.getElementById('city').value,
+      address: document.getElementById('address').value,
+      location: document.getElementById('location').value,
+      students: document.getElementById('students').value,
+      teachers: document.getElementById('teachers').value,
+      logo: logoDataUrl,
+      madarsaPic: madarsaPicDataUrl
     };
+    const schools = JSON.parse(localStorage.getItem('registeredSchools') || '[]');
+    schools.push(newSchool);
+    localStorage.setItem('registeredSchools', JSON.stringify(schools));
+    localStorage.setItem('currentMadarsaCode', madarsaCode); // Set current admin madarsa
+    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('submitBtn').disabled = true;
+    // Prepare next code for next registration
+    madarsaCodeNum = getNextMadarsaCode();
+    madarsaCode = 'MDRS-' + madarsaCodeNum;
+    document.getElementById('madarsaCodeBox').textContent = madarsaCode;
+
+    // OPTIONAL: If you want to show in sidebar immediately (if you have a sidebar)
+    if (typeof renderSidebarMadaris === "function") renderSidebarMadaris();
+  });
+};
   </script>
 </body>
 </html>

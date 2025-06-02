@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registered Madaris | Huffaz Education System</title>
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <style>
+    /* ...existing styles... */
+    .madaris-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .madaris-list-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: linear-gradient(90deg, #232a34 80%, #66b2ff22 100%);
+      border-radius: 14px;
+      margin-bottom: 18px;
+      padding: 18px 18px;
+      box-shadow: 0 2px 12px #66b2ff22;
+      position: relative;
+      border: 1.5px solid #232a34;
+    }
+    .madaris-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 10px;
+      object-fit: cover;
+      background: #232a34;
+      box-shadow: 0 2px 8px #66b2ff22;
+      border: 2px solid #232a34;
+    }
+    .madaris-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #eaeaea;
+      word-break: break-word;
+    }
+    .unregister-btn {
+      margin-left: auto;
+      background: #ff4d4f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .unregister-btn:hover, .unregister-btn:focus {
+      background: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- ...existing header code... -->
+    <div class="header-menu-dropdown">
+      <button id="headerMenuBtn" aria-label="More">
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+      </button>
+      <div id="headerMenuList">
+        <a href="registered madaris.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">how_to_reg</span>
+          Registered Madaris
+        </a>
+        <!-- ...rest of menu... -->
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="madaris-main-container">
+      <div class="madaris-title">
+        <span class="material-symbols-outlined">how_to_reg</span>
+        Registered Madaris
+      </div>
+      <ul class="madaris-list" id="madarisList"></ul>
+      <div id="deleteStatus"></div>
+    </div>
+  </main>
+<script>
+  // Hamburger menu logic (unchanged)
+  const menuBtn = document.getElementById('headerMenuBtn');
+  const menuList = document.getElementById('headerMenuList');
+  menuBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    menuList.style.display = menuList.style.display === 'block' ? 'none' : 'block';
+  });
+  document.addEventListener('click', function(e) {
+    if (menuList.style.display === 'block' && !menuList.contains(e.target) && e.target !== menuBtn) {
+      menuList.style.display = 'none';
+    }
+  });
+  menuBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      menuBtn.click();
+    }
+  });
+
+  // Language switcher (demo only)
+  function setLang(lang) {
+    alert(lang === 'ur' ? 'ابھی اردو زبان منتخب کی گئی ہے۔ (Demo)' : 'English language selected. (Demo)');
+  }
+
+  // Madaris list logic
+  function loadSchools() {
+    try {
+      return JSON.parse(localStorage.getItem('registeredSchools') || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function renderMadarisList() {
+    const container = document.getElementById('madarisList');
+    const schools = loadSchools();
+    if (!schools.length) {
+      container.innerHTML = '<div style="color:#b0e1ff;text-align:center;margin:32px 0;">No madaris registered yet.</div>';
+      return;
+    }
+    container.innerHTML = schools.map(s => `
+      <li class="madaris-list-item">
+        <img class="madaris-logo" src="${s.logo || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(s.name)}" alt="Logo" />
+        <div class="madaris-name">${s.name}</div>
+        <button class="unregister-btn" onclick="unregisterMadarsa('${s.code}')">Unregister your madarsa</button>
+      </li>
+    `).join('');
+  }
+
+  function unregisterMadarsa(code) {
+    document.getElementById('deleteStatus').textContent = "";
+    const password = prompt("Enter your Madarsa Password:");
+    if (!password) return;
+
+    let schools = loadSchools();
+    const madarsa = schools.find(s => s.code === code);
+
+    if (!madarsa) {
+      document.getElementById('deleteStatus').textContent = "Madarsa code not found.";
+      return;
+    }
+    if (madarsa.password !== password) {
+      document.getElementById('deleteStatus').textContent = "Incorrect password.";
+      return;
+    }
+    if (!confirm("Are you sure you want to unregister this madarsa? This cannot be undone.")) return;
+
+    schools = schools.filter(s => s.code !== code);
+    localStorage.setItem('registeredSchools', JSON.stringify(schools));
+    document.getElementById('deleteStatus').textContent = "Madarsa has been unregistered.";
+    renderMadarisList();
+    setTimeout(() => {
+      document.getElementById('deleteStatus').textContent = "";
+    }, 2000);
+  }
+
+  window.unregisterMadarsa = unregisterMadarsa;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderMadarisList();
+  });
+</script>
+</body>
+</html>
