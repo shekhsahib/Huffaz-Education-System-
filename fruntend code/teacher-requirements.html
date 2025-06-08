@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teacher Requirements | Huffaz Education Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', 'Assistant', Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #181c24 0%, #232a34 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* Header Styles */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(26, 26, 26, 0.98);
+      padding: 16px 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+      border-bottom: 1.5px solid #2b3442;
+      backdrop-filter: blur(4px);
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .logo_container {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .Huffaz_logo img {
+      height: 54px;
+      display: block;
+      border-radius: 10px;
+      padding: 2px 6px;
+    }
+    .book_logo {
+      text-decoration: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      margin-left: 1px;
+    }
+    .book_logo .material-symbols-outlined {
+      font-size: 38px;
+      color: #66b2ff;
+      background: none;
+      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav_bar {
+      display: flex;
+      gap: 0px;
+      flex-wrap: wrap;
+    }
+    .nav_bar a,
+    .action_bar a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 15px;
+      color: #eaeaea;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+      letter-spacing: 1px;
+    }
+    .nav_bar a:hover,
+    .action_bar a:hover {
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      box-shadow: 0 2px 12px #66b2ff22;
+    }
+    .registered-count {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 10px;
+      padding: 10px 18px;
+      margin-left: 18px;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px #66b2ff22;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .registered-count .material-symbols-outlined {
+      font-size: 22px;
+      margin-right: 2px;
+      color: #66b2ff;
+    }
+    .registered-count:hover {
+      background: linear-gradient(90deg, #559ed6 0%, #232a34 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px #66b2ff44;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #232a34;
+      border-radius: 24px;
+      padding: 6px 16px;
+      width: 340px;
+      border: 1.5px solid #2b3442;
+      transition: border 0.3s;
+    }
+    .search-bar:hover,
+    .search-bar:focus-within {
+      border-color: #66b2ff;
+    }
+    .search-input {
+      border: none;
+      background: transparent;
+      flex-grow: 1;
+      outline: none;
+      color: #f3f6fa;
+      font-size: 15px;
+      padding: 6px 0;
+    }
+    .search-input::placeholder {
+      color: #b0b8c1;
+      opacity: 0.8;
+    }
+    .material-symbols-outlined {
+      color: #66b2ff;
+      font-size: 22px;
+      margin-right: 6px;
+    }
+    .header-menu-dropdown {
+      margin-left: 18px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    #headerMenuBtn {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      transition: background 0.18s;
+    }
+    /* #headerMenuBtn:hover,
+    #headerMenuBtn:focus {
+      background: #232a34;
+      outline: 2px solid #66b2ff;
+    } */
+    .header-menu-icon-bar {
+      width: 22px;
+      height: 3px;
+      background: #66b2ff;
+      border-radius: 2px;
+      display: block;
+      margin: 0;
+      transition: background 0.2s;
+    }
+    #headerMenuList {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 44px;
+      min-width: 240px;
+      background: #232a34;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px #232a3440;
+      padding: 10px 0;
+      z-index: 1001;
+      animation: fadeInMenu 0.18s;
+    }
+    #headerMenuList a,
+    #headerMenuList button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      color: #eaeaea;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+    }
+    #headerMenuList a:hover,
+    #headerMenuList button:hover {
+      background: #181c24;
+      color: #66b2ff;
+    }
+    #headerMenuList {
+      animation: fadeInMenu 0.18s;
+    }
+    @keyframes fadeInMenu {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 700px) {
+      .header-menu-dropdown {
+        margin-left: 6px;
+      }
+      #headerMenuList {
+        min-width: 150px;
+        right: 0;
+        top: 38px;
+      }
+      #headerMenuList a, #headerMenuList button {
+        font-size: 0.98rem;
+        padding: 10px 12px;
+      }
+    }
+    .page-title {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 32px;
+      color: #66b2ff;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #66b2ff 0%, #1a56db 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+      background-size: cover;
+      opacity: 0.15;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: white;
+      font-weight: 700;
+      line-height: 1.2;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: white;
+      color: #1a56db;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 700;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Stats Section */
+    .stats-section {
+      padding: 60px 0;
+    }
+
+    .stats-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
+      border: 1.5px solid #2b3442;
+      border-radius: 16px;
+      padding: 32px 18px 28px 18px;
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.2s;
+      color: #f3f6fa;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      animation: fadeInUp 1.1s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px #66b2ff33;
+      background: linear-gradient(135deg, #232a34 40%, #66b2ff22 100%);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #66b2ff;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: #b0b8c1;
+      font-weight: 500;
+    }
+
+    /* Application Portal */
+    .section {
+      padding: 80px 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #66b2ff;
+      margin-bottom: 16px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .section-title p {
+      color: #b0b8c1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .portal {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 60px;
+    }
+
+    /* Application Form */
+    .application-form {
+      background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
+      border: 1.5px solid #2b3442;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 2px 16px #232a3422;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .application-form:hover {
+      box-shadow: 0 8px 32px #66b2ff33;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #f3f6fa;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 20px;
+      border: 1.5px solid #2b3442;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      background: #232a34;
+      color: #f3f6fa;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #66b2ff;
+      box-shadow: 0 0 0 3px rgba(102, 178, 255, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    /* Progress Steps */
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .progress-steps:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #2b3442;
+      z-index: 1;
+    }
+
+    .progress-step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #2b3442;
+      color: #b0b8c1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+      border: 2px solid #232a34;
+    }
+
+    .step-number.active {
+      background-color: #66b2ff;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 0 0 3px rgba(102, 178, 255, 0.3);
+    }
+
+    .step-number.completed {
+      background-color: #059669;
+      color: white;
+    }
+
+    .step-number.completed::after {
+      content: '✓';
+      position: absolute;
+      font-size: 0.7em;
+      bottom: -5px;
+      right: -5px;
+      background: #232a34;
+      color: #059669;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #059669;
+    }
+
+    .step-label {
+      font-size: 0.875rem;
+      color: #b0b8c1;
+      font-weight: 600;
+    }
+
+    .step-label.active {
+      color: #66b2ff;
+    }
+
+    /* Form Actions */
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #66b2ff 0%, #1a56db 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px 0 rgba(102, 178, 255, 0.2);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #66b2ff;
+      border: 1.5px solid #66b2ff;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(102, 178, 255, 0.1);
+    }
+
+    /* Application Dashboard */
+    .dashboard {
+      background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
+      border: 1.5px solid #2b3442;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 2px 16px #232a3422;
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .dashboard:hover {
+      box-shadow: 0 8px 32px #66b2ff33;
+    }
+
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1.5px solid #2b3442;
+    }
+
+    .dashboard-title {
+      font-size: 1.25rem;
+      color: #f3f6fa;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .application-card {
+      background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
+      border: 1.5px solid #2b3442;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 16px #232a3422;
+      border-left: 4px solid #66b2ff;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .application-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 32px #66b2ff33;
+    }
+
+    .application-card.expanded {
+      border-left-color: #059669;
+      background: linear-gradient(135deg, #232a34 40%, rgba(5, 150, 105, 0.1) 100%);
+    }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .app-title {
+      font-weight: 700;
+      color: #f3f6fa;
+    }
+
+    .app-status {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 1rem;
+      background-color: #2b3442;
+      color: #b0b8c1;
+    }
+
+    .app-status.submitted {
+      background-color: rgba(102, 178, 255, 0.1);
+      color: #66b2ff;
+    }
+
+    .app-status.reviewed {
+      background-color: rgba(5, 150, 105, 0.1);
+      color: #059669;
+    }
+
+    .app-status.interview {
+      background-color: rgba(217, 119, 6, 0.1);
+      color: #d97706;
+    }
+
+    .app-meta {
+      font-size: 0.875rem;
+      color: #b0b8c1;
+      margin-bottom: 16px;
+    }
+
+    .app-details {
+      display: none;
+      margin-top: 20px;
+      font-size: 0.875rem;
+      color: #f3f6fa;
+    }
+
+    .application-card.expanded .app-details {
+      display: block;
+    }
+
+    .app-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .feature-card {
+      background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
+      border: 1.5px solid #2b3442;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 2px 16px #232a3422;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 32px #66b2ff33;
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      color: #f3f6fa;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-title i {
+      color: #66b2ff;
+      font-size: 1.5rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: #181c24;
+      color: white;
+      padding: 80px 0 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 60px;
+    }
+
+    .footer-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-link {
+      margin-bottom: 16px;
+    }
+
+    .footer-link a {
+      color: #b0b8c1;
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-link a:hover {
+      color: #66b2ff;
+    }
+
+    .footer-link .material-symbols-outlined {
+      font-size: 1.25rem;
+      color: #66b2ff;
+    }
+
+    .footer-bottom {
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 1.5px solid #2b3442;
+      text-align: center;
+      color: #b0b8c1;
+      font-size: 0.875rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .portal {
+        grid-template-columns: 1fr;
+      }
+      
+      .dashboard {
+        position: static !important;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 24px;
+      }
+      
+      .nav_bar {
+        display: none;
+      }
+      
+      .search-bar {
+        width: auto;
+        flex-grow: 1;
+        margin: 0 12px;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .progress-steps {
+        gap: 10px;
+      }
+      
+      .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+      }
+      
+      .step-label {
+        font-size: 0.75rem;
+      }
+      
+      .application-form, .dashboard {
+        padding: 30px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 10px 8px;
+      }
+      
+      .search-bar {
+        width: 100%;
+        margin-top: 8px;
+      }
+      
+      .nav_bar {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo_container">
+      <a href="main.html" class="Huffaz_logo">
+        <img src="image's/Huffaz Logo.png" alt="Huffaz Logo">
+      </a>
+      <a href="main.html" class="book_logo" aria-label="Book Home" style="text-decoration: none;">
+        <span class="material-symbols-outlined">menu_book</span>
+      </a>
+    </div>
+    <nav class="nav_bar">
+      <a href="main.html"><span class="material-symbols-outlined">home</span> Home</a>
+      <a href="courses.html"><span class="material-symbols-outlined">import_contacts</span> Courses</a>
+      <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
+      <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
+      <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+      <a href="teacher-requirements.html"><span class="material-symbols-outlined" style="color:#66b2ff;">person</span> For Teachers</a>
+    </nav>
+    <div class="search-bar">
+      <span class="material-symbols-outlined">search</span>
+      <input class="search-input" type="text" placeholder="Search for Education" />
+    </div>
+    <!-- 3 lines menu -->
+    <div class="header-menu-dropdown">
+      <button id="headerMenuBtn" aria-label="More">
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+      </button>
+      <div id="headerMenuList">
+        <a href="registered madaris.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">how_to_reg</span>
+          Registered Madaris
+        </a>
+        <div style="padding:0 22px 8px 22px;">
+          <div style="color:#b0e1ff;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:#66b2ff;">language</span>
+            Language
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button class="lang-btn" onclick="setLang('en')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">English</button>
+            <button class="lang-btn" onclick="setLang('ur')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">اردو</button>
+          </div>
+        </div>
+        <a href="Events and workshops.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">event</span>
+          Events & Workshops
+        </a>
+        <a href="student_portal.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">person</span>
+          Student Portal
+        </a>
+        <a href="contact.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">support_agent</span>
+          Support
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <h1 class="hero-title">Join Our Network of Islamic Educators</h1>
+      <p class="hero-subtitle">Teach at prestigious Huffaz-affiliated madaris across Pakistan. Share your knowledge and help shape the future of Islamic education.</p>
+      <a href="#apply" class="hero-cta">
+        <span class="material-symbols-outlined">edit</span>
+        Apply Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Application Portal -->
+  <section id="apply" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Teacher Application Form</h2>
+        <p>Complete your application to join our network of Islamic educators</p>
+      </div>
+      
+      <div class="portal">
+        <!-- Application Form -->
+        <div class="application-form">
+          <div class="progress-steps">
+            <div class="progress-step">
+              <div class="step-number active">1</div>
+              <div class="step-label active">Personal Info</div>
+            </div>
+            <div class="progress-step">
+              <div class="step-number">2</div>
+              <div class="step-label">Education</div>
+            </div>
+            <div class="progress-step">
+              <div class="step-number">3</div>
+              <div class="step-label">Experience</div>
+            </div>
+            <div class="progress-step">
+              <div class="step-number">4</div>
+              <div class="step-label">Review</div>
+            </div>
+          </div>
+          
+          <form id="teacherForm">
+            <!-- Step 1: Personal Information -->
+            <div class="form-step active" data-step="1">
+              <h3>Personal Information</h3>
+              <p>Tell us about yourself</p>
+              
+              <div class="form-group">
+                <div class="form-row">
+                  <div>
+                    <label for="firstName" class="form-label">First Name *</label>
+                    <input type="text" id="firstName" class="form-control" required>
+                  </div>
+                  <div>
+                    <label for="lastName" class="form-label">Last Name *</label>
+                    <input type="text" id="lastName" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address *</label>
+                <input type="email" id="email" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <div class="form-row">
+                  <div>
+                    <label for="phone" class="form-label">Phone Number *</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                  </div>
+                  <div>
+                    <label for="dob" class="form-label">Date of Birth *</label>
+                    <input type="date" id="dob" class="form-control" required>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="form-row">
+                  <div>
+                    <label for="gender" class="form-label">Gender *</label>
+                    <select id="gender" class="form-control" required>
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="maritalStatus" class="form-label">Marital Status</label>
+                    <select id="maritalStatus" class="form-control">
+                      <option value="">Select Status</option>
+                      <option value="single">Single</option>
+                      <option value="married">Married</option>
+                      <option value="divorced">Divorced</option>
+                      <option value="widowed">Widowed</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="form-row">
+                  <div>
+                    <label for="nationality" class="form-label">Nationality *</label>
+                    <input type="text" id="nationality" class="form-control" required>
+                  </div>
+                  <div>
+                    <label for="city" class="form-label">Current City *</label>
+                    <select id="city" class="form-control" required>
+                      <option value="">Select City</option>
+                      <option value="Karachi">Karachi</option>
+                      <option value="Lahore">Lahore</option>
+                      <option value="Islamabad">Islamabad</option>
+                      <option value="Rawalpindi">Rawalpindi</option>
+                      <option value="Faisalabad">Faisalabad</option>
+                      <option value="Multan">Multan</option>
+                      <option value="Peshawar">Peshawar</option>
+                      <option value="Quetta">Quetta</option>
+                      <option value="Hyderabad">Hyderabad</option>
+                      <option value="Gujranwala">Gujranwala</option>
+                      <option value="Sialkot">Sialkot</option>
+                      <option value="Sargodha">Sargodha</option>
+                      <option value="Bahawalpur">Bahawalpur</option>
+                      <option value="Sukkur">Sukkur</option>
+                      <option value="Jhang">Jhang</option>
+                      <option value="Sheikhupura">Sheikhupura</option>
+                      <option value="Mardan">Mardan</option>
+                      <option value="Gujrat">Gujrat</option>
+                      <option value="Larkana">Larkana</option>
+                      <option value="Kasur">Kasur</option>
+                      <option value="Rahim Yar Khan">Rahim Yar Khan</option>
+                      <option value="Sahiwal">Sahiwal</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="address" class="form-label">Full Address *</label>
+                <textarea id="address" class="form-control" rows="3" required></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="cnic" class="form-label">CNIC Number *</label>
+                <input type="text" id="cnic" class="form-control" placeholder="XXXXX-XXXXXXX-X" required>
+              </div>
+            </div>
+            
+            <!-- Step 2: Education -->
+            <div class="form-step" data-step="2">
+              <h3>Education Background</h3>
+              <p>Tell us about your educational qualifications</p>
+              
+              <div class="form-group">
+                <label class="form-label">Highest Degree Earned *</label>
+                <div class="degree-options">
+                  <div class="degree-card" onclick="selectDegree(this, 'hafiz')">
+                    <div class="degree-title">Hafiz-ul-Quran</div>
+                    <div class="degree-description">Complete memorization of the Holy Quran</div>
+                  </div>
+                  <div class="degree-card" onclick="selectDegree(this, 'alim')">
+                    <div class="degree-title">Alim/Alima Course</div>
+                    <div class="degree-description">Completed Alim/Alima course from recognized institution</div>
+                  </div>
+                  <div class="degree-card" onclick="selectDegree(this, 'dars-e-nizami')">
+                    <div class="degree-title">Dars-e-Nizami</div>
+                    <div class="degree-description">Traditional Islamic education curriculum</div>
+                  </div>
+                  <div class="degree-card" onclick="selectDegree(this, 'shahadatul-alimiya')">
+                    <div class="degree-title">Shahadatul Alimiya</div>
+                    <div class="degree-description">Advanced Islamic studies certification</div>
+                  </div>
+                  <div class="degree-card" onclick="selectDegree(this, 'bachelors')">
+                    <div class="degree-title">Bachelor's Degree</div>
+                    <div class="degree-description">BA, BSc, or equivalent university degree</div>
+                  </div>
+                  <div class="degree-card" onclick="selectDegree(this, 'masters')">
+                    <div class="degree-title">Master's Degree</div>
+                    <div class="degree-description">MA, MSc, or equivalent postgraduate degree</div>
+                  </div>
+                  <div class="degree-card" onclick="selectDegree(this, 'phd')">
+                    <div class="degree-title">PhD</div>
+                    <div class="degree-description">Doctorate degree in any field</div>
+                  </div>
+                  <div class="degree-card" onclick="selectDegree(this, 'other')">
+                    <div class="degree-title">Other Qualification</div>
+                    <div class="degree-description">Specify your qualification in institution field</div>
+                  </div>
+                </div>
+                <input type="hidden" id="highestDegree" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="institution" class="form-label">Institution Name *</label>
+                <input type="text" id="institution" class="form-control" placeholder="Name of your alma mater" required>
+              </div>
+              
+              <div class="form-group">
+                <div class="form-row">
+                  <div>
+                    <label for="fieldOfStudy" class="form-label">Field of Study *</label>
+                    <input type="text" id="fieldOfStudy" class="form-control" placeholder="e.g. Islamic Studies, Arabic, Physics" required>
+                  </div>
+                  <div>
+                    <label for="graduationYear" class="form-label">Graduation Year *</label>
+                    <input type="number" id="graduationYear" class="form-control" min="1950" max="2025" required>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="additionalQualifications" class="form-label">Additional Qualifications</label>
+                <textarea id="additionalQualifications" class="form-control" rows="3" placeholder="List any other relevant certifications or diplomas"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="certificates" class="form-label">Upload Certificates (PDF, max 5MB) *</label>
+                <input type="file" id="certificates" class="form-control" accept=".pdf" required>
+              </div>
+            </div>
+            
+            <!-- Step 3: Teaching Experience -->
+            <div class="form-step" data-step="3">
+              <h3>Teaching Experience</h3>
+              <p>Tell us about your teaching background and preferences</p>
+              
+              <div class="form-group">
+                <label for="yearsExperience" class="form-label">Years of Teaching Experience *</label>
+                <select id="yearsExperience" class="form-control" required>
+                  <option value="">Select</option>
+                  <option value="0-2">0-2 years</option>
+                  <option value="3-5">3-5 years</option>
+                  <option value="6-10">6-10 years</option>
+                  <option value="10+">10+ years</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Subjects You Can Teach *</label>
+                <p class="form-hint">Select all subjects you're qualified to teach</p>
+                <div class="subjects-container">
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="arabic"> Arabic Master
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="english"> English Master
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="physics"> Physics
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="chemistry"> Chemistry
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="math"> Mathematics
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="biology"> Biology
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="computer"> Computer Science
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="islamiat"> Islamiat
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="sindhi"> Sindhi
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="nahw"> نحو (Nahw)
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="sarf"> صرف (Sarf)
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="urdu"> Urdu
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="fiqh"> Fiqh
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="aqeedah"> Aqeedah
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="hadith"> Hadith
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="tajweed"> Tajweed
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="tafseer"> Tafseer
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="subject-tag">
+                    <input type="checkbox" name="subjects" value="history"> Islamic History
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="gradeLevels" class="form-label">Grade Levels You Prefer *</label>
+                <div class="form-row">
+                  <div>
+                    <label class="form-check-label">
+                      <input type="checkbox" name="gradeLevels" value="primary"> Primary (1-5)
+                    </label>
+                  </div>
+                  <div>
+                    <label class="form-check-label">
+                      <input type="checkbox" name="gradeLevels" value="middle"> Middle (6-8)
+                    </label>
+                  </div>
+                  <div>
+                    <label class="form-check-label">
+                      <input type="checkbox" name="gradeLevels" value="secondary"> Secondary (9-10)
+                    </label>
+                  </div>
+                  <div>
+                    <label class="form-check-label">
+                      <input type="checkbox" name="gradeLevels" value="higher-secondary"> Higher Secondary (11-12)
+                    </label>
+                  </div>
+                  <div>
+                    <label class="form-check-label">
+                      <input type="checkbox" name="gradeLevels" value="college"> College Level
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="previousSchools" class="form-label">Previous Teaching Experience</label>
+                <textarea id="previousSchools" class="form-control" rows="3" placeholder="List schools/madaris where you've previously taught"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="teachingPhilosophy" class="form-label">Teaching Philosophy</label>
+                <textarea id="teachingPhilosophy" class="form-control" rows="4" placeholder="Briefly describe your approach to teaching and education"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="references" class="form-label">Professional References</label>
+                <textarea id="references" class="form-control" rows="3" placeholder="Name, position, and contact of 2-3 references"></textarea>
+              </div>
+            </div>
+            
+            <!-- Step 4: Review & Submit -->
+            <div class="form-step" data-step="4">
+              <h3>Review Your Application</h3>
+              <p>Please review all information before submitting</p>
+              
+              <div class="form-group">
+                <h4>Personal Information</h4>
+                <div id="review-personal"></div>
+              </div>
+              
+              <div class="form-group">
+                <h4>Education Background</h4>
+                <div id="review-education"></div>
+              </div>
+              
+              <div class="form-group">
+                <h4>Teaching Experience</h4>
+                <div id="review-experience"></div>
+              </div>
+              
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="agreeTerms" class="form-check-input" required>
+                  <label for="agreeTerms" class="form-check-label">I certify that all information provided is accurate and complete *</label>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" id="consent" class="form-check-input" required>
+                  <label for="consent" class="form-check-label">I consent to my information being shared with Huffaz-affiliated institutions for recruitment purposes *</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button type="button" id="prevBtn" class="btn btn-outline">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Previous
+              </button>
+              <button type="button" id="nextBtn" class="btn btn-primary">
+                Next
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+              <button type="submit" id="submitBtn" class="btn btn-primary">
+                <span class="material-symbols-outlined">send</span>
+                Submit Application
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Application Dashboard -->
+        <div class="dashboard">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">
+              <span class="material-symbols-outlined">dashboard</span>
+              My Applications
+            </h3>
+          </div>
+          
+          <div id="applicationsList">
+            <!-- Application cards will be dynamically inserted here -->
+            <div class="empty-message" style="text-align: center; color: var(--gray-500); padding: var(--space-lg) 0;">
+              <span class="material-symbols-outlined" style="font-size: 3rem; opacity: 0.5;">description</span>
+              <p>No applications submitted yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about our teacher recruitment process</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3 class="feature-title"><i class="fas fa-user-graduate"></i> Who can apply to teach through Huffaz?</h3>
+          <p>We welcome applications from qualified teachers with appropriate education credentials and a passion for Islamic education. Requirements vary by position but generally include relevant degrees or certifications.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="feature-title"><i class="fas fa-clock"></i> How long does the application process take?</h3>
+          <p>The initial application takes about 20-30 minutes to complete. After submission, schools typically respond within 2-4 weeks if they're interested in moving forward with your application.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="feature-title"><i class="fas fa-file-alt"></i> What documents do I need to apply?</h3>
+          <p>You'll need your resume/CV, degree certificates, teaching certifications (if any), CNIC copy, and reference letters. Some positions may require additional documentation.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="feature-title"><i class="fas fa-school"></i> Can I apply to multiple schools?</h3>
+          <p>Yes! Your profile will be visible to all our partner schools. You can also apply directly to specific positions at different schools through our portal.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="feature-title"><i class="fas fa-money-bill-wave"></i> Is there a fee to use this service?</h3>
+          <p>No, our teacher recruitment service is completely free for educators. Schools pay a nominal fee to access our network of qualified teachers.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="feature-title"><i class="fas fa-hands-helping"></i> What support do you offer after placement?</h3>
+          <p>We provide ongoing professional development opportunities, networking events, and resources to help you succeed in your teaching position.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white;">
+    <div class="container">
+      <div class="section-title" style="color: white;">
+        <h2>Ready to Start Your Teaching Journey?</h2>
+        <p>Join hundreds of educators who found their ideal positions through Huffaz Network</p>
+      </div>
+      <div style="text-align: center;">
+        <a href="#apply" class="hero-cta">
+        <span class="material-symbols-outlined">edit</span>
+        Apply Now
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">Huffaz Education Network</h3>
+          <p>Connecting qualified Islamic educators with schools and madaris across Pakistan.</p>
+          <div style="display: flex; gap: var(--space-md); margin-top: var(--space-md);">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">For Teachers</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">Browse Jobs</a></li>
+            <li class="footer-link"><a href="#">Application Process</a></li>
+            <li class="footer-link"><a href="#">Teacher Resources</a></li>
+            <li class="footer-link"><a href="#">Professional Development</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">For Schools</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">Post a Position</a></li>
+            <li class="footer-link"><a href="#">Browse Teachers</a></li>
+            <li class="footer-link"><a href="#">School Resources</a></li>
+            <li class="footer-link"><a href="#">Partnership Info</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Contact Us</h3>
+          <ul class="footer-links">
+            <li class="footer-link">
+              <span class="material-symbols-outlined">mail</span>
+              <a>hes.pakistan.123@gmail.com</a>
+            </li>
+            <li class="footer-link">
+              <span class="material-symbols-outlined">call</span>
+              <a>+92 321 0888616</a>
+            </li>
+            <li class="footer-link">
+              <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.073892812778!2d67.0997281!3d24.9275625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338c828d70221%3A0xff2722cb490d7541!2sBlock%207%20Gulshan-e-Iqbal%2C%20Karachi!5e0!3m2!1sen!2s!4v1680000000000!5m2!1sen!2s">
+              <span class="material-symbols-outlined">location_on</span>
+              Jamia Tul Anwar Karachi Pakistan
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Huffaz Education Network. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header Menu Toggle
+    const headerMenuBtn = document.getElementById('headerMenuBtn');
+    const headerMenuList = document.getElementById('headerMenuList');
+    
+    headerMenuBtn.addEventListener('click', function() {
+      headerMenuList.style.display = headerMenuList.style.display === 'block' ? 'none' : 'block';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!headerMenuBtn.contains(event.target)){
+        headerMenuList.style.display = 'none';
+      }
+    });
+    
+    // Form Navigation
+    const form = document.getElementById('teacherForm');
+    const steps = document.querySelectorAll('.form-step');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const progressSteps = document.querySelectorAll('.progress-step');
+    const applicationsList = document.getElementById('applicationsList');
+    let currentStep = 0;
+    
+    // Initialize form
+    showStep(currentStep);
+    
+    // Show current step
+    function showStep(stepIndex) {
+      steps.forEach((step, index) => {
+        step.classList.toggle('active', index === stepIndex);
+      });
+      
+      // Update progress steps
+      progressSteps.forEach((step, index) => {
+        const number = step.querySelector('.step-number');
+        const label = step.querySelector('.step-label');
+        
+        if (index < stepIndex) {
+          number.classList.add('completed');
+          label.classList.add('active');
+        } else if (index === stepIndex) {
+          number.classList.add('active');
+          label.classList.add('active');
+        } else {
+          number.classList.remove('active', 'completed');
+          label.classList.remove('active');
+        }
+      });
+      
+      // Update navigation buttons
+      prevBtn.style.display = stepIndex === 0 ? 'none' : 'flex';
+      nextBtn.style.display = stepIndex === steps.length - 1 ? 'none' : 'flex';
+      submitBtn.style.display = stepIndex === steps.length - 1 ? 'flex' : 'none';
+    }
+    
+    // Next button click
+    nextBtn.addEventListener('click', () => {
+      if (validateStep(currentStep)) {
+        currentStep++;
+        showStep(currentStep);
+        
+        // If we reached the review step, populate review sections
+        if (currentStep === steps.length - 1) {
+          populateReview();
+        }
+      }
+    });
+    
+    // Previous button click
+    prevBtn.addEventListener('click', () => {
+      currentStep--;
+      showStep(currentStep);
+    });
+    
+    // Form validation
+    function validateStep(stepIndex) {
+      const currentStep = steps[stepIndex];
+      const inputs = currentStep.querySelectorAll('input[required], select[required], textarea[required]');
+      let isValid = true;
+      
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          input.style.borderColor = 'var(--danger)';
+          setTimeout(() => {
+            input.style.borderColor = 'var(--gray-300)';
+          }, 2000);
+          isValid = false;
+        }
+        
+        // Special validation for email
+        if (input.type === 'email' && input.value && !/^[^@]+@[^@]+\.[^@]+$/.test(input.value)) {
+          input.style.borderColor = 'var(--danger)';
+          setTimeout(() => {
+            input.style.borderColor = 'var(--gray-300)';
+          }, 2000);
+          isValid = false;
+        }
+      });
+      
+      return isValid;
+    }
+    
+    // Populate review sections
+    function populateReview() {
+      // Personal Information
+      document.getElementById('review-personal').innerHTML = `
+        <p><strong>Name:</strong> ${document.getElementById('firstName').value} ${document.getElementById('lastName').value}</p>
+        <p><strong>Email:</strong> ${document.getElementById('email').value}</p>
+        <p><strong>Phone:</strong> ${document.getElementById('phone').value}</p>
+        <p><strong>Date of Birth:</strong> ${document.getElementById('dob').value}</p>
+        <p><strong>Gender:</strong> ${document.getElementById('gender').value}</p>
+        <p><strong>Nationality:</strong> ${document.getElementById('nationality').value}</p>
+        <p><strong>City:</strong> ${document.getElementById('city').value}</p>
+        <p><strong>CNIC:</strong> ${document.getElementById('cnic').value}</p>
+      `;
+      
+      // Education Background
+      document.getElementById('review-education').innerHTML = `
+        <p><strong>Highest Degree:</strong> ${document.getElementById('highestDegree').value}</p>
+        <p><strong>Institution:</strong> ${document.getElementById('institution').value}</p>
+        <p><strong>Field of Study:</strong> ${document.getElementById('fieldOfStudy').value}</p>
+        <p><strong>Graduation Year:</strong> ${document.getElementById('graduationYear').value}</p>
+        <p><strong>Additional Qualifications:</strong> ${document.getElementById('additionalQualifications').value || 'None'}</p>
+      `;
+      
+      // Teaching Experience
+      const selectedSubjects = Array.from(document.querySelectorAll('input[name="subjects"]:checked')).map(el => el.value).join(', ');
+      const selectedGrades = Array.from(document.querySelectorAll('input[name="gradeLevels"]:checked')).map(el => el.value).join(', ');
+      
+      document.getElementById('review-experience').innerHTML = `
+        <p><strong>Years of Experience:</strong> ${document.getElementById('yearsExperience').value}</p>
+        <p><strong>Subjects:</strong> ${selectedSubjects}</p>
+        <p><strong>Grade Levels:</strong> ${selectedGrades}</p>
+        <p><strong>Previous Schools:</strong> ${document.getElementById('previousSchools').value || 'None provided'}</p>
+        <p><strong>Teaching Philosophy:</strong> ${document.getElementById('teachingPhilosophy').value || 'Not provided'}</p>
+        <p><strong>References:</strong> ${document.getElementById('references').value || 'Not provided'}</p>
+      `;
+    }
+    
+    // Degree Selection
+    function selectDegree(card, value) {
+      // Remove selected class from all cards
+      document.querySelectorAll('.degree-card').forEach(c => {
+        c.classList.remove('selected');
+      });
+      
+      // Add selected class to clicked card
+      card.classList.add('selected');
+      
+      // Update hidden input value
+      document.getElementById('highestDegree').value = value;
+    }
+    
+    // Subject Tag Selection
+    document.querySelectorAll('.subject-tag').forEach(tag => {
+      tag.addEventListener('click', function() {
+        const checkbox = this.querySelector('input');
+        checkbox.checked = !checkbox.checked;
+        this.classList.toggle('selected', checkbox.checked);
+      });
+    });
+    
+    // Madarsa Selection
+    function selectMadarsa(card, id) {
+      card.classList.toggle('selected');
+    }
+    
+    function submitMadarsaSelection() {
+      const selectedMadaris = Array.from(document.querySelectorAll('.madarsa-card.selected')).map(card => {
+        return {
+          name: card.querySelector('.madarsa-name').textContent,
+          location: card.querySelector('.madarsa-location').textContent
+        };
+      });
+      
+      // In a real application, you would send this data to your server
+      console.log('Selected Madaris:', selectedMadaris);
+      
+      // Close the modal
+      document.getElementById('madarsaModal').style.display = 'none';
+      
+      // Show success modal
+      document.getElementById('successModal').style.display = 'flex';
+    }
+    
+    // Form submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Validate the review step
+      if (!document.getElementById('agreeTerms').checked || !document.getElementById('consent').checked) {
+        alert('You must agree to the terms and consent before submitting.');
+        return;
+      }
+      
+      // Show madarsa selection modal instead of directly submitting
+      document.getElementById('madarsaModal').style.display = 'flex';
+      
+      // In a real application, you would submit the form data to your server here
+      // and then show the madarsa selection modal after successful submission
+    });
+    
+    // Close modals
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.closest('.modal').style.display = 'none';
+      });
+    });
+    
+    // Add application to dashboard
+    function addApplicationToDashboard(application) {
+      // Remove empty message if it exists
+      const emptyMessage = applicationsList.querySelector('.empty-message');
+      if (emptyMessage) {
+        emptyMessage.remove();
+      }
+      
+      // Create application card
+      const card = document.createElement('div');
+      card.className = 'application-card';
+      card.innerHTML = `
+        <div class="app-header">
+          <h4 class="app-title">${application.firstName} ${application.lastName}</h4>
+          <span class="app-status submitted">${application.status}</span>
+        </div>
+        <div class="app-meta">
+          <div>${application.degree} from ${application.institution}</div>
+          <small>Applied: ${application.date}</small>
+        </div>
+        <div class="app-details">
+          <p><strong>Email:</strong> ${application.email}</p>
+          <p><strong>Phone:</strong> ${application.phone}</p>
+          <p><strong>Location:</strong> ${application.city}</p>
+        </div>
+      `;
+      
+      // Add click event to toggle details
+      card.addEventListener('click', function() {
+        this.classList.toggle('expanded');
+      });
+      
+      // Prepend to applications list (newest first)
+      applicationsList.prepend(card);
+    }
+    
+    // Sample data for dashboard
+    const sampleApplications = [
+      {
+        id: 1,
+        firstName: 'Muhammad',
+        lastName: 'Ali',
+        email: 'm.ali@example.com',
+        phone: '+92 300 1234567',
+        city: 'Karachi',
+        degree: 'Alim Course',
+        institution: 'Darul Uloom Karachi',
+        status: 'Submitted',
+        date: 'Jun 5, 2023'
+      },
+      {
+        id: 2,
+        firstName: 'Aisha',
+        lastName: 'Khan',
+        email: 'a.khan@example.com',
+        phone: '+92 300 7654321',
+        city: 'Lahore',
+        degree: 'Master\'s in Islamic Studies',
+        institution: 'University of Punjab',
+        status: 'Reviewed',
+        date: 'May 28, 2023'
+      }
+    ];
+    
+    // Add sample applications to dashboard
+    window.addEventListener('load', function() {
+      sampleApplications.forEach(app => {
+        addApplicationToDashboard(app);
+      });
+    });
+
+    <!-- ...existing code... -->
+
+
+  // --- 1. Load Registered Madaris from localStorage into Modal ---
+  function loadRegisteredMadaris() {
+    try {
+      return JSON.parse(localStorage.getItem('registeredSchools') || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function renderMadarsaModalList() {
+    const madaris = loadRegisteredMadaris();
+    const grid = document.querySelector('#madarsaModal .madarsa-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    if (!madaris.length) {
+      grid.innerHTML = '<div style="color:var(--danger);text-align:center;">No madaris registered yet.</div>';
+      return;
+    }
+    madaris.forEach(m => {
+      const card = document.createElement('div');
+      card.className = 'madarsa-card';
+      card.setAttribute('data-code', m.code);
+      card.onclick = function() { selectMadarsa(card, m.code); };
+      card.innerHTML = `
+        <div class="madarsa-name">${m.name}</div>
+        <div class="madarsa-location">
+          <span class="material-symbols-outlined">location_on</span>
+          ${m.city || ''}
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // --- 2. Save Applications in localStorage ---
+  function getMyApplications() {
+    try {
+      return JSON.parse(localStorage.getItem('myApplications') || '[]');
+    } catch (e) {
+      return [];
+    }
+  }
+  function saveMyApplications(apps) {
+    localStorage.setItem('myApplications', JSON.stringify(apps));
+  }
+
+  // --- 3. Add Application to Dashboard (with delete button) ---
+  function addApplicationToDashboard(application, prepend = true) {
+    // Remove empty message if it exists
+    const emptyMessage = applicationsList.querySelector('.empty-message');
+    if (emptyMessage) emptyMessage.remove();
+
+    // Create application card
+    const card = document.createElement('div');
+    card.className = 'application-card';
+    card.innerHTML = `
+      <div class="app-header">
+        <h4 class="app-title">${application.firstName} ${application.lastName}</h4>
+        <span class="app-status submitted">${application.status}</span>
+      </div>
+      <div class="app-meta">
+        <div>${application.degree} from ${application.institution}</div>
+        <small>Applied: ${application.date}</small>
+      </div>
+      <div class="app-details">
+        <p><strong>Email:</strong> ${application.email}</p>
+        <p><strong>Phone:</strong> ${application.phone}</p>
+        <p><strong>Location:</strong> ${application.city}</p>
+        <p><strong>Applied Madaris:</strong> ${application.madaris.map(m => m.name).join(', ')}</p>
+        <button class="btn btn-outline" style="margin-top:10px;" onclick="event.stopPropagation();deleteApplication('${application.id}')">
+          <span class="material-symbols-outlined">delete</span> Delete
+        </button>
+      </div>
+    `;
+    // Add click event to toggle details
+    card.addEventListener('click', function(e) {
+      if (e.target.tagName.toLowerCase() === 'button') return;
+      this.classList.toggle('expanded');
+    });
+    if (prepend) {
+      applicationsList.prepend(card);
+    } else {
+      applicationsList.appendChild(card);
+    }
+  }
+
+  // --- 4. Delete Application ---
+  function deleteApplication(id) {
+    let apps = getMyApplications();
+    apps = apps.filter(app => app.id !== id);
+    saveMyApplications(apps);
+    renderMyApplications();
+  }
+  window.deleteApplication = deleteApplication;
+
+  // --- 5. Render All Applications on Dashboard ---
+  function renderMyApplications() {
+    applicationsList.innerHTML = '';
+    const apps = getMyApplications();
+    if (!apps.length) {
+      applicationsList.innerHTML = `<div class="empty-message" style="text-align: center; color: var(--gray-500); padding: var(--space-lg) 0;">
+        <span class="material-symbols-outlined" style="font-size: 3rem; opacity: 0.5;">description</span>
+        <p>No applications submitted yet</p>
+      </div>`;
+      return;
+    }
+    apps.forEach(app => addApplicationToDashboard(app, false));
+  }
+
+  // --- 6. On Page Load, Render Applications ---
+  window.addEventListener('load', function() {
+    renderMyApplications();
+  });
+
+  // --- 7. When Form is Submitted, Show Madarsa Modal with Registered Madaris ---
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!document.getElementById('agreeTerms').checked || !document.getElementById('consent').checked) {
+      alert('You must agree to the terms and consent before submitting.');
+      return;
+    }
+    renderMadarsaModalList();
+    document.getElementById('madarsaModal').style.display = 'flex';
+  });
+
+  // --- 8. Madarsa Selection Logic ---
+  let selectedMadarsaCodes = [];
+  function selectMadarsa(card, code) {
+    card.classList.toggle('selected');
+    const idx = selectedMadarsaCodes.indexOf(code);
+    if (card.classList.contains('selected')) {
+      if (idx === -1) selectedMadarsaCodes.push(code);
+    } else {
+      if (idx !== -1) selectedMadarsaCodes.splice(idx, 1);
+    }
+  }
+
+  // --- 9. Submit Madarsa Selection and Save Application ---
+  function submitMadarsaSelection() {
+    const madaris = loadRegisteredMadaris().filter(m => selectedMadarsaCodes.includes(m.code));
+    if (!madaris.length) {
+      alert('Please select at least one madarsa.');
+      return;
+    }
+    // Gather form data
+    const application = {
+      id: 'app_' + Date.now(),
+      firstName: document.getElementById('firstName').value,
+      lastName: document.getElementById('lastName').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      city: document.getElementById('city').value,
+      degree: document.getElementById('highestDegree').value,
+      institution: document.getElementById('institution').value,
+      status: 'Submitted',
+      date: new Date().toLocaleDateString(),
+      madaris: madaris
+    };
+    // Save to localStorage
+    const apps = getMyApplications();
+    apps.unshift(application);
+    saveMyApplications(apps);
+    renderMyApplications();
+    // Reset selection and close modal
+    selectedMadarsaCodes = [];
+    document.getElementById('madarsaModal').style.display = 'none';
+    document.getElementById('successModal').style.display = 'flex';
+    // Optionally, reset form here if you want
+    // form.reset();
+  }
+  window.submitMadarsaSelection = submitMadarsaSelection;
+
+  // ...existing code...
+    
+  </script>
+</body>
+</html>

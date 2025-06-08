@@ -27,6 +27,7 @@
       border-bottom: 1.5px solid #2b3442;
       backdrop-filter: blur(4px);
       flex-wrap: wrap;
+      width: 100%;
     }
     .logo_container {
       display: flex;
@@ -35,34 +36,38 @@
     }
     .Huffaz_logo img {
       height: 54px;
-      filter: drop-shadow(0 2px 8px #66b2ff33);
       display: block;
+      border-radius: 10px;
+      padding: 2px 6px;
+    }
+    .book_logo {
+      text-decoration: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      margin-left: 1px;
     }
     .book_logo .material-symbols-outlined {
       font-size: 38px;
       color: #66b2ff;
-      /* background: #232a34; */
+      background: none;
       border-radius: 50%;
-      padding: 7px;
-      /* box-shadow: 0 2px 8px #66b2ff22;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s; */
+      margin: 0;
+      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    /* .book_logo:hover .material-symbols-outlined,
-    .book_logo:focus .material-symbols-outlined {
-      background: #66b2ff;
-      color: #fff;
-      box-shadow: 0 4px 16px #66b2ff55;
-      outline: none;
-    } */
     .nav_bar {
       display: flex;
-      gap: 18px;
+      gap: 0px;
       flex-wrap: wrap;
     }
-    .nav_bar a {
+    .nav_bar a,
+    .action_bar a {
       display: flex;
       align-items: center;
       gap: 6px;
@@ -76,10 +81,38 @@
       transition: background 0.25s, box-shadow 0.25s, color 0.25s;
       letter-spacing: 1px;
     }
-    .nav_bar a:hover {
+    .nav_bar a:hover,
+    .action_bar a:hover {
       background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
       color: #66b2ff;
       box-shadow: 0 2px 12px #66b2ff22;
+    }
+    .registered-count {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
+      color: #66b2ff;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 10px;
+      padding: 10px 18px;
+      margin-left: 18px;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px #66b2ff22;
+      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .registered-count .material-symbols-outlined {
+      font-size: 22px;
+      margin-right: 2px;
+      color: #66b2ff;
+    }
+    .registered-count:hover {
+      background: linear-gradient(90deg, #559ed6 0%, #232a34 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px #66b2ff44;
     }
     .search-bar {
       display: flex;
@@ -112,7 +145,98 @@
       color: #66b2ff;
       font-size: 22px;
       margin-right: 6px;
-      vertical-align: middle;
+    }
+    .header-menu-dropdown {
+      margin-left: 18px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    #headerMenuBtn {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      transition: background 0.18s;
+    }
+    /* #headerMenuBtn:hover,
+    #headerMenuBtn:focus {
+      background: #232a34;
+      outline: 2px solid #66b2ff;
+    } */
+    .header-menu-icon-bar {
+      width: 22px;
+      height: 3px;
+      background: #66b2ff;
+      border-radius: 2px;
+      display: block;
+      margin: 0;
+      transition: background 0.2s;
+    }
+    #headerMenuList {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 44px;
+      min-width: 240px;
+      background: #232a34;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px #232a3440;
+      padding: 10px 0;
+      z-index: 1001;
+      animation: fadeInMenu 0.18s;
+    }
+    #headerMenuList a,
+    #headerMenuList button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      color: #eaeaea;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+    }
+    #headerMenuList a:hover,
+    #headerMenuList button:hover {
+      background: #181c24;
+      color: #66b2ff;
+    }
+    #headerMenuList {
+      animation: fadeInMenu 0.18s;
+    }
+    @keyframes fadeInMenu {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @media (max-width: 700px) {
+      .header-menu-dropdown {
+        margin-left: 6px;
+      }
+      #headerMenuList {
+        min-width: 150px;
+        right: 0;
+        top: 38px;
+      }
+      #headerMenuList a, #headerMenuList button {
+        font-size: 0.98rem;
+        padding: 10px 12px;
+      }
     }
     .contact-hero {
       background: linear-gradient(120deg, #232a34 60%, #66b2ff22 100%);
@@ -347,10 +471,48 @@
       <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
       <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
       <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+      <a href="teacher-requirements.html"><span class="material-symbols-outlined" style="color:#66b2ff;">person</span> For Teachers</a>
     </nav>
     <div class="search-bar">
       <span class="material-symbols-outlined">search</span>
       <input class="search-input" type="text" placeholder="Search for Education" />
+    </div>
+    
+    <!-- 3 lines menu -->
+    <div class="header-menu-dropdown">
+      <button id="headerMenuBtn" aria-label="More">
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+        <span class="header-menu-icon-bar"></span>
+      </button>
+      <div id="headerMenuList">
+        <a href="registered madaris.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">how_to_reg</span>
+          Registered Madaris
+        </a>
+        <div style="padding:0 22px 8px 22px;">
+          <div style="color:#b0e1ff;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:#66b2ff;">language</span>
+            Language
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button class="lang-btn" onclick="setLang('en')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">English</button>
+            <button class="lang-btn" onclick="setLang('ur')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">اردو</button>
+          </div>
+        </div>
+        <a href="Events and workshops.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">event</span>
+          Events & Workshops
+        </a>
+        <a href="student_portal.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">person</span>
+          Student Portal
+        </a>
+        <a href="contact.html">
+          <span class="material-symbols-outlined" style="color:#66b2ff;">support_agent</span>
+          Support
+        </a>
+      </div>
     </div>
   </header>
 
