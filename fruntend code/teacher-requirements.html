@@ -178,11 +178,6 @@
       height: 36px;
       transition: background 0.18s;
     }
-    /* #headerMenuBtn:hover,
-    #headerMenuBtn:focus {
-      background: #232a34;
-      outline: 2px solid #66b2ff;
-    } */
     .header-menu-icon-bar {
       width: 22px;
       height: 3px;
@@ -226,9 +221,6 @@
     #headerMenuList button:hover {
       background: #181c24;
       color: #66b2ff;
-    }
-    #headerMenuList {
-      animation: fadeInMenu 0.18s;
     }
     @keyframes fadeInMenu {
       from { opacity: 0; transform: translateY(-10px);}
@@ -941,6 +933,108 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Enhanced form elements */
+    .subject-tag {
+      display: inline-block;
+      background: rgba(102, 178, 255, 0.1);
+      color: #66b2ff;
+      border-radius: 20px;
+      padding: 8px 16px;
+      margin: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .subject-tag.selected {
+      background: #66b2ff;
+      color: white;
+    }
+    
+    .subject-tag input {
+      display: none;
+    }
+    
+    .degree-card {
+      background: rgba(102, 178, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .degree-card:hover {
+      background: rgba(102, 178, 255, 0.2);
+    }
+    
+    .degree-card.selected {
+      background: rgba(102, 178, 255, 0.3);
+      border-left: 4px solid #66b2ff;
+    }
+    
+    .degree-title {
+      font-weight: 600;
+      color: #f3f6fa;
+    }
+    
+    .degree-description {
+      font-size: 0.875rem;
+      color: #b0b8c1;
+    }
+    
+    .form-hint {
+      font-size: 0.875rem;
+      color: #b0b8c1;
+      margin-bottom: 8px;
+    }
+    
+    /* Success modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-content {
+      background: linear-gradient(135deg, #232a34 60%, #181c24 100%);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      animation: scaleIn 0.3s ease;
+    }
+    
+    @keyframes scaleIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: #b0b8c1;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .success-icon {
+      font-size: 4rem;
+      color: #059669;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
@@ -1086,22 +1180,11 @@
               <div class="form-group">
                 <div class="form-row">
                   <div>
-                    <label for="gender" class="form-label">Gender *</label>
-                    <select id="gender" class="form-control" required>
-                      <option value="">Select Gender</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div>
                     <label for="maritalStatus" class="form-label">Marital Status</label>
                     <select id="maritalStatus" class="form-control">
                       <option value="">Select Status</option>
                       <option value="single">Single</option>
                       <option value="married">Married</option>
-                      <option value="divorced">Divorced</option>
-                      <option value="widowed">Widowed</option>
                     </select>
                   </div>
                 </div>
@@ -1163,29 +1246,9 @@
               <div class="form-group">
                 <label class="form-label">Highest Degree Earned *</label>
                 <div class="degree-options">
-                  <div class="degree-card" onclick="selectDegree(this, 'hafiz')">
-                    <div class="degree-title">Hafiz-ul-Quran</div>
-                    <div class="degree-description">Complete memorization of the Holy Quran</div>
-                  </div>
-                  <div class="degree-card" onclick="selectDegree(this, 'alim')">
-                    <div class="degree-title">Alim/Alima Course</div>
-                    <div class="degree-description">Completed Alim/Alima course from recognized institution</div>
-                  </div>
                   <div class="degree-card" onclick="selectDegree(this, 'dars-e-nizami')">
                     <div class="degree-title">Dars-e-Nizami</div>
                     <div class="degree-description">Traditional Islamic education curriculum</div>
-                  </div>
-                  <div class="degree-card" onclick="selectDegree(this, 'shahadatul-alimiya')">
-                    <div class="degree-title">Shahadatul Alimiya</div>
-                    <div class="degree-description">Advanced Islamic studies certification</div>
-                  </div>
-                  <div class="degree-card" onclick="selectDegree(this, 'bachelors')">
-                    <div class="degree-title">Bachelor's Degree</div>
-                    <div class="degree-description">BA, BSc, or equivalent university degree</div>
-                  </div>
-                  <div class="degree-card" onclick="selectDegree(this, 'masters')">
-                    <div class="degree-title">Master's Degree</div>
-                    <div class="degree-description">MA, MSc, or equivalent postgraduate degree</div>
                   </div>
                   <div class="degree-card" onclick="selectDegree(this, 'phd')">
                     <div class="degree-title">PhD</div>
@@ -1220,11 +1283,6 @@
               <div class="form-group">
                 <label for="additionalQualifications" class="form-label">Additional Qualifications</label>
                 <textarea id="additionalQualifications" class="form-control" rows="3" placeholder="List any other relevant certifications or diplomas"></textarea>
-              </div>
-              
-              <div class="form-group">
-                <label for="certificates" class="form-label">Upload Certificates (PDF, max 5MB) *</label>
-                <input type="file" id="certificates" class="form-control" accept=".pdf" required>
               </div>
             </div>
             
@@ -1294,26 +1352,6 @@
                   </label>
                   <label class="subject-tag">
                     <input type="checkbox" name="subjects" value="urdu"> Urdu
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="subject-tag">
-                    <input type="checkbox" name="subjects" value="fiqh"> Fiqh
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="subject-tag">
-                    <input type="checkbox" name="subjects" value="aqeedah"> Aqeedah
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="subject-tag">
-                    <input type="checkbox" name="subjects" value="hadith"> Hadith
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="subject-tag">
-                    <input type="checkbox" name="subjects" value="tajweed"> Tajweed
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="subject-tag">
-                    <input type="checkbox" name="subjects" value="tafseer"> Tafseer
                     <span class="checkmark"></span>
                   </label>
                   <label class="subject-tag">
@@ -1563,6 +1601,22 @@
     </div>
   </footer>
 
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="success-icon">
+        <span class="material-symbols-outlined">check_circle</span>
+      </div>
+      <h3>Application Submitted Successfully!</h3>
+      <p>Thank you for applying to join our network of educators. Your application has been received and will be reviewed by our team.</p>
+      <p>You will receive a confirmation email shortly with next steps.</p>
+      <button class="btn btn-primary" style="margin-top: 20px;" onclick="document.getElementById('successModal').style.display = 'none'">
+        Continue
+      </button>
+    </div>
+  </div>
+
   <script>
     // Header Menu Toggle
     const headerMenuBtn = document.getElementById('headerMenuBtn');
@@ -1648,18 +1702,18 @@
       
       inputs.forEach(input => {
         if (!input.value.trim()) {
-          input.style.borderColor = 'var(--danger)';
+          input.style.borderColor = '#f87171';
           setTimeout(() => {
-            input.style.borderColor = 'var(--gray-300)';
+            input.style.borderColor = '#2b3442';
           }, 2000);
           isValid = false;
         }
         
         // Special validation for email
         if (input.type === 'email' && input.value && !/^[^@]+@[^@]+\.[^@]+$/.test(input.value)) {
-          input.style.borderColor = 'var(--danger)';
+          input.style.borderColor = '#f87171';
           setTimeout(() => {
-            input.style.borderColor = 'var(--gray-300)';
+            input.style.borderColor = '#2b3442';
           }, 2000);
           isValid = false;
         }
@@ -1676,7 +1730,6 @@
         <p><strong>Email:</strong> ${document.getElementById('email').value}</p>
         <p><strong>Phone:</strong> ${document.getElementById('phone').value}</p>
         <p><strong>Date of Birth:</strong> ${document.getElementById('dob').value}</p>
-        <p><strong>Gender:</strong> ${document.getElementById('gender').value}</p>
         <p><strong>Nationality:</strong> ${document.getElementById('nationality').value}</p>
         <p><strong>City:</strong> ${document.getElementById('city').value}</p>
         <p><strong>CNIC:</strong> ${document.getElementById('cnic').value}</p>
@@ -1728,29 +1781,6 @@
       });
     });
     
-    // Madarsa Selection
-    function selectMadarsa(card, id) {
-      card.classList.toggle('selected');
-    }
-    
-    function submitMadarsaSelection() {
-      const selectedMadaris = Array.from(document.querySelectorAll('.madarsa-card.selected')).map(card => {
-        return {
-          name: card.querySelector('.madarsa-name').textContent,
-          location: card.querySelector('.madarsa-location').textContent
-        };
-      });
-      
-      // In a real application, you would send this data to your server
-      console.log('Selected Madaris:', selectedMadaris);
-      
-      // Close the modal
-      document.getElementById('madarsaModal').style.display = 'none';
-      
-      // Show success modal
-      document.getElementById('successModal').style.display = 'flex';
-    }
-    
     // Form submission
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1761,17 +1791,39 @@
         return;
       }
       
-      // Show madarsa selection modal instead of directly submitting
-      document.getElementById('madarsaModal').style.display = 'flex';
+      // Create application object
+      const selectedSubjects = Array.from(document.querySelectorAll('input[name="subjects"]:checked')).map(el => el.value);
+      const selectedGrades = Array.from(document.querySelectorAll('input[name="gradeLevels"]:checked')).map(el => el.value);
       
-      // In a real application, you would submit the form data to your server here
-      // and then show the madarsa selection modal after successful submission
-    });
-    
-    // Close modals
-    document.querySelectorAll('.modal-close').forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.closest('.modal').style.display = 'none';
+      const application = {
+        id: 'app_' + Date.now(),
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        city: document.getElementById('city').value,
+        degree: document.getElementById('highestDegree').value,
+        institution: document.getElementById('institution').value,
+        subjects: selectedSubjects,
+        grades: selectedGrades,
+        status: 'Submitted',
+        date: new Date().toLocaleDateString()
+      };
+      
+      // Add to dashboard
+      addApplicationToDashboard(application);
+      
+      // Show success message
+      document.getElementById('successModal').style.display = 'flex';
+      
+      // Reset form
+      form.reset();
+      currentStep = 0;
+      showStep(currentStep);
+      
+      // Clear selected degrees
+      document.querySelectorAll('.degree-card').forEach(c => {
+        c.classList.remove('selected');
       });
     });
     
@@ -1799,230 +1851,40 @@
           <p><strong>Email:</strong> ${application.email}</p>
           <p><strong>Phone:</strong> ${application.phone}</p>
           <p><strong>Location:</strong> ${application.city}</p>
+          <p><strong>Subjects:</strong> ${application.subjects.join(', ')}</p>
+          <button class="btn btn-outline" style="margin-top:10px;" onclick="this.closest('.application-card').remove(); checkEmptyDashboard();">
+            <span class="material-symbols-outlined">delete</span> Remove
+          </button>
         </div>
       `;
       
       // Add click event to toggle details
-      card.addEventListener('click', function() {
-        this.classList.toggle('expanded');
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName !== 'BUTTON') {
+          this.classList.toggle('expanded');
+        }
       });
       
       // Prepend to applications list (newest first)
       applicationsList.prepend(card);
     }
     
-    // Sample data for dashboard
-    const sampleApplications = [
-      {
-        id: 1,
-        firstName: 'Muhammad',
-        lastName: 'Ali',
-        email: 'm.ali@example.com',
-        phone: '+92 300 1234567',
-        city: 'Karachi',
-        degree: 'Alim Course',
-        institution: 'Darul Uloom Karachi',
-        status: 'Submitted',
-        date: 'Jun 5, 2023'
-      },
-      {
-        id: 2,
-        firstName: 'Aisha',
-        lastName: 'Khan',
-        email: 'a.khan@example.com',
-        phone: '+92 300 7654321',
-        city: 'Lahore',
-        degree: 'Master\'s in Islamic Studies',
-        institution: 'University of Punjab',
-        status: 'Reviewed',
-        date: 'May 28, 2023'
+    // Check if dashboard is empty
+    function checkEmptyDashboard() {
+      if (applicationsList.children.length === 0) {
+        applicationsList.innerHTML = `
+          <div class="empty-message" style="text-align: center; color: var(--gray-500); padding: var(--space-lg) 0;">
+            <span class="material-symbols-outlined" style="font-size: 3rem; opacity: 0.5;">description</span>
+            <p>No applications submitted yet</p>
+          </div>
+        `;
       }
-    ];
+    }
     
-    // Add sample applications to dashboard
-    window.addEventListener('load', function() {
-      sampleApplications.forEach(app => {
-        addApplicationToDashboard(app);
-      });
+    // Close modal
+    document.querySelector('.modal-close').addEventListener('click', function() {
+      document.getElementById('successModal').style.display = 'none';
     });
-
-    <!-- ...existing code... -->
-
-
-  // --- 1. Load Registered Madaris from localStorage into Modal ---
-  function loadRegisteredMadaris() {
-    try {
-      return JSON.parse(localStorage.getItem('registeredSchools') || '[]');
-    } catch (e) {
-      return [];
-    }
-  }
-
-  function renderMadarsaModalList() {
-    const madaris = loadRegisteredMadaris();
-    const grid = document.querySelector('#madarsaModal .madarsa-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    if (!madaris.length) {
-      grid.innerHTML = '<div style="color:var(--danger);text-align:center;">No madaris registered yet.</div>';
-      return;
-    }
-    madaris.forEach(m => {
-      const card = document.createElement('div');
-      card.className = 'madarsa-card';
-      card.setAttribute('data-code', m.code);
-      card.onclick = function() { selectMadarsa(card, m.code); };
-      card.innerHTML = `
-        <div class="madarsa-name">${m.name}</div>
-        <div class="madarsa-location">
-          <span class="material-symbols-outlined">location_on</span>
-          ${m.city || ''}
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  // --- 2. Save Applications in localStorage ---
-  function getMyApplications() {
-    try {
-      return JSON.parse(localStorage.getItem('myApplications') || '[]');
-    } catch (e) {
-      return [];
-    }
-  }
-  function saveMyApplications(apps) {
-    localStorage.setItem('myApplications', JSON.stringify(apps));
-  }
-
-  // --- 3. Add Application to Dashboard (with delete button) ---
-  function addApplicationToDashboard(application, prepend = true) {
-    // Remove empty message if it exists
-    const emptyMessage = applicationsList.querySelector('.empty-message');
-    if (emptyMessage) emptyMessage.remove();
-
-    // Create application card
-    const card = document.createElement('div');
-    card.className = 'application-card';
-    card.innerHTML = `
-      <div class="app-header">
-        <h4 class="app-title">${application.firstName} ${application.lastName}</h4>
-        <span class="app-status submitted">${application.status}</span>
-      </div>
-      <div class="app-meta">
-        <div>${application.degree} from ${application.institution}</div>
-        <small>Applied: ${application.date}</small>
-      </div>
-      <div class="app-details">
-        <p><strong>Email:</strong> ${application.email}</p>
-        <p><strong>Phone:</strong> ${application.phone}</p>
-        <p><strong>Location:</strong> ${application.city}</p>
-        <p><strong>Applied Madaris:</strong> ${application.madaris.map(m => m.name).join(', ')}</p>
-        <button class="btn btn-outline" style="margin-top:10px;" onclick="event.stopPropagation();deleteApplication('${application.id}')">
-          <span class="material-symbols-outlined">delete</span> Delete
-        </button>
-      </div>
-    `;
-    // Add click event to toggle details
-    card.addEventListener('click', function(e) {
-      if (e.target.tagName.toLowerCase() === 'button') return;
-      this.classList.toggle('expanded');
-    });
-    if (prepend) {
-      applicationsList.prepend(card);
-    } else {
-      applicationsList.appendChild(card);
-    }
-  }
-
-  // --- 4. Delete Application ---
-  function deleteApplication(id) {
-    let apps = getMyApplications();
-    apps = apps.filter(app => app.id !== id);
-    saveMyApplications(apps);
-    renderMyApplications();
-  }
-  window.deleteApplication = deleteApplication;
-
-  // --- 5. Render All Applications on Dashboard ---
-  function renderMyApplications() {
-    applicationsList.innerHTML = '';
-    const apps = getMyApplications();
-    if (!apps.length) {
-      applicationsList.innerHTML = `<div class="empty-message" style="text-align: center; color: var(--gray-500); padding: var(--space-lg) 0;">
-        <span class="material-symbols-outlined" style="font-size: 3rem; opacity: 0.5;">description</span>
-        <p>No applications submitted yet</p>
-      </div>`;
-      return;
-    }
-    apps.forEach(app => addApplicationToDashboard(app, false));
-  }
-
-  // --- 6. On Page Load, Render Applications ---
-  window.addEventListener('load', function() {
-    renderMyApplications();
-  });
-
-  // --- 7. When Form is Submitted, Show Madarsa Modal with Registered Madaris ---
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!document.getElementById('agreeTerms').checked || !document.getElementById('consent').checked) {
-      alert('You must agree to the terms and consent before submitting.');
-      return;
-    }
-    renderMadarsaModalList();
-    document.getElementById('madarsaModal').style.display = 'flex';
-  });
-
-  // --- 8. Madarsa Selection Logic ---
-  let selectedMadarsaCodes = [];
-  function selectMadarsa(card, code) {
-    card.classList.toggle('selected');
-    const idx = selectedMadarsaCodes.indexOf(code);
-    if (card.classList.contains('selected')) {
-      if (idx === -1) selectedMadarsaCodes.push(code);
-    } else {
-      if (idx !== -1) selectedMadarsaCodes.splice(idx, 1);
-    }
-  }
-
-  // --- 9. Submit Madarsa Selection and Save Application ---
-  function submitMadarsaSelection() {
-    const madaris = loadRegisteredMadaris().filter(m => selectedMadarsaCodes.includes(m.code));
-    if (!madaris.length) {
-      alert('Please select at least one madarsa.');
-      return;
-    }
-    // Gather form data
-    const application = {
-      id: 'app_' + Date.now(),
-      firstName: document.getElementById('firstName').value,
-      lastName: document.getElementById('lastName').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      city: document.getElementById('city').value,
-      degree: document.getElementById('highestDegree').value,
-      institution: document.getElementById('institution').value,
-      status: 'Submitted',
-      date: new Date().toLocaleDateString(),
-      madaris: madaris
-    };
-    // Save to localStorage
-    const apps = getMyApplications();
-    apps.unshift(application);
-    saveMyApplications(apps);
-    renderMyApplications();
-    // Reset selection and close modal
-    selectedMadarsaCodes = [];
-    document.getElementById('madarsaModal').style.display = 'none';
-    document.getElementById('successModal').style.display = 'flex';
-    // Optionally, reset form here if you want
-    // form.reset();
-  }
-  window.submitMadarsaSelection = submitMadarsaSelection;
-
-  // ...existing code...
-    
   </script>
 </body>
 </html>

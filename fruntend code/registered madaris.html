@@ -5,21 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registered Madaris | Huffaz Education System</title>
   <!-- Google Fonts & Material Symbols -->
-  <link href="https://fonts.googleapis.com/css2?family=Assistant&family=Quicksand:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
   <style>
+    :root {
+      --primary: #66b2ff;
+      --primary-dark: #4a9df5;
+      --secondary: #ff6b6b;
+      --background: #181c24;
+      --surface: #232a34;
+      --surface-light: #2b3442;
+      --text-primary: #f3f6fa;
+      --text-secondary: #b0b8c1;
+      --success: #4caf50;
+      --error: #ff4d4f;
+      --border-radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      --shadow-hover: 0 12px 48px rgba(102, 178, 255, 0.2);
+    }
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Quicksand', 'Assistant', Arial, sans-serif;
+      font-family: 'Assistant', 'Quicksand', Arial, sans-serif;
     }
+    
     body {
-      background: linear-gradient(135deg, #181c24 0%, #232a34 100%);
-      color: #f3f6fa;
+      background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+      color: var(--text-primary);
       min-height: 100vh;
       line-height: 1.7;
+      overflow-x: hidden;
     }
+    
+    /* Modern Glass Header */
     header {
       position: sticky;
       top: 0;
@@ -27,25 +48,34 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(26, 26, 26, 0.98);
-      padding: 16px 32px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
-      border-bottom: 1.5px solid #2b3442;
-      backdrop-filter: blur(4px);
+      background: rgba(26, 26, 26, 0.85);
+      padding: 16px 5%;
+      box-shadow: var(--shadow);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
       flex-wrap: wrap;
       width: 100%;
     }
+    
     .logo_container {
       display: flex;
       align-items: center;
       gap: 18px;
+      transition: var(--transition);
     }
+    
+    .logo_container:hover {
+      transform: translateY(-2px);
+    }
+    
     .Huffaz_logo img {
       height: 54px;
       display: block;
       border-radius: 10px;
       padding: 2px 6px;
+      transition: var(--transition);
     }
+    
     .book_logo {
       text-decoration: none !important;
       display: flex;
@@ -54,266 +84,582 @@
       border-radius: 50%;
       width: 54px;
       height: 54px;
-      margin-left: 1px;
+      background: rgba(102, 178, 255, 0.1);
+      transition: var(--transition);
     }
+    
+    .book_logo:hover {
+      background: rgba(102, 178, 255, 0.2);
+      transform: rotate(5deg);
+    }
+    
     .book_logo .material-symbols-outlined {
       font-size: 38px;
-      color: #66b2ff;
-      background: none;
-      border-radius: 50%;
-      margin: 0;
-      padding: 0;
+      color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
     }
+    
+    /* Navigation with subtle animation */
     .nav_bar {
       display: flex;
-      gap: 0px;
+      gap: 6px;
       flex-wrap: wrap;
     }
+    
     .nav_bar a {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 15px;
-      color: #eaeaea;
-      font-weight: 700;
-      text-transform: uppercase;
+      gap: 8px;
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-weight: 600;
       text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 10px;
-      transition: background 0.25s, box-shadow 0.25s, color 0.25s;
-      letter-spacing: 1px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      transition: var(--transition);
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
     }
+    
+    .nav_bar a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+    
     .nav_bar a:hover {
-      background: linear-gradient(90deg, #66b2ff33 0%, #232a34 100%);
-      color: #66b2ff;
-      box-shadow: 0 2px 12px #66b2ff22;
+      color: var(--primary);
+      background: rgba(102, 178, 255, 0.1);
     }
+    
+    .nav_bar a:hover::after {
+      width: 100%;
+    }
+    
+    .nav_bar a.active {
+      color: var(--primary);
+      background: rgba(102, 178, 255, 0.15);
+    }
+    
+    .nav_bar a.active::after {
+      width: 100%;
+    }
+    
+    /* Modern Search Bar */
     .search-bar {
       display: flex;
       align-items: center;
-      background: #232a34;
-      border-radius: 24px;
-      padding: 6px 16px;
-      width: 340px;
-      border: 1.5px solid #2b3442;
-      transition: border 0.3s;
+      background: var(--surface);
+      border-radius: 30px;
+      padding: 8px 20px;
+      width: 360px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+      position: relative;
     }
+    
     .search-bar:hover,
     .search-bar:focus-within {
-      border-color: #66b2ff;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(102, 178, 255, 0.15);
     }
+    
     .search-input {
       border: none;
       background: transparent;
       flex-grow: 1;
       outline: none;
-      color: #f3f6fa;
-      font-size: 15px;
+      color: var(--text-primary);
+      font-size: 16px;
       padding: 6px 0;
     }
+    
     .search-input::placeholder {
-      color: #b0b8c1;
-      opacity: 0.8;
+      color: var(--text-secondary);
     }
+    
     .material-symbols-outlined {
-      color: #66b2ff;
-      font-size: 22px;
-      margin-right: 6px;
+      color: var(--primary);
+      font-size: 24px;
     }
+    
+    /* Modern Dropdown Menu */
     .header-menu-dropdown {
       margin-left: 18px;
       position: relative;
       display: flex;
       align-items: center;
     }
+    
     #headerMenuBtn {
-      background: none;
+      background: rgba(102, 178, 255, 0.1);
       border: none;
       outline: none;
       cursor: pointer;
-      padding: 8px 10px;
-      border-radius: 50%;
+      padding: 10px;
+      border-radius: 12px;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
       justify-content: center;
       align-items: center;
-      width: 36px;
-      height: 36px;
-      transition: background 0.18s;
+      width: 44px;
+      height: 44px;
+      transition: var(--transition);
     }
+    
     #headerMenuBtn:hover,
     #headerMenuBtn:focus {
-      background: #232a34;
-      outline: 2px solid #66b2ff;
+      background: rgba(102, 178, 255, 0.2);
+      box-shadow: 0 0 0 3px rgba(102, 178, 255, 0.2);
     }
+    
     .header-menu-icon-bar {
-      width: 22px;
+      width: 24px;
       height: 3px;
-      background: #66b2ff;
+      background: var(--primary);
       border-radius: 2px;
       display: block;
-      margin: 0;
-      transition: background 0.2s;
+      transition: var(--transition);
     }
+    
+    #headerMenuBtn:hover .header-menu-icon-bar {
+      background: #fff;
+    }
+    
     #headerMenuList {
       display: none;
       position: absolute;
       right: 0;
-      top: 44px;
-      min-width: 240px;
-      background: #232a34;
-      border-radius: 12px;
-      box-shadow: 0 8px 32px #232a3440;
-      padding: 10px 0;
+      top: 54px;
+      min-width: 260px;
+      background: var(--surface);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 12px 0;
       z-index: 1001;
-      animation: fadeInMenu 0.18s;
+      animation: fadeInMenu 0.3s ease-out;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
+    
     #headerMenuList a,
     #headerMenuList button {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 22px;
-      color: #eaeaea;
+      gap: 14px;
+      padding: 14px 24px;
+      color: var(--text-primary);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 16px;
       background: none;
       border: none;
       width: 100%;
       text-align: left;
       cursor: pointer;
-      transition: background 0.18s, color 0.18s;
+      transition: var(--transition);
     }
+    
     #headerMenuList a:hover,
     #headerMenuList button:hover {
-      background: #181c24;
-      color: #66b2ff;
+      background: rgba(102, 178, 255, 0.1);
+      color: var(--primary);
     }
-    #headerMenuList {
-      animation: fadeInMenu 0.18s;
-    }
+    
     @keyframes fadeInMenu {
-      from { opacity: 0; transform: translateY(-10px);}
+      from { opacity: 0; transform: translateY(-15px);}
       to { opacity: 1; transform: translateY(0);}
     }
-    @media (max-width: 700px) {
-      .header-menu-dropdown {
-        margin-left: 6px;
-      }
-      #headerMenuList {
-        min-width: 150px;
-        right: 0;
-        top: 38px;
-      }
-      #headerMenuList a, #headerMenuList button {
-        font-size: 0.98rem;
-        padding: 10px 12px;
-      }
-      header {
-        padding: 8px 4vw;
-      }
-      .logo_container {
-        gap: 6px;
-      }
-      .Huffaz_logo img {
-        height: 32px;
-      }
-      .book_logo {
-        width: 32px;
-        height: 32px;
-      }
-      .book_logo .material-symbols-outlined {
-        font-size: 18px;
-      }
-      .search-bar {
-        width: 100%;
-        padding: 4px 6px;
-        margin-top: 8px;
-        margin-left: 0;
-        min-width: 0;
-        order: 2;
-      }
-    }
+    
+    /* Main Content Area - Modern Card Layout */
     .madaris-main-container {
-      max-width: 700px;
-      margin: 48px auto 0 auto;
-      background: linear-gradient(120deg, #232a34 80%, #66b2ff22 100%);
-      border-radius: 22px;
-      box-shadow: 0 8px 40px #232a3440;
-      padding: 36px 24px 32px 24px;
-      animation: fadeInUp 1s;
+      max-width: 1200px;
+      margin: 60px auto 80px auto;
+      padding: 0 5%;
+      animation: fadeInUp 0.8s ease-out;
     }
-    .madaris-title {
+    
+    .madaris-header {
       text-align: center;
-      font-size: 2.2rem;
+      margin-bottom: 48px;
+      padding: 0 20px;
+    }
+    
+    .madaris-title {
+      font-size: 2.8rem;
       font-weight: 700;
-      color: #66b2ff;
-      margin-bottom: 18px;
-      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 16px;
+      position: relative;
     }
-    .madaris-title .material-symbols-outlined {
-      font-size: 2.5rem;
-      color: #66b2ff;
-      vertical-align: middle;
+    
+    .madaris-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
     }
-    .madaris-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    
+    .madaris-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 28px auto 0;
+      line-height: 1.8;
+      font-weight: 400;
     }
-    .madaris-list-item {
+    
+    .madaris-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 100%;
+      padding: 0 5%;
+      gap: 28px;
+      margin-top: 40px;
+    }
+    
+    .madaris-card {
+      background: var(--surface);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .madaris-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(102, 178, 255, 0.3);
+    }
+    
+    .card-header {
+      padding: 24px 24px 18px;
       display: flex;
       align-items: center;
       gap: 18px;
-      background: linear-gradient(90deg, #232a34 80%, #66b2ff22 100%);
-      border-radius: 14px;
-      margin-bottom: 18px;
-      padding: 18px 18px;
-      box-shadow: 0 2px 12px #66b2ff22;
       position: relative;
-      border: 1.5px solid #232a34;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
+    
     .madaris-logo {
-      width: 54px;
-      height: 54px;
-      border-radius: 10px;
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
       object-fit: cover;
-      background: #232a34;
-      box-shadow: 0 2px 8px #66b2ff22;
-      border: 2px solid #232a34;
+      background: var(--surface-light);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
     }
+    
+    .madaris-logo .material-symbols-outlined {
+      font-size: 32px;
+      color: var(--primary);
+    }
+    
+    .madaris-info {
+      flex: 1;
+    }
+    
     .madaris-name {
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      color: #eaeaea;
+      color: var(--text-primary);
+      margin-bottom: 4px;
       word-break: break-word;
     }
-    .unregister-btn {
-      margin-left: auto;
-      background: #ff4d4f;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-size: 1rem;
+    
+    .madaris-code {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      background: rgba(102, 178, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    
+    .card-body {
+      padding: 24px;
+      flex: 1;
+    }
+    
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+    }
+    
+    .stat-value {
+      font-size: 1.8rem;
       font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .card-footer {
+      padding: 0 24px 24px;
+      display: flex;
+      gap: 12px;
+    }
+    
+    .action-btn {
+      flex: 1;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: var(--transition);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    .unregister-btn:hover, .unregister-btn:focus {
-      background: #d32f2f;
+    
+    .view-btn {
+      background: rgba(102, 178, 255, 0.15);
+      color: var(--primary);
     }
-    #deleteStatus { text-align:center; color:#b0e1ff; font-size:1.1rem; min-height: 24px; margin-top: 18px; }
-    @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px);} 100% { opacity: 1; transform: translateY(0);} }
+    
+    .view-btn:hover {
+      background: rgba(102, 178, 255, 0.25);
+    }
+    
+    .unregister-btn {
+      background: rgba(255, 77, 79, 0.15);
+      color: var(--error);
+    }
+    
+    .unregister-btn:hover {
+      background: rgba(255, 77, 79, 0.25);
+    }
+    
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 40px;
+      background: var(--surface);
+      border-radius: var(--border-radius);
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+    
+    .empty-icon {
+      font-size: 5rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      opacity: 0.3;
+    }
+    
+    .empty-title {
+      font-size: 1.8rem;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    
+    .empty-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    
+    .register-cta {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 32px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(102, 178, 255, 0.3);
+    }
+    
+    .register-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(102, 178, 255, 0.4);
+    }
+    
+    #deleteStatus {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      padding: 20px;
+      margin-top: 20px;
+      background: var(--surface);
+      border-radius: var(--border-radius);
+      display: none;
+    }
+    
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    
+    /* Enhanced Search Bar Styles */
+    .search-bar-main {
+      display: flex;
+      align-items: center;
+      background: var(--surface-light);
+      border-radius: 30px;
+      padding: 10px 20px;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .search-bar-main:hover,
+    .search-bar-main:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px rgba(102, 178, 255, 0.3);
+    }
+
+    .search-bar-main .material-symbols-outlined {
+      color: var(--primary);
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .search-bar-main .search-input-main {
+      border: none;
+      background: transparent;
+      flex-grow: 1;
+      outline: none;
+      color: var(--text-primary);
+      font-size: 16px;
+      padding: 6px 0;
+    }
+
+    .search-bar-main .search-input-main::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.8;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .madaris-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 12px 5%;
+        gap: 12px;
+      }
+      
+      .nav_bar {
+        order: 3;
+        width: 100%;
+        margin-top: 12px;
+        justify-content: center;
+      }
+      
+      .search-bar {
+        width: 100%;
+        margin-top: 12px;
+        order: 2;
+      }
+      
+      .madaris-title {
+        font-size: 2.2rem;
+      }
+      
+      .madaris-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .madaris-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo_container {
+        gap: 10px;
+      }
+      
+      .Huffaz_logo img {
+        height: 42px;
+      }
+      
+      .book_logo {
+        width: 42px;
+        height: 42px;
+      }
+      
+      .book_logo .material-symbols-outlined {
+        font-size: 24px;
+      }
+      
+      .nav_bar a {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+      
+      .madaris-title {
+        font-size: 1.8rem;
+      }
+      
+      .card-footer {
+        flex-direction: column;
+      }
+      
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -332,10 +678,11 @@
       <a href="skills.html"><span class="material-symbols-outlined">school</span> Skills</a>
       <a href="about.html"><span class="material-symbols-outlined">info</span> About</a>
       <a href="contact.html"><span class="material-symbols-outlined">call</span> Contact</a>
+      <a href="registered madaris.html" class="active"><span class="material-symbols-outlined">how_to_reg</span> Madaris</a>
     </nav>
     <div class="search-bar">
       <span class="material-symbols-outlined">search</span>
-      <input class="search-input" type="text" placeholder="Search for Education" />
+      <input class="search-input" type="text" placeholder="Search for Madaris..." />
     </div>
     <div class="header-menu-dropdown">
       <button id="headerMenuBtn" aria-label="More">
@@ -348,14 +695,14 @@
           <span class="material-symbols-outlined" style="color:#66b2ff;">how_to_reg</span>
           Registered Madaris
         </a>
-        <div style="padding:0 22px 8px 22px;">
-          <div style="color:#b0e1ff;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px;">
+        <div style="padding:0 24px 12px 24px;">
+          <div style="color:#b0e1ff;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px;">
             <span class="material-symbols-outlined" style="color:#66b2ff;">language</span>
             Language
           </div>
           <div style="display:flex;gap:10px;">
-            <button class="lang-btn" onclick="setLang('en')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">English</button>
-            <button class="lang-btn" onclick="setLang('ur')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:6px;padding:6px 16px;cursor:pointer;font-weight:600;transition:background 0.2s;">اردو</button>
+            <button class="lang-btn" onclick="setLang('en')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:8px;padding:8px 18px;cursor:pointer;font-weight:600;transition:background 0.2s;">English</button>
+            <button class="lang-btn" onclick="setLang('ur')" style="background:#232a34;color:#eaeaea;border:1px solid #66b2ff;border-radius:8px;padding:8px 18px;cursor:pointer;font-weight:600;transition:background 0.2s;">اردو</button>
           </div>
         </div>
         <a href="Events and workshops.html">
@@ -373,116 +720,181 @@
       </div>
     </div>
   </header>
-  <main>
-    <div class="madaris-main-container">
-      <div class="madaris-title">
+  
+  <main class="madaris-main-container">
+   
+
+    <div class="madaris-header">
+      <h1 class="madaris-title">
         <span class="material-symbols-outlined">how_to_reg</span>
         Registered Madaris
-      </div>
-      <ul class="madaris-list" id="madarisList"></ul>
-      <div id="deleteStatus"></div>
+      </h1>
+      <p class="madaris-subtitle">
+        Explore all registered Islamic educational institutions in our network. Each Madarsa is verified and accredited by Huffaz Education System to ensure quality education standards.
+      </p>
     </div>
+     <!-- Search Bar -->
+    <div class="search-bar-main">
+      <span class="material-symbols-outlined">search</span>
+      <input id="searchMadaris" class="search-input-main" type="text" placeholder="Search for a Madrasa..." oninput="filterMadaris()" />
+    </div>
+    
+    <div class="madaris-grid" id="madarisGrid" style="grid-template-columns: 1fr; max-width: 100%; padding: 0 5%;">
+      <!-- Cards dynamically rendered here -->
+    </div>
+    
+    <div id="deleteStatus" class="status-message"></div>
   </main>
-<script>
-  // Hamburger menu logic
-  const menuBtn = document.getElementById('headerMenuBtn');
-  const menuList = document.getElementById('headerMenuList');
-  menuBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    menuList.style.display = menuList.style.display === 'block' ? 'none' : 'block';
-  });
-  document.addEventListener('click', function(e) {
-    if (menuList.style.display === 'block' && !menuList.contains(e.target) && e.target !== menuBtn) {
-      menuList.style.display = 'none';
+
+  <script>
+    // Hamburger menu logic
+    const menuBtn = document.getElementById('headerMenuBtn');
+    const menuList = document.getElementById('headerMenuList');
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      menuList.style.display = menuList.style.display === 'block' ? 'none' : 'block';
+    });
+    document.addEventListener('click', function(e) {
+      if (menuList.style.display === 'block' && !menuList.contains(e.target) && e.target !== menuBtn) {
+        menuList.style.display = 'none';
+      }
+    });
+    menuBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        menuBtn.click();
+      }
+    });
+
+    // Language switcher (demo only)
+    function setLang(lang) {
+      alert(lang === 'ur' ? 'ابھی اردو زبان منتخب کی گئی ہے۔ (Demo)' : 'English language selected. (Demo)');
     }
-  });
-  menuBtn.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      menuBtn.click();
+
+    // Madaris list logic
+    function loadSchools() {
+      try {
+        return JSON.parse(localStorage.getItem('registeredSchools') || '[]');
+      } catch (e) {
+        return [];
+      }
     }
-  });
 
-  // Language switcher (demo only)
-  function setLang(lang) {
-    alert(lang === 'ur' ? 'ابھی اردو زبان منتخب کی گئی ہے۔ (Demo)' : 'English language selected. (Demo)');
-  }
-
-  // Madaris list logic
-  function loadSchools() {
-    try {
-      return JSON.parse(localStorage.getItem('registeredSchools') || '[]');
-    } catch (e) {
-      return [];
+    // Generate random stats for demo
+    function getRandomStats() {
+      return {
+        students: Math.floor(Math.random() * 500) + 100,
+        teachers: Math.floor(Math.random() * 20) + 5,
+        courses: Math.floor(Math.random() * 15) + 3,
+        years: Math.floor(Math.random() * 15) + 5
+      };
     }
-  }
 
-  function renderMadarisList() {
-    const container = document.getElementById('madarisList');
-    const schools = loadSchools();
-    if (!schools.length) {
-      container.innerHTML = '<div style="color:#b0e1ff;text-align:center;margin:32px 0;">No madaris registered yet.</div>';
-      return;
+    function renderMadarisGrid() {
+      const container = document.getElementById('madarisGrid');
+      const schools = loadSchools();
+
+      if (!schools.length) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">
+              <span class="material-symbols-outlined">school</span>
+            </div>
+            <h3 class="empty-title">No Madaris Registered Yet</h3>
+            <p class="empty-subtitle">
+              Currently, there are no registered Islamic educational institutions in our system. 
+              Be the first to register your Madarsa and join our network of quality Islamic education providers.
+            </p>
+            <a href="register.html" class="register-cta">
+              <span class="material-symbols-outlined">add</span>
+              Register Your Madarsa
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = schools.map(school => `
+        <div class="madaris-card">
+          <div class="card-header">
+            <div class="madaris-logo">
+              ${school.logo ? `<img src="${school.logo}" alt="${school.name} Logo">` : `<span class="material-symbols-outlined">mosque</span>`}
+            </div>
+            <div class="madaris-info">
+              <h3 class="madaris-name">${school.name}</h3>
+              <span class="madaris-code">ID: ${school.code}</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="madaris-description">${school.description || ''}</p>
+          </div>
+          <div class="card-footer">
+            <button class="action-btn view-btn" onclick="window.location.href='main page madaris.html?code=${encodeURIComponent(school.code)}'">
+              <span class="material-symbols-outlined">visibility</span>
+              View Details
+            </button>
+            <button class="action-btn unregister-btn" onclick="unregisterMadarsa('${school.code}')">
+              <span class="material-symbols-outlined">delete</span>
+              Unregister
+            </button>
+          </div>
+        </div>
+      `).join('');
     }
-    container.innerHTML = schools.map(s => `
-      <li class="madaris-list-item">
-        <img class="madaris-logo" src="${s.logo || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(s.name)}" alt="Logo" />
-        <div class="madaris-name">${s.name}</div>
-        <button class="unregister-btn" onclick="unregisterMadarsa('${s.code}')">Unregister your madarsa</button>
-      </li>
-    `).join('');
-  }
 
-  function unregisterMadarsa(code) {
-    document.getElementById('deleteStatus').textContent = "";
-    const password = prompt("Enter your Madarsa Password:");
-    if (!password) return;
+    function unregisterMadarsa(code) {
+      const statusEl = document.getElementById('deleteStatus');
+      statusEl.textContent = "";
+      statusEl.style.display = "none";
 
-    let schools = loadSchools();
-    const madarsa = schools.find(s => s.code === code);
+      const password = prompt("Enter your Madarsa Password to confirm unregistration:");
+      if (!password) return;
 
-    if (!madarsa) {
-      document.getElementById('deleteStatus').textContent = "Madarsa code not found.";
-      return;
+      let schools = loadSchools();
+      const madarsa = schools.find(s => s.code === code);
+
+      if (!madarsa) {
+        statusEl.textContent = "Madarsa not found in our system.";
+        statusEl.style.display = "block";
+        return;
+      }
+
+      if (madarsa.password !== password) {
+        statusEl.textContent = "Incorrect password. Please try again.";
+        statusEl.style.display = "block";
+        return;
+      }
+
+      if (!confirm(`Are you sure you want to unregister "${madarsa.name}"? This action cannot be undone and will remove all associated data.`)) return;
+
+      schools = schools.filter(s => s.code !== code);
+      localStorage.setItem('registeredSchools', JSON.stringify(schools));
+
+      statusEl.textContent = `"${madarsa.name}" has been successfully unregistered from our system.`;
+      statusEl.style.display = "block";
+      statusEl.style.color = "#b0e1ff";
+      statusEl.style.background = "rgba(102, 178, 255, 0.1)";
+
+      renderMadarisGrid();
+
+      setTimeout(() => {
+        statusEl.style.display = "none";
+      }, 5000);
     }
-    if (madarsa.password !== password) {
-      document.getElementById('deleteStatus').textContent = "Incorrect password.";
-      return;
+
+    // Filter Madaris function
+    function filterMadaris() {
+      const query = document.getElementById('searchMadaris').value.toLowerCase();
+      const madarisCards = document.querySelectorAll('.madaris-card');
+      madarisCards.forEach(card => {
+        const name = card.querySelector('.madaris-name').textContent.toLowerCase();
+        card.style.display = name.includes(query) ? 'block' : 'none';
+      });
     }
-    if (!confirm("Are you sure you want to unregister this madarsa? This cannot be undone.")) return;
 
-    schools = schools.filter(s => s.code !== code);
-    localStorage.setItem('registeredSchools', JSON.stringify(schools));
-    document.getElementById('deleteStatus').textContent = "Madarsa has been unregistered.";
-    renderMadarisList();
-    setTimeout(() => {
-      document.getElementById('deleteStatus').textContent = "";
-    }, 2000);
-  }
-
-  window.unregisterMadarsa = unregisterMadarsa;
-
-  document.addEventListener('DOMContentLoaded', function() {
-    renderMadarisList();
-  });
-
-
-  function renderMadarisList() {
-  const container = document.getElementById('madarisList');
-  const schools = loadSchools();
-  if (!schools.length) {
-    container.innerHTML = '<div style="color:#b0e1ff;text-align:center;margin:32px 0;">No madaris registered yet.</div>';
-    return;
-  }
-  container.innerHTML = schools.map(s => `
-    <li class="madaris-list-item" style="cursor:pointer;" onclick="window.location.href='main page madaris.html?code=${encodeURIComponent(s.code)}'">
-      <img class="madaris-logo" src="${s.logo || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(s.name)}" alt="Logo" />
-      <div class="madaris-name">${s.name}</div>
-      <button class="unregister-btn" onclick="event.stopPropagation();unregisterMadarsa('${s.code}')">Unregister your madarsa</button>
-    </li>
-  `).join('');
-}
-
-</script>
+    document.addEventListener('DOMContentLoaded', function() {
+      renderMadarisGrid();
+    });
+  </script>
 </body>
 </html>
